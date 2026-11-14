@@ -10,7 +10,7 @@ createServer(async (req,res)=>{
   const file = path.slice(base.length) || 'index.html';
   if (file.includes('..')) { res.writeHead(400); return res.end(); }
   try {
-    const body = await readFile(new URL('../dist/site/'+file,import.meta.url));
+    const body = await readFile(new URL('../dist/'+(process.env.SITE_DIR||'site')+'/'+file,import.meta.url));
     res.writeHead(200,{'content-type':types[file.split('.').pop()] || 'application/octet-stream'});
     res.end(body);
   } catch { res.writeHead(404); res.end('Nicht gefunden'); }

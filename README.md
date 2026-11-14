@@ -8,7 +8,16 @@ Installierbare Web-App für KI-News, Modellvergleiche und Vertriebspraxis im Fah
 2. Mit Node.js 22 oder neuer `npm run dev` starten. Das Projekt braucht keine npm-Abhängigkeiten und keinen API-Schlüssel.
 3. `http://127.0.0.1:4173/` im Browser öffnen. Mit `npm test` die Feed-Parser prüfen.
 
-## Auf dem Handy über GitHub Pages
+## Auf dem Handy als Claude-Artifact (aktueller Weg)
+
+Wie der GTA- und der Tape-to-Tape-Guide läuft der KI Kompass als privates Claude-Artifact: https://claude.ai/artifact/7TYrYNETpWLagpW83HytCB
+
+- `npm run build:artifact` bündelt die App zu `dist/artifact/ki-kompass.html` und ruft die Feeds als `radar-live.json` und `radar-market.json` ab.
+- Claude veröffentlicht diese Dateien unter derselben Adresse neu. Die Live-Meldungen sind deshalb der Stand der letzten Veröffentlichung.
+- iPhone: Link in Safari öffnen (bei claude.ai angemeldet) → Teilen → Zum Home-Bildschirm.
+- In Artifacts gibt es keinen Service Worker. Für die Seite braucht es Internet und eine Claude-Anmeldung.
+
+## Alternative: GitHub Pages
 
 Die App wird bei jedem Push auf `main` und zusätzlich alle 6 Stunden von der GitHub Action `.github/workflows/pages.yml` gebaut und auf GitHub Pages veröffentlicht. Die Action ruft dabei die Live-Feeds ab und legt sie als `radar-live.json` und `radar-market.json` neben die App. GitHub Pages selbst liefert nur statische Dateien aus, einen Server gibt es dort nicht.
 

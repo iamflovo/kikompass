@@ -37,3 +37,12 @@ test('German editions, German originals and translated source links are distingu
   assert.equal(new URL(translation.url).searchParams.get('tl'),'de');
   assert.equal(germanSource('javascript:alert(1)'),null);
 });
+
+test('ISO-8859-1 feeds keep their umlauts',async()=>{
+  const xml = '<?xml version="1.0" encoding="ISO-8859-1"?><rss><channel><item><title>Künstliche Intelligenz für Händler</title><pubDate>Sat, 14 Nov 2026 09:30:00 GMT</pubDate></item></channel></rss>';
+  const latin1 = Uint8Array.from(xml,c=>c.charCodeAt(0));
+  const result = await getFeeds([source],async()=>new Response(latin1,{headers:{'content-type':'application/rss+xml; charset=ISO-8859-1'}}));
+  assert.equal(result.items[0].title,'Künstliche Intelligenz für Händler');
+  const {decodeFeed} = await import('../server/feeds.js');
+  assert.equal(decodeFeed(latin1,''),xml);
+});

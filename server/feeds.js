@@ -48,24 +48,36 @@ export function parseFeed(body, source) {
   return results;
 }
 
+// Manche Feeds (z. B. Golem.de) sind ISO-8859-1 kodiert. Zeichensatz aus Header oder XML-Deklaration lesen.
+export function decodeFeed(bytes, contentType = '') {
+  const head = new TextDecoder('ascii').decode(bytes.subarray(0, 200));
+  const label = (contentType || '').match(/charset=["']?([\w-]+)/i)?.[1]
+    || head.match(/<\?xml[^>]*encoding=["']([\w-]+)["']/i)?.[1] || 'utf-8';
+  try { return new TextDecoder(label).decode(bytes); }
+  catch { return new TextDecoder().decode(bytes); }
+}
+
 export async function getFeeds(sources, read = fetch) {
   const responses = await Promise.all(sources.filter(source => source.feed).map(async source => {
     try {
       const response = await read(source.feed, {signal:AbortSignal.timeout(6500), redirect:'follow'});
       if (!response.ok) throw new Error('Quelle nicht erreichbar');
       const reader = response.body.getReader();
-      const decoder = new TextDecoder();
-      let body = '', bytes = 0;
+      const chunks = [];
+      let bytes = 0;
       try {
         while (true) {
           const {done, value} = await reader.read();
           if (done) break;
           bytes += value.length;
           if (bytes > 4_000_000) throw new Error('Quelle zu groß');
-          body += decoder.decode(value,{stream:true});
+          chunks.push(value);
         }
-        body += decoder.decode();
       } finally { await reader.cancel().catch(() => {}); }
+      const all = new Uint8Array(bytes);
+      let offset = 0;
+      for (const chunk of chunks) { all.set(chunk, offset); offset += chunk.length; }
+      const body = decodeFeed(all, response.headers.get('content-type'));
       const items = parseFeed(body, source);
       if (!items.length && !(source.match && /<(item|entry)[\s>]/i.test(body))) throw new Error('Keine lesbaren Meldungen');
       return {id:source.id, ok:true, items};

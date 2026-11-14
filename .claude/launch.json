@@ -1,4 +1,5 @@
 {"version":"0.0.1","configurations":[
 {"name":"ki-kompass","runtimeExecutable":"npm","runtimeArgs":["run","dev"],"port":4173},
-{"name":"pages-vorschau","runtimeExecutable":"npm","runtimeArgs":["run","preview:site"],"port":4180}
+{"name":"pages-vorschau","runtimeExecutable":"npm","runtimeArgs":["run","preview:site"],"port":4180},
+{"name":"artifact-test","runtimeExecutable":"node","runtimeArgs":["scripts/preview-site.mjs"],"port":4182,"env":{"SITE_DIR":"artifact-test","PORT":"4182"}}
 ]}
