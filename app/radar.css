@@ -1,0 +1,132 @@
+.radar-nav,.radar-controls { display:flex; flex-wrap:wrap; gap:8px; margin:16px 0; }
+.radar-controls input { flex:1 1 230px; min-width:0; }
+.radar-controls select { flex:0 1 auto; }
+#radar .radar-date { color:#587168; font-size:.83rem; margin:0; }
+#radar .radar-meta { display:flex; flex-wrap:wrap; gap:7px; align-items:center; }
+#radar .card .radar-link { margin-right:auto; }
+#radar .radar-live-head { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+#radar .card { min-width:0; overflow-wrap:anywhere; }
+#radar .card button { margin-top:auto; }
+#radar .card .radar-impact { color:#21483b; }
+#radar .box li { margin:6px 0; }
+#radar [hidden] { display:none !important; }
+@media(max-width:650px) {
+  .radar-controls select { flex:1 1 130px; }
+  #radar .radar-live-head { flex-direction:column; align-items:flex-start; }
+}
+
+.kompass-header {
+  background:linear-gradient(112deg,#561224,#861c33 68%,#a52a46);
+  padding:0 max(24px,calc((100% - 1202px)/2)) 24px;
+}
+.kompass-header .masthead { padding:16px 0; border-bottom-color:#ffffff35; }
+.kompass-header .brand { text-decoration:none; color:#fff; letter-spacing:.08em; font-size:.96rem; }
+.kompass-header .brand span { margin:0 .2rem; }
+.kompass-header .hero { grid-template-columns:minmax(0,1fr) auto; margin:19px auto 0; gap:22px; }
+.kompass-header h1 { font-size:clamp(2rem,5vw,3.15rem); margin:0 0 5px; letter-spacing:-.055em; }
+.kompass-header .hero p { margin:0; color:#ffe5eb; }
+.hero-action {
+  display:inline-flex; align-items:center; gap:13px; padding:12px 15px;
+  border:1px solid #ffffff72; border-radius:12px; color:#fff; text-decoration:none; font-weight:700;
+}
+.hero-action:hover { background:#ffffff18; }
+.tabs { padding-inline:max(24px,calc((100% - 1202px)/2)); background:#fffafaef; }
+.tab { border-radius:10px; }
+main { padding-top:29px; }
+#radar .sectionhead { margin-bottom:14px; }
+#radar .sectionhead p { margin:.35rem 0 0; }
+#radar .radar-nav { background:#fff; border:1px solid var(--line); padding:7px; border-radius:15px; }
+#radar .radar-nav button { border-radius:10px; }
+#radar .radar-date { color:#695259; }
+#radar .card .radar-impact { color:#70243a; }
+#radar .card {
+  border-radius:16px; box-shadow:0 5px 18px #4c112509;
+  transition:border-color .16s ease,box-shadow .16s ease;
+}
+#radar .card:hover { border-color:#d9aab7; box-shadow:0 8px 24px #4c112512; }
+#radar .card h3 { font-size:1.18rem; line-height:1.3; }
+.radar-source-actions { display:flex; flex-wrap:wrap; gap:6px 14px; align-items:baseline; }
+#radar .card .radar-source-actions a,.radar-source-actions a { font-size:.86rem; color:#8b1e35; text-underline-offset:3px; }
+#radar .radar-source-actions a + a { font-weight:700; }
+#radar .card button[aria-pressed=true] { color:#fff; background:#981d36; }
+#radar .notice:empty { display:none; }
+:where(button,a,input,select,summary):focus-visible { outline:2px solid #ae2141; outline-offset:3px; }
+@media(max-width:780px) {
+  .kompass-header { padding:0 18px 20px; }
+  .kompass-header .masthead small { display:block; font-size:.68rem; text-align:right; }
+  .kompass-header .hero { grid-template-columns:1fr; gap:13px; }
+  .kompass-header .hero p { font-size:.9rem; }
+  .hero-action { justify-self:start; padding:9px 12px; font-size:.86rem; }
+  main { padding:22px 16px 65px; }
+  .tabs { padding:9px 15px; }
+  #radar .radar-nav { gap:5px; }
+  #radar .radar-nav button { padding:7px 10px; font-size:.86rem; }
+  #radar .radar-source-actions a { padding-block:5px; }
+}
+@media(prefers-reduced-motion:reduce) { #radar .card { transition:none; } }
+@media(min-width:781px) {
+  .tabs { flex-wrap:wrap; gap:4px; padding-block:9px; }
+  .tab { padding:8px 11px; font-size:.875rem; }
+}
+
+.kompass-header .masthead { padding:14px 0; }
+.kompass-header .brand {
+  display:inline-flex;
+  align-items:center;
+  gap:11px;
+  letter-spacing:-.02em;
+  font-size:1.08rem;
+}
+.kompass-header .brand img {
+  border-radius:11px;
+  border:1px solid #ffffff57;
+  box-shadow:0 2px 8px #2d071d35;
+}
+.kompass-header .brand span { margin:0; color:inherit; }
+.kompass-header .brand .brand-signature {
+  margin-inline-start:.35rem;
+  color:#ffe3ea;
+  font:600 .74rem 'DM Sans',sans-serif;
+  letter-spacing:.045em;
+  white-space:nowrap;
+}
+.tabs {
+  display:block;
+  padding:9px max(18px,calc((100% - 1202px)/2));
+  overflow:visible;
+  background:#fffafaef;
+}
+.nav-inner { max-width:1202px; margin-inline:auto; }
+.nav-primary {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:5px;
+  width:min(100%,570px);
+  background:#f5e9ed;
+  padding:4px;
+  border-radius:13px;
+}
+.nav-group {
+  min-height:42px;
+  padding:6px 8px;
+  border:1px solid transparent;
+  border-radius:10px;
+  background:transparent;
+  color:#65444e;
+  font-weight:700;
+  font-size:.9rem;
+  white-space:nowrap;
+}
+.nav-group:hover { background:#fff7fa; }
+.nav-group.active { background:#891d34; color:#fff; box-shadow:0 2px 6px #6b102334; }
+.nav-section { display:flex; flex-wrap:wrap; gap:4px; margin-top:7px; }
+.nav-section[hidden] { display:none; }
+.nav-section .tab { border:1px solid transparent; color:#65444e; padding:7px 12px; }
+.nav-section .tab:hover { background:#f8eef1; }
+.nav-section .tab.active { background:#fff; color:#81172e; border-color:#e2bcc8; }
+#radar .radar-nav { margin-top:12px; }
+@media(max-width:780px) {
+  .tabs { padding:8px max(12px,env(safe-area-inset-right)) 8px max(12px,env(safe-area-inset-left)); }
+  .nav-group { min-height:44px; font-size:.83rem; padding-inline:3px; }
+  .nav-section .tab { padding-inline:9px; font-size:.81rem; }
+}

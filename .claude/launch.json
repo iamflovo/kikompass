@@ -1,0 +1,4 @@
+{"version":"0.0.1","configurations":[
+{"name":"ki-kompass","runtimeExecutable":"npm","runtimeArgs":["run","dev"],"port":4173},
+{"name":"pages-vorschau","runtimeExecutable":"npm","runtimeArgs":["run","preview:site"],"port":4180}
+]}
