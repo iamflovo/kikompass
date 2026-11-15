@@ -19,7 +19,7 @@ Wie der GTA- und der Tape-to-Tape-Guide läuft der KI Kompass als privates Claud
 
 ## Auf dem Handy über GitHub Pages (Haupt-Weg)
 
-Die App wird bei jedem Push auf `main` und zusätzlich alle 6 Stunden von der GitHub Action `.github/workflows/pages.yml` gebaut und auf GitHub Pages veröffentlicht. Die Action ruft dabei die Live-Feeds ab und legt sie als `radar-live.json` und `radar-market.json` neben die App. GitHub Pages selbst liefert nur statische Dateien aus, einen Server gibt es dort nicht.
+Die App wird bei jedem Push auf `main` und zusätzlich alle 3 Stunden von der GitHub Action `.github/workflows/pages.yml` gebaut und auf GitHub Pages veröffentlicht. Die Action ruft dabei die Live-Feeds ab und legt sie als `radar-live.json` und `radar-market.json` neben die App. GitHub Pages selbst liefert nur statische Dateien aus, einen Server gibt es dort nicht.
 
 - Adresse: https://iamflovo.github.io/kikompass/ (Repository: https://github.com/iamflovo/kikompass)
 - iPhone: Adresse in Safari öffnen → Teilen → Zum Home-Bildschirm.

@@ -5,7 +5,7 @@ on:
     branches: [main]
   schedule:
     # Alle 6 Stunden die Live-Feeds neu abrufen (Zeiten in UTC)
-    - cron: '17 */6 * * *'
+    - cron: '17 */3 * * *'
   workflow_dispatch:
 
 permissions:

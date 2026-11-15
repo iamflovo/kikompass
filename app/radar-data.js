@@ -22,6 +22,13 @@ export const sources = [
   {id:'grok-bot', provider:'xAI', label:'Grok Bot Versionsverlauf', kind:'rss', feed:'https://x.ai/changelog/bot/rss.xml', url:'https://x.ai/changelog/bot'},
   {id:'grok-build', provider:'xAI', label:'Grok Build Versionsverlauf', kind:'rss', feed:'https://x.ai/changelog/build/rss.xml', url:'https://x.ai/changelog/build'},
   {id:'gemini', provider:'Google', label:'Gemini Produktnews', kind:'rss', feed:'https://blog.google/products-and-platforms/products/gemini/rss/', url:'https://aistudio.google.com/docs/changelog'},
+  {id:'openai-news', provider:'OpenAI', label:'OpenAI Newsroom', kind:'rss', feed:'https://openai.com/news/rss.xml', url:'https://openai.com/news/'},
+  {id:'deepmind', provider:'Google', label:'Google DeepMind Blog', kind:'rss', feed:'https://deepmind.google/blog/rss.xml', url:'https://deepmind.google/discover/blog/'},
+  {id:'google-ai', provider:'Google', label:'Google KI-Blog', kind:'rss', feed:'https://blog.google/technology/ai/rss/', url:'https://blog.google/technology/ai/'},
+  {id:'copilot', provider:'GitHub', label:'GitHub Copilot Changelog', kind:'rss', feed:'https://github.blog/changelog/label/copilot/feed/', url:'https://github.blog/changelog/label/copilot/'},
+  {id:'huggingface', provider:'Hugging Face', label:'Hugging Face Blog · offene Modelle', kind:'rss', feed:'https://huggingface.co/blog/feed.xml', url:'https://huggingface.co/blog'},
+  {id:'gn-xai', provider:'xAI', label:'Google News · Berichte zu xAI und Grok', kind:'rss', feed:'https://news.google.com/rss/search?q=xAI+OR+Grok+when:7d&hl=de&gl=DE&ceid=DE:de', url:'https://news.google.com/search?q=xAI+OR+Grok+when:7d&hl=de&gl=DE&ceid=DE:de', language:'de'},
+  {id:'gn-models', provider:'Weitere Anbieter', label:'Google News · Mistral, DeepSeek, Qwen, Llama & Co.', kind:'rss', feed:'https://news.google.com/rss/search?q=Mistral+OR+DeepSeek+OR+Qwen+OR+Llama+OR+%22Meta+AI%22+OR+Kimi+KI-Modell+when:7d&hl=de&gl=DE&ceid=DE:de', url:'https://news.google.com/search?q=Mistral+OR+DeepSeek+OR+Qwen+OR+Llama+OR+%22Meta+AI%22+OR+Kimi+KI-Modell+when:7d&hl=de&gl=DE&ceid=DE:de', language:'de'},
   {id:'claude-app', provider:'Anthropic', label:'Claude Apps · Versionshinweise', url:'https://support.claude.com/en/articles/12138966-release-notes'},
   {id:'grok-api', provider:'xAI', label:'Grok API · Versionshinweise', url:'https://docs.x.ai/developers/release-notes'},
   {id:'microsoft', provider:'Microsoft', label:'Dynamics 365 · Vertriebsupdates', url:'https://learn.microsoft.com/en-us/dynamics365/release-plan/'},
@@ -66,6 +73,13 @@ export const marketNews = [
 export const marketSources = [
   {id:'techcrunch', provider:'TechCrunch', label:'TechCrunch · KI-Ressort', kind:'rss', feed:'https://techcrunch.com/category/artificial-intelligence/feed/', url:'https://techcrunch.com/category/artificial-intelligence/'},
   {id:'netzpolitik', provider:'netzpolitik.org', label:'netzpolitik.org · KI und Digitalpolitik', kind:'rss', feed:'https://netzpolitik.org/feed/', url:'https://netzpolitik.org/tag/kuenstliche-intelligenz/', language:'de', match:/künstliche intelligenz|\bKI\b|\bAI[- ](?:Act|Agent|Chatbot)|ChatGPT|Anthropic|OpenAI|KI[- ]/iu},
+  {id:'decoder', provider:'The Decoder', label:'The Decoder · KI-Nachrichten', kind:'rss', feed:'https://the-decoder.de/feed/', url:'https://the-decoder.de/', language:'de'},
+  {id:'heise', provider:'heise online', label:'heise online · Thema Künstliche Intelligenz', kind:'rss', feed:'https://www.heise.de/thema/Kuenstliche-Intelligenz.xml', url:'https://www.heise.de/thema/Kuenstliche-Intelligenz', language:'de'},
+  {id:'t3n', provider:'t3n', label:'t3n · Künstliche Intelligenz', kind:'rss', feed:'https://t3n.de/tag/kuenstliche-intelligenz/rss.xml', url:'https://t3n.de/tag/kuenstliche-intelligenz/', language:'de'},
+  {id:'gn-ki', provider:'Google News', label:'Google News · neue KI-Modelle, Updates und Agenten', kind:'rss', feed:'https://news.google.com/rss/search?q=%22neues+KI-Modell%22+OR+%22KI-Update%22+OR+%22KI-Agent%22+when:3d&hl=de&gl=DE&ceid=DE:de', url:'https://news.google.com/search?q=%22neues+KI-Modell%22+OR+%22KI-Update%22+OR+%22KI-Agent%22+when:3d&hl=de&gl=DE&ceid=DE:de', language:'de'},
+  {id:'verge', provider:'The Verge', label:'The Verge · KI', kind:'rss', feed:'https://www.theverge.com/rss/ai-artificial-intelligence/index.xml', url:'https://www.theverge.com/ai-artificial-intelligence'},
+  {id:'ars', provider:'Ars Technica', label:'Ars Technica · KI', kind:'rss', feed:'https://arstechnica.com/ai/feed/', url:'https://arstechnica.com/ai/'},
+  {id:'mittr', provider:'MIT Technology Review', label:'MIT Technology Review · KI', kind:'rss', feed:'https://www.technologyreview.com/topic/artificial-intelligence/feed', url:'https://www.technologyreview.com/topic/artificial-intelligence/'},
   {id:'golem', provider:'Golem.de', label:'Golem.de · KI aus dem Technikfeed', kind:'rss', feed:'https://rss.golem.de/rss.php?feed=RSS2.0', url:'https://www.golem.de/', language:'de', match:/künstliche intelligenz|\bKI\b|KI[- ]|ChatGPT|Claude|Gemini|Grok|OpenAI|Anthropic/iu}
 ];
 
@@ -81,7 +95,7 @@ export function germanSource(value) {
   if (url.protocol !== 'https:' || url.username || url.password) return null;
   const canonical = url.origin + url.pathname.replace(/\/$/,'');
   if (germanEditions.has(canonical)) return {url:germanEditions.get(canonical), kind:'edition'};
-  if (['netzpolitik.org','www.golem.de','www.heise.de'].includes(url.hostname)) return {url:url.href, kind:'original'};
+  if (['netzpolitik.org','www.golem.de','www.heise.de','the-decoder.de','t3n.de'].includes(url.hostname)) return {url:url.href, kind:'original'};
   const translator = new URL('https://translate.google.com/translate');
   translator.search = new URLSearchParams({hl:'de',sl:'auto',tl:'de',u:url.href}).toString();
   return {url:translator.href, kind:'machine'};
