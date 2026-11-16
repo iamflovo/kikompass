@@ -1,6 +1,11 @@
-export const editorialDate = '2026-11-14';
+export const editorialDate = '2026-11-16';
 
 export const releases = [
+  {date:'2026-11-15', provider:'Meituan', type:'Modell', status:'Offene Gewichte · API', title:'LongCat-2.5 als offenes Modell für KI-Agenten', summary:'Meituan veröffentlicht die Gewichte seines Mixture-of-Experts-Modells mit 1,6 Billionen Parametern. Laut The Decoder versteht es Text, Bilder und Videos und liegt bei Coding-Benchmarks nahe an westlichen Spitzenmodellen.', impact:'Vor allem ein Signal, wie schnell offene Modelle aufholen. Für den Betrieb erst relevant, wenn ihr Modelle selbst hosten wollt.', url:'https://the-decoder.de/longcat-2-5-meituan-gibt-gewichte-seines-16-billionen-parameter-modells-fuer-ki-agenten-frei/', language:'de'},
+  {date:'2026-11-13', provider:'GitHub', type:'Modell', status:'Allgemein verfügbar · schrittweiser Rollout', title:'Gemini 4 Hydrogen jetzt in GitHub Copilot', summary:'GitHub bietet Googles neues Flash-Modell für schnelles agentisches Programmieren und mehrstufige Abläufe an. Verfügbar in Copilot Pro, Pro+, Max, Business und Enterprise, abgerechnet nach Nutzung.', impact:'Für Prototypen des eigenen ERP vergleichen: dieselbe kleine Aufgabe mit Hydrogen und einem größeren Modell lösen und Qualität sowie Kosten gegenüberstellen.', url:'https://github.blog/changelog/2026-11-13-gemini-4-hydrogen-in-github-copilot'},
+  {date:'2026-11-13', provider:'GitHub', type:'Produkt', status:'Abschaltung am 14.12.2026', title:'GitHub Copilot schaltet im Dezember ältere Modelle ab', summary:'Am 14. Dezember entfernt GitHub ausgewählte Modelle aus Chat, Agentenmodus und Codevervollständigung. Arbeitsabläufe und Integrationen sollen vorher auf unterstützte Modelle umgestellt werden.', impact:'Prüfen, ob Skripte oder Einstellungen für die ERP-Entwicklung ein betroffenes Modell fest eingetragen haben.', url:'https://github.blog/changelog/2026-11-13-upcoming-deprecation-of-selected-github-copilot-models-in-december'},
+  {date:'2026-11-13', provider:'Hugging Face', type:'Produkt', status:'Open Source · Version 1.0', title:'llama.cpp 1.0 für lokale KI-Modelle', summary:'Die Bibliothek, mit der viele Programme Sprachmodelle lokal ausführen, erreicht Version 1.0. Inkompatible Änderungen sollen künftig klar an der Versionsnummer erkennbar sein.', impact:'Interessant, wenn sensible Daten wie Kundendaten den eigenen Rechner nicht verlassen sollen: lokale Modelle werden stabiler und einfacher einzubinden.', url:'https://huggingface.co/blog/ggml-org/llama-cpp-v1'},
+  {date:'2026-11-12', provider:'Anthropic', type:'Agent', status:'Zugang über das Anthropic-Account-Team', title:'Claude Managed Agents auf eigener Infrastruktur', summary:'Anthropic bietet den kompletten Managed-Agents-Dienst jetzt auch zum Selbstbetrieb an. Agenten, Sitzungen und Verläufe werden dann auf der eigenen Infrastruktur gespeichert.', impact:'Für später vormerken, wenn Agenten mit Kunden- oder ERP-Daten arbeiten und diese Daten im eigenen Haus bleiben sollen.', url:'https://platform.claude.com/docs/en/release-notes/overview'},
   {date:'2026-11-12', provider:'Anthropic', type:'Produkt', status:'Beta · Team und Enterprise', title:'Claude Meetings startet in der Beta', summary:'Claude kann laut Anbieter an Google Meet teilnehmen, Notizen erstellen und Fragen beantworten.', impact:'Mit einem freigegebenen Testgespräch prüfen, ob Aufgaben und Entscheidungen korrekt erfasst werden.', url:'https://support.claude.com/en/articles/12138966-release-notes'},
   {date:'2026-11-13', provider:'OpenAI', type:'Produkt', status:'Rollout · US-Pro', title:'ChatGPT Wallet startet in den USA', summary:'Autorisierte Einkäufe über einen Assistenten. Die Einführung betrifft berechtigte Pro-Nutzer in den USA.', impact:'Für dich in Deutschland vorerst ein Marktsignal. Für den Fahrradhandel perspektivisch interessant: Produktdaten und Checkout für Assistenten verständlich machen.', url:'https://openai.com/products/release-notes/?category=chatgpt'},
   {date:'2026-11-12', provider:'Google', type:'Modell', status:'API allgemein verfügbar', title:'Gemini 4 Hydrogen für schnellere Workflows', summary:'Google positioniert Hydrogen für häufige Aufgaben mit Tools und Code. Die Gemini API führt es als allgemein verfügbar.', impact:'Mit einem anonymisierten Artikelkatalog testen, ob die Extraktion von Merkmalen schnell und korrekt genug für eure Shop-Pflege ist.', url:'https://aistudio.google.com/docs/changelog'},
@@ -37,6 +42,18 @@ export const sources = [
 ];
 
 export const marketNews = [
+  {
+    date:'2026-11-16', provider:'heise online', type:'Unternehmen & Markt', status:'Medienbericht · unbestätigt',
+    title:'Jensen Huang will angeblich an die NVIDIA-Spitze zurück',
+    summary:'Wenige Tage nach seinem Rücktritt soll Jensen Huang laut Berichten eine Rückkehr als CEO anstreben. Eine Bestätigung von NVIDIA gibt es bisher nicht.',
+    url:'https://www.heise.de/news/Tage-nach-dem-Ruecktritt-Jensen-Huang-will-angeblich-wieder-Nvidia-CEO-werden-11525691.html'
+  },
+  {
+    date:'2026-11-15', provider:'t3n', type:'Unternehmen & Markt', status:'Unabhängige Berichterstattung',
+    title:'Goldman Sachs beschränkt KI-Coding-Tools auf Entwickler',
+    summary:'Laut t3n stehen Claude Code und GitHub bei der US-Bank künftig nur noch Entwicklern zur Verfügung. Als Grund nennt der Bericht die Kosten.',
+    url:'https://t3n.de/news/goldman-sachs-zugang-ki-1771271'
+  },
   {
     date:'2026-11-13', provider:'Reuters', type:'Unternehmen & Markt', status:'Unabhängige Berichterstattung',
     title:'KI-Infrastruktur-Aktien geraten nach Nvidia-Wechsel unter Druck',
