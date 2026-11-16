@@ -211,7 +211,12 @@ function showPage(page, scroll = false) {
   for (const tab of subpages) {
     const active = tab.dataset.tab===page;
     tab.classList.toggle('active',active);
-    if (active) tab.setAttribute('aria-current','page');
+    if (active) {
+      tab.setAttribute('aria-current','page');
+      // In der wischbaren Unternavigation den aktiven Reiter sichtbar halten.
+      const row = tab.parentElement;
+      if (row.scrollWidth > row.clientWidth) row.scrollLeft = Math.max(0, tab.offsetLeft - row.offsetLeft - 12);
+    }
     else tab.removeAttribute('aria-current');
   }
   for (const section of sections) section.classList.toggle('active',section.id===page);

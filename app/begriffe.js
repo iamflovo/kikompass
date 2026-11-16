@@ -278,9 +278,187 @@ const begriffe = [
    erklaerung:'Verhältnis von gebuchter zu verfügbarer Werkstattzeit. Zu niedrig kostet Geld, zu hoch führt zu Wartezeiten und Stress – besonders im Frühjahr.',
    beispiel:'Im April liegt die Auslastung bei 115 %, im Januar bei 55 %. Ein Winter-Check-Angebot mit Rabatt verlagert Inspektionen in die ruhige Zeit.',
    prompt:'Unsere Werkstattauslastung je Monat: [Werte einfügen]. Schlage 6 Maßnahmen vor, um Spitzen zu glätten (Angebote, Terminlogik, Personaleinsatz), und schreibe eine kurze Kundenansprache für ein Winter-Inspektionsangebot.',
-   verwandt:['KPI','Dashboard','Automation']}
+   verwandt:['KPI','Dashboard','Automation']},
+
+  // Ergänzungen
+  {name:'Call to Action', alias:'CTA / Handlungsaufforderung', bereich:'Kunde & Marketing',
+   erklaerung:'Die klare Aufforderung, was jemand als Nächstes tun soll: „Probefahrt buchen“, „Termin sichern“, „Jetzt anrufen“. Jede Seite, Mail, Anzeige und jeder Post braucht genau einen Haupt-CTA. Gute CTAs sind konkret, aktiv formuliert und nennen den Nutzen.',
+   beispiel:'Schwach: „Mehr erfahren“. Stark: „Lastenrad am Samstag kostenlos testen“. Auf der Produktseite eines E-Bikes über 3.000 € funktioniert „Probefahrt buchen“ meist besser als „In den Warenkorb“.',
+   prompt:'Schreibe 10 Call-to-Action-Varianten für [Ziel, z. B. Probefahrt eines E-Lastenrads buchen] auf [Kanal: Website-Button / Instagram / Newsletter / Flyer]. Max. 5 Wörter pro Button-Text, aktiv formuliert, mit Nutzen. Markiere die 3 stärksten und begründe kurz. Ton: freundlich, nicht marktschreierisch.',
+   verwandt:['Landingpage','A/B-Test','CTR']},
+  {name:'Lead-Magnet', alias:'Köder-Angebot gegen Kontaktdaten', bereich:'Kunde & Marketing',
+   erklaerung:'Etwas Nützliches, das Interessierte kostenlos bekommen, wenn sie ihre E-Mail-Adresse angeben: Checkliste, Ratgeber, Rechner, Testtag-Platz. Daraus entstehen Leads für Newsletter und Beratung – mit Einwilligung.',
+   beispiel:'„Checkliste: Welches Lastenrad passt zu eurer Familie?“ als PDF. Wer sie lädt, bekommt 3 Tage später eine Einladung zur Probefahrt.',
+   prompt:'Entwickle 6 Lead-Magnet-Ideen für einen Fahrrad- und E-Bike-Händler mit Werkstatt, je für eine andere Zielgruppe (Pendler, Familien, Senioren, Sportler, Firmen für Dienstrad-Leasing, Wiedereinsteiger). Pro Idee: Titel, Format, Inhalt in 3 Punkten, welche Folgeaktion danach sinnvoll ist.',
+   verwandt:['Lead','Landingpage','Newsletter']},
+  {name:'Social Proof', alias:'Sozialer Beweis', bereich:'Kunde & Marketing',
+   erklaerung:'Menschen vertrauen dem, was andere gut finden: Bewertungen, Kundenstimmen, Zahlen („über 500 Lastenräder übergeben“), Fotos zufriedener Kunden. Senkt die Unsicherheit vor großen Käufen.',
+   beispiel:'Auf der Lastenrad-Seite stehen drei kurze Kundenstimmen von Familien mit Foto (mit Einwilligung) und die Google-Sternebewertung der Werkstatt.',
+   prompt:'Wir haben diese anonymisierten Kundenrückmeldungen: [einfügen]. Wähle die 5 überzeugendsten aus, kürze sie auf je max. 2 Sätze ohne den Sinn zu verändern, und schlage vor, wo sie auf Website, Produktseite und Social Media am besten wirken. Hinweis: Wir veröffentlichen nur mit Einwilligung.',
+   verwandt:['Bewertungsmanagement','UGC','Landingpage']},
+  {name:'Content-Plan', alias:'Redaktionsplan', bereich:'Kunde & Marketing',
+   erklaerung:'Ein Kalender, der festlegt, welche Inhalte wann auf welchem Kanal erscheinen – Social Media, Newsletter, Blog. Spart Stress, sorgt für Regelmäßigkeit und passt Themen zur Saison.',
+   beispiel:'März: Frühjahrscheck und Saisonstart. Mai: Radtouren in der Region. September: Pendeln im Herbst, Licht-Check. November: Akku im Winter, Geschenkgutscheine.',
+   prompt:'Erstelle einen Content-Plan für [Monat/Quartal] für einen Fahrrad- und E-Bike-Händler mit Werkstatt. Kanäle: Instagram, Facebook, Newsletter, Website-Ratgeber. Pro Woche: Thema, Kanal, Format (Reel, Karussell, Foto, Text), Kernbotschaft, Call to Action. Beziehe Saison, Wetter und Werkstatt-Auslastung ein. Ausgabe als Tabelle.',
+   verwandt:['Social Media','Saisonalität','Call to Action']},
+  {name:'Social Media', alias:'Instagram, Facebook, TikTok, LinkedIn', bereich:'Kunde & Marketing',
+   erklaerung:'Kanäle, auf denen der Betrieb zeigt, wer er ist: Werkstatt-Einblicke, neue Räder, Tipps, Team, Events. Wichtig: regelmäßig, echt und mit klarem Ziel (Reichweite, Termine, Recruiting).',
+   beispiel:'Ein 20-Sekunden-Reel „Schlauchwechsel in 60 Sekunden“ aus der Werkstatt erreicht mehr Menschen als ein Produktfoto und bringt Anfragen für Werkstatttermine.',
+   prompt:'Schreibe 5 Social-Media-Posts für einen Fahrradhändler zum Thema [Thema]. Pro Post: Plattform, Hook (erster Satz, der zum Weiterlesen bringt), Text (max. 60 Wörter), 5 Hashtags, Bild- oder Video-Idee, Call to Action. Ton: [z. B. nahbar, fachkundig, mit Humor].',
+   verwandt:['Content-Plan','UGC','Storytelling']},
+  {name:'UGC', alias:'User Generated Content', bereich:'Kunde & Marketing',
+   erklaerung:'Inhalte, die Kunden selbst erstellen: Fotos von Touren, Videos der Übergabe, Bewertungen. Wirkt glaubwürdiger als Werbung. Vor dem Teilen immer um Erlaubnis fragen.',
+   beispiel:'Aktion „Zeig uns deine Lieblingsrunde“: Kunden posten ein Foto mit dem Rad und markieren den Betrieb, die schönsten Bilder gewinnen einen Inspektionsgutschein.',
+   prompt:'Entwirf eine UGC-Aktion für Kunden eines Fahrradhändlers: Motto, Ablauf, Teilnahmebedingungen in einfacher Sprache (inkl. Einwilligung zur Nutzung der Bilder), Gewinn, Ankündigungs-Post und Dankes-Post. Achte darauf, dass es auch ohne große Reichweite funktioniert.',
+   verwandt:['Social Proof','Social Media']},
+  {name:'Storytelling', alias:'Geschichten erzählen', bereich:'Kunde & Marketing',
+   erklaerung:'Informationen in eine Geschichte verpacken: Person, Problem, Lösung, Ergebnis. Menschen merken sich Geschichten besser als technische Daten.',
+   beispiel:'Statt „Lastenrad mit 85 Nm“: „Familie K. fährt seit einem Jahr ohne Zweitauto – Kita, Einkauf, Wochenendausflug. Was sie am Anfang unterschätzt hat, erzählt sie hier.“',
+   prompt:'Schreibe eine kurze Kundengeschichte (max. 180 Wörter) nach dem Muster Person → Problem → Lösung → Ergebnis für [fiktive Persona und Rad, z. B. Pendlerin, die auf ein S-Pedelec umsteigt]. Danach: eine Kurzfassung für Instagram (max. 50 Wörter) und 3 Überschriften.',
+   verwandt:['Persona','Social Media','Social Proof']},
+  {name:'Brand Voice', alias:'Tonalität / Markenstimme', bereich:'Kunde & Marketing',
+   erklaerung:'Wie der Betrieb klingt – du oder Sie, locker oder seriös, mit Humor oder sachlich. Eine festgelegte Tonalität sorgt dafür, dass Website, Mails, Social Media und KI-Texte wie aus einem Guss wirken.',
+   beispiel:'Regel: „Wir duzen auf Social Media, siezen in Angeboten und Rechnungen. Wir erklären Technik ohne Fachchinesisch. Keine Ausrufezeichen-Ketten.“',
+   prompt:'Hier sind 3 Texte, die unseren Ton gut treffen: [einfügen]. Leite daraus einen Tonalitäts-Leitfaden ab: 5 Regeln, 10 Wörter, die wir gern nutzen, 10, die wir meiden, Anrede je Kanal, und ein Vorher-Nachher-Beispiel. Den Leitfaden nutze ich künftig am Anfang meiner Prompts.',
+   verwandt:['Prompt','Storytelling']},
+  {name:'Google Unternehmensprofil', alias:'Local SEO', bereich:'Kunde & Marketing',
+   erklaerung:'Der Eintrag bei Google Maps und in der Suche mit Öffnungszeiten, Fotos, Bewertungen, Beiträgen und Fragen. Für Händler mit Filialen oft der wichtigste Online-Kanal: Wer „Fahrradwerkstatt in der Nähe“ sucht, landet hier.',
+   beispiel:'Jede Filiale hat ein eigenes Profil mit aktuellen Werkstattzeiten, Fotos der Ausstellung und einem wöchentlichen Beitrag, z. B. „Diese Woche: Licht-Check kostenlos“.',
+   prompt:'Optimiere das Google-Unternehmensprofil einer Fahrradfiliale mit Werkstatt. Schreibe: Unternehmensbeschreibung (max. 750 Zeichen), 10 Leistungen mit Kurzbeschreibung, 5 häufige Fragen mit Antwort, 4 Beitragsideen für den nächsten Monat. Nenne außerdem 5 Fotomotive, die nicht fehlen sollten.',
+   verwandt:['SEO','Bewertungsmanagement']},
+  {name:'Kampagne', alias:'Marketing-Aktion', bereich:'Kunde & Marketing',
+   erklaerung:'Eine zeitlich begrenzte, abgestimmte Aktion mit einem Ziel, einer Botschaft und mehreren Kanälen. Erfolg wird vorher definiert und danach gemessen.',
+   beispiel:'„Lastenrad-Wochen“ im April: Testtag, Newsletter an Familien-Segment, Instagram-Reels, Plakat in der Kita, Landingpage mit Terminbuchung. Ziel: 60 Probefahrten.',
+   prompt:'Plane eine Kampagne für [Anlass/Produkt] eines Fahrradhändlers. Gib an: Ziel (SMART), Zielgruppe, Kernbotschaft, Kanäle mit Zeitplan, Inhalte je Kanal, Budget-Schätzung in Stufen, Kennzahlen und eine Checkliste für die Woche davor. Ausgabe übersichtlich mit Zwischenüberschriften.',
+   verwandt:['SMART-Ziele','Content-Plan','Landingpage']},
+  {name:'SMART-Ziele', alias:'Spezifisch, Messbar, Attraktiv, Realistisch, Terminiert', bereich:'Daten & ERP',
+   erklaerung:'Eine Methode, Ziele so zu formulieren, dass man am Ende eindeutig sagen kann, ob sie erreicht wurden. Hilft bei Kampagnen, KI-Projekten und Teamzielen.',
+   beispiel:'Unklar: „Mehr Werkstattkunden.“ SMART: „Bis 31. März 120 Frühjahrschecks online gebucht, davon 30 % Neukunden.“',
+   prompt:'Formuliere aus diesen Wünschen SMART-Ziele: [z. B. mehr Leasing-Firmenkunden, bessere Bewertungen, weniger Telefonanfragen in der Werkstatt]. Pro Ziel: SMART-Formulierung, Kennzahl, Datenquelle, Zwischenziel nach der Hälfte der Zeit und eine erste Maßnahme.',
+   verwandt:['KPI','Kampagne']},
+  {name:'Dienstrad-Leasing', alias:'Jobrad / Firmenrad', bereich:'Vertrieb',
+   erklaerung:'Arbeitgeber leasen Räder für Mitarbeitende, die Rate wird meist über Gehaltsumwandlung bezahlt und ist steuerlich begünstigt. Für Händler ein wichtiges B2B-Geschäft: Firmen als Partner gewinnen, Mitarbeitende beraten, Leasing abwickeln, Wartung übernehmen.',
+   beispiel:'Ein Handwerksbetrieb mit 40 Mitarbeitenden schließt einen Rahmenvertrag ab. Der Händler bietet einen Infotag mit Probefahrten am Firmenstandort an und verkauft danach 9 Räder.',
+   prompt:'Erstelle einen Ablauf, wie ein Fahrradhändler aktiv Firmen in der Region für Dienstrad-Leasing gewinnt: Zielfirmen finden (Kriterien), Erstansprache (Mail-Vorlage, max. 120 Wörter), Infotag im Unternehmen, Nachfassen, Betreuung danach. Hinweis: Keine steuerlichen Zusagen, dafür auf den Leasinganbieter verweisen.',
+   verwandt:['B2B / B2C','Pipeline','Lead']},
+  {name:'Chatbot', alias:'KI-Assistent auf der Website', bereich:'KI & Automatisierung',
+   erklaerung:'Ein Assistent, der Fragen von Kunden beantwortet – rund um die Uhr. Gut für wiederkehrende Fragen (Öffnungszeiten, Termine, Leasing-Ablauf), mit Übergabe an Menschen bei Beratung oder Reklamation.',
+   beispiel:'Um 22 Uhr fragt jemand: „Kann ich mein E-Bike morgen zur Inspektion bringen?“ Der Chatbot nennt freie Termine und den Preis, und bei Akku-Problemen bittet er um Rückruf durch die Werkstatt.',
+   prompt:'Entwirf die Wissensbasis und Regeln für einen Website-Chatbot eines Fahrradhändlers: die 25 häufigsten Kundenfragen mit kurzen Antworten (Platzhalter für Preise und Zeiten), Themen, bei denen er an einen Menschen übergibt, Tonalität, und was er nie tun darf (z. B. Preise zusagen, technische Diagnosen stellen).',
+   verwandt:['RAG / Wissensbasis','Human in the Loop','Touchpoint']},
+  {name:'Employer Branding', alias:'Arbeitgebermarke', bereich:'Service & Werkstatt',
+   erklaerung:'Alles, was den Betrieb als guten Arbeitgeber zeigt: Team, Ausbildung, Werkstattalltag, Weiterbildung, Benefits. Wichtig, weil gute Zweiradmechatroniker und Verkäufer schwer zu finden sind.',
+   beispiel:'Serie „Ein Tag in der Werkstatt“ auf Instagram mit Azubis, dazu eine Karriereseite mit echten Fotos und einem 3-Klick-Bewerbungsformular.',
+   prompt:'Schreibe eine Stellenanzeige für [Zweiradmechatroniker/in / Verkauf E-Bike / Online-Marketing] bei einem Fahrradhändler mit Werkstätten. Aufbau: Einstieg, was dich erwartet, was du mitbringst (max. 5 Punkte, realistisch), was wir bieten, einfacher Bewerbungsweg. Danach 3 Social-Media-Posts dazu. Ton: [duzen/siezen], ehrlich, ohne Floskeln.',
+   verwandt:['Social Media','Brand Voice']},
+  {name:'Marktplatz', alias:'Online-Marktplätze', bereich:'E-Commerce & Shop',
+   erklaerung:'Plattformen wie Amazon, eBay oder Fach-Marktplätze, auf denen Händler zusätzlich verkaufen. Mehr Reichweite, aber Gebühren, Preisdruck und eigene Regeln. Saubere Produktdaten und Bestandsabgleich aus dem ERP sind Pflicht.',
+   beispiel:'Zubehör und Ersatzteile laufen zusätzlich über einen Marktplatz, komplette E-Bikes nur im eigenen Shop mit Probefahrt- und Abholoption.',
+   prompt:'Bewerte für einen Fahrradhändler, welche Warengruppen (Räder, E-Bikes, Zubehör, Ersatzteile, Bekleidung, Gebrauchträder) sich für Online-Marktplätze eignen. Kriterien: Marge, Versandaufwand, Beratungsbedarf, Retourenrisiko, Preisvergleich. Ausgabe als Tabelle mit Empfehlung.',
+   verwandt:['Produktdaten / PIM','Omnichannel']},
+  {name:'Saisonalität', alias:'Saisonplanung', bereich:'Service & Werkstatt',
+   erklaerung:'Das Fahrradgeschäft schwankt stark: Frühjahr Hochsaison in Verkauf und Werkstatt, Winter ruhig. Wer die Saison plant, verteilt Arbeit besser und spricht Kunden zur richtigen Zeit an.',
+   beispiel:'Im Januar Aktion „Winter-Check mit Rabatt“, im Februar Vororder-Beratung für Lastenräder, im März Werkstatttermine nur online, damit das Telefon frei bleibt.',
+   prompt:'Erstelle einen Jahreskalender für einen Fahrrad- und E-Bike-Händler mit Werkstatt: pro Monat die typische Lage (Verkauf, Werkstatt, Kundenfragen), passende Aktion, Marketingthema, interne Aufgabe (Einkauf, Schulung, Inventur) und wo KI oder Automatisierung entlasten kann.',
+   verwandt:['Werkstattauslastung','Content-Plan','Kampagne']}
 ];
 
+// Mehr Möglichkeiten und zusätzliche Prompts für Begriffe, die im Betrieb besonders oft vorkommen.
+const mehr = {
+  'Call to Action': {
+    ideen:['Jede Produktseite für E-Bikes über 3.000 € bekommt „Probefahrt buchen“ als Haupt-Button.','Werkstatt-Mails enden mit genau einem Button: „Termin wählen“.','Auf Flyern und Plakaten ein QR-Code mit konkretem CTA statt nur der Website-Adresse.','Instagram-Posts enden mit einer Frage oder „Link in Bio: Testtag sichern“.'],
+    prompts:[
+      {titel:'Bestehende Seite prüfen', text:'Hier ist der Text einer unserer Seiten/Mails: [einfügen]. Finde alle Handlungsaufforderungen, bewerte sie (klar? ein Haupt-CTA? Nutzen genannt?) und schlage eine verbesserte Version mit genau einem Haupt-CTA und höchstens einem Neben-CTA vor.'},
+      {titel:'CTA je Phase der Customer Journey', text:'Ordne für einen Fahrradhändler jeder Phase der Customer Journey (Inspiration, Recherche, Beratung, Kauf, Nutzung, Service, Empfehlung) den passenden Call to Action zu, jeweils für Website, Newsletter und Social Media. Ausgabe als Tabelle.'}
+    ]},
+  'Persona': {
+    ideen:['Personas als feste Einleitung in Prompts nutzen: „Schreibe für Pendler-Paul …“.','Verkaufsteam schulen: Wer kommt typischerweise in welche Filiale?','Sortiment prüfen: Welche Persona findet bei uns zu wenig passende Räder?','Newsletter-Segmente nach Personas bilden.'],
+    prompts:[
+      {titel:'Persona aus echten Daten', text:'Hier sind anonymisierte, zusammengefasste Verkaufsdaten des letzten Jahres (Radtyp, Preisklasse, Alter grob, Filiale, Leasing ja/nein): [einfügen]. Leite daraus 3 datenbasierte Personas ab und kennzeichne, was aus den Daten kommt und was du annimmst.'},
+      {titel:'Interview mit der Persona', text:'Spiele [Persona mit Steckbrief einfügen]. Ich bin Verkäufer im Fahrradladen und übe ein Beratungsgespräch. Reagiere realistisch, auch mit Einwänden und Unsicherheiten. Gib mir nach dem Gespräch Feedback, was gut lief und was ich besser machen kann.'},
+      {titel:'Texte für mehrere Personas', text:'Schreibe die Produktbeschreibung für [Rad] in drei Varianten: für [Persona 1], [Persona 2] und [Persona 3]. Gleiche Fakten, aber andere Schwerpunkte und Ansprache. Max. 80 Wörter je Variante. Erfinde keine technischen Daten.'}
+    ]},
+  'Customer Journey': {
+    ideen:['Schwachstellen finden: Wo rufen Kunden an, weil online etwas fehlt?','Automatische Nachrichten entlang der Journey planen (Termin, Abholung, Erstinspektion).','Journey für Werkstattkunden getrennt vom Neuradkauf betrachten.','Mit dem Team aus Verkauf und Werkstatt gemeinsam an einer Wand aufmalen und KI-Ideen sammeln.'],
+    prompts:[
+      {titel:'Werkstatt-Journey', text:'Skizziere die Customer Journey eines Werkstattkunden vom Defekt bis zur Abholung und zum nächsten Termin. Nenne pro Schritt: Was erlebt der Kunde, was nervt typischerweise, welche Information braucht er, und welche automatische Nachricht oder KI-Unterstützung hilft.'},
+      {titel:'Journey aus Kundenstimmen', text:'Hier sind anonymisierte Bewertungen und Kundenmails: [einfügen]. Ordne jede Aussage einer Phase der Customer Journey zu und zeige, in welcher Phase es die meisten positiven und negativen Erlebnisse gibt.'}
+    ]},
+  'Lead': {
+    ideen:['Alle Anfragen (Formular, Telefon, Laden, Messe) an einer Stelle im ERP sammeln.','KI fasst neue Anfragen morgens zusammen und schlägt Priorität vor.','Antwortzeit messen: Wie schnell bekommt ein Lead eine Rückmeldung?','Verlorene Leads nach 3 Monaten mit neuem Anlass erneut ansprechen.'],
+    prompts:[
+      {titel:'Morgendliche Lead-Übersicht', text:'Hier sind die neuen Anfragen seit gestern (anonymisiert): [einfügen]. Erstelle eine Tabelle: Art (B2C/B2B/Werkstatt), Anliegen in einem Satz, Dringlichkeit, geschätzter Wert, nächster Schritt, zuständige Abteilung. Sortiere nach Priorität.'},
+      {titel:'Lead-Formular verbessern', text:'Unser Anfrageformular hat diese Felder: [Liste]. Schlage eine verbesserte Version vor, die mit möglichst wenigen Feldern die wichtigsten Infos für die Beratung liefert. Getrennt für Privatkunden und Firmen. Begründe jedes Feld.'},
+      {titel:'Verlorene Leads reaktivieren', text:'Schreibe eine kurze, freundliche Nachricht an Interessenten, die vor 3–6 Monaten nach [Radtyp] gefragt, aber nicht gekauft haben. Anlass: [z. B. neues Modelljahr, Testtag, Leasing-Aktion]. Max. 70 Wörter, kein Druck, eine klare Frage.'}
+    ]},
+  'Follow-up': {
+    ideen:['Automatische Erinnerung im ERP, wenn ein Angebot 5 Tage offen ist.','Nach der Übergabe: Danke-Mail mit Pflegetipps und Termin für die Erstinspektion.','Nach Werkstattbesuch: kurze Zufriedenheitsfrage mit Link zur Bewertung.','B2B: Quartals-Check-in bei Leasing-Partnerfirmen.'],
+    prompts:[
+      {titel:'Nach der Radübergabe', text:'Schreibe eine Nachricht, die Kunden 2 Tage nach Übergabe ihres neuen E-Bikes erhalten: Dank, 3 Pflegetipps, Hinweis auf die Erstinspektion nach [Wochen] mit Buchungslink, Ansprechpartner. Max. 110 Wörter, persönlich.'},
+      {titel:'Offenes Angebot', text:'Ein Kunde hat vor [Tagen] ein Angebot für [Rad + Zubehör] erhalten und nicht reagiert. Schreibe 2 Varianten zum Nachfassen: eine Mail (max. 80 Wörter) und ein kurzes Telefon-Skript mit Einstieg, 2 Fragen und Abschluss.'}
+    ]},
+  'Newsletter': {
+    ideen:['Segmentieren nach Radtyp und Kaufdatum statt einer Mail an alle.','Werkstatt-Erinnerungen als eigener, automatischer Newsletter.','Betreffzeilen mit A/B-Test vergleichen.','KI erstellt den Rohentwurf, das Team ergänzt Fotos und lokale Infos.'],
+    prompts:[
+      {titel:'Betreffzeilen testen', text:'Schreibe 10 Betreffzeilen für einen Newsletter zum Thema [Thema] an [Segment]. Max. 45 Zeichen, unterschiedliche Ansätze (Neugier, Nutzen, Frage, Saison, Zahl). Markiere 2, die sich für einen A/B-Test eignen.'},
+      {titel:'Jahresplan Newsletter', text:'Erstelle einen Newsletter-Jahresplan (12 Ausgaben) für Kunden eines Fahrradhändlers. Pro Monat: Hauptthema, Werkstatt-Angebot, Produkt-Highlight, passendes Segment, Call to Action.'}
+    ]},
+  'Produktdaten / PIM': {
+    ideen:['Fehlende Merkmale aus Hersteller-PDFs per KI vorschlagen lassen, Mensch prüft.','Einheitliche Merkmalsnamen festlegen (Akku in Wh, Motor in Nm).','Produkttexte in mehreren Längen: Shop, Marktplatz, Social Media.','Prüfliste für KI-Assistenten-Sichtbarkeit: Sind alle wichtigen Daten maschinenlesbar?'],
+    prompts:[
+      {titel:'Produktdaten-Qualität prüfen', text:'Hier ist ein Export von 20 Produkten (anonymisiert, CSV): [einfügen]. Bewerte die Vollständigkeit je Produkt in %, nenne die am häufigsten fehlenden Merkmale und priorisiere, welche Felder wir zuerst ergänzen sollten, damit Shop-Filter und Suchmaschinen gut funktionieren.'},
+      {titel:'Drei Textlängen', text:'Schreibe zu [Rad] auf Basis dieser Merkmale [einfügen]: 1) Shop-Text 120 Wörter, 2) Kurztext 30 Wörter für Kategorieseiten, 3) Social-Media-Text 40 Wörter mit Call to Action. Nur Fakten aus den Merkmalen verwenden.'}
+    ]},
+  'Bewertungsmanagement': {
+    ideen:['Nach jedem Werkstattauftrag automatisch um eine Bewertung bitten (mit Link).','KI entwirft Antworten auf alle neuen Bewertungen, Filialleitung gibt frei.','Monatlich Bewertungen auswerten: Was wird gelobt, was kritisiert?','Gute Bewertungen (mit Erlaubnis) als Social Proof auf der Website nutzen.'],
+    prompts:[
+      {titel:'Monatsauswertung', text:'Hier sind die Google-Bewertungen des letzten Monats (anonymisiert, mit Sternen und Text): [einfügen]. Erstelle eine Auswertung: Durchschnitt, Themen mit Häufigkeit, Lob vs. Kritik, Unterschiede zwischen Filialen, 3 konkrete Verbesserungen.'},
+      {titel:'Um Bewertung bitten', text:'Schreibe eine kurze Nachricht (SMS max. 160 Zeichen und Mail max. 60 Wörter), mit der wir Kunden nach dem Werkstattbesuch um eine Google-Bewertung bitten. Freundlich, ohne Druck, mit Platzhalter für den Link.'}
+    ]},
+  'Werkstattauslastung': {
+    ideen:['Online-Terminbuchung mit festen Zeitfenstern, um Telefon zu entlasten.','Wartezeiten automatisch auf der Website anzeigen.','In ruhigen Monaten gezielt Werkstatt-Angebote an passende Segmente schicken.','KI fasst Fehlerbeschreibungen der Kunden vorab zusammen, damit die Werkstatt schneller plant.'],
+    prompts:[
+      {titel:'Fehlerbeschreibung aufbereiten', text:'Ein Kunde beschreibt sein Problem so: [Text einfügen]. Fasse für die Werkstatt zusammen: vermutliche Baugruppe, mögliche Ursachen (ohne Diagnose zu versprechen), benötigte Zeit grob, Rückfragen an den Kunden, Teile, die vorrätig sein sollten.'},
+      {titel:'Terminlogik', text:'Unsere Werkstatt hat [Anzahl] Mechaniker und diese Auftragsarten mit Dauer: [Liste]. Schlage eine Wochen-Terminlogik vor (Zeitfenster, Puffer für Notfälle, Express-Reparaturen), die im Frühjahr Wartezeiten senkt. Erkläre Vor- und Nachteile.'}
+    ]},
+  'B2B / B2C': {
+    ideen:['Getrennte Landingpages für Privatkunden und Firmen.','Firmen-Newsletter für Personalabteilungen (Leasing, Infotage, Wartung).','B2B-Leads in eigener Pipeline mit Nachfass-Rhythmus.','Flotten- und Wartungsverträge für Lieferdienste, Pflegedienste, Hotels.'],
+    prompts:[
+      {titel:'Firmen-Zielgruppen finden', text:'Nenne 10 Branchen in einer mittelgroßen Region, für die Diensträder oder eine kleine Firmenflotte besonders interessant sind. Pro Branche: Nutzen, typische Ansprechperson, bester Erstkontakt, möglicher Einwand.'}
+    ]},
+  'SEO': {
+    ideen:['Ratgeberartikel zu Fragen, die im Laden ständig gestellt werden.','Für jede Filiale eine eigene Standortseite mit Werkstattleistungen.','Produkttexte nicht vom Hersteller kopieren, sondern eigene schreiben.','FAQ-Bereiche auf Kategorieseiten (z. B. „Welche Rahmengröße?“).'],
+    prompts:[
+      {titel:'Fragen aus dem Laden sammeln', text:'Liste 30 Fragen auf, die Kunden im Fahrradladen und in der Werkstatt häufig stellen (Kauf, Technik, Leasing, Pflege, Recht). Gruppiere sie in Themen und markiere, welche sich als eigener Ratgeberartikel eignen.'}
+    ]},
+  'KI-Agent': {
+    ideen:['Lese-Agent: fasst morgens Anfragen, Bewertungen und Werkstattstatus zusammen.','Recherche-Agent: beobachtet Hersteller-News und Preisänderungen.','Entwurfs-Agent: bereitet Angebote und Antworten zur Freigabe vor.','Später: Agent mit MCP-Zugriff auf das eigene ERP (zuerst nur lesend).'],
+    prompts:[
+      {titel:'Erste Agenten-Ideen bewerten', text:'Bewerte diese KI-Agenten-Ideen für einen Fahrradhändler nach Nutzen, Risiko, Aufwand und benötigten Daten: [Liste]. Empfiehl, mit welchem wir starten sollten, und beschreibe einen 4-Wochen-Testplan mit Erfolgskriterien.'}
+    ]},
+  'Social Media': {
+    ideen:['Werkstatt-Reels: kurze Reparatur-Tipps.','Vorher-Nachher von Restaurierungen oder Umbauten.','Team-Vorstellungen für Vertrauen und Recruiting.','Saisonthemen aus dem Content-Plan, Entwürfe per KI, Fotos echt.'],
+    prompts:[
+      {titel:'Reel-Skript', text:'Schreibe ein Skript für ein 30-Sekunden-Reel aus unserer Fahrradwerkstatt zum Thema [z. B. Kette richtig ölen]. Aufbau: Hook in den ersten 2 Sekunden, 3 Schritte, Abschluss mit Call to Action. Gib Bildideen, Text-Overlays und eine Caption (max. 40 Wörter) an.'},
+      {titel:'Wochenplan aus einem Thema', text:'Mach aus dem Thema [z. B. Lastenrad im Alltag] einen Wochenplan mit 5 Posts für Instagram und Facebook: verschiedene Formate (Reel, Karussell, Story-Umfrage, Kundenstimme, Tipp), je mit Text und Bildidee.'}
+    ]},
+  'Dienstrad-Leasing': {
+    ideen:['Leasing-Rechner auf der Website mit Beispielraten (Platzhalter, Anbieter-Rechner verlinken).','Infotage direkt bei Partnerfirmen mit Probefahrten.','Eigene FAQ für Mitarbeitende von Partnerfirmen.','Wartungspakete speziell für Leasingräder bewerben.'],
+    prompts:[
+      {titel:'FAQ für Mitarbeitende', text:'Schreibe eine FAQ mit 12 Fragen und kurzen Antworten für Mitarbeitende einer Firma, die Dienstrad-Leasing über uns nutzen können (Ablauf, Auswahl, Probefahrt, Übergabe, Wartung, Schaden, Vertragsende). Steuerliche und rechtliche Details nur allgemein und mit Hinweis auf Arbeitgeber und Leasinganbieter.'},
+      {titel:'Infotag planen', text:'Plane einen Dienstrad-Infotag bei einer Partnerfirma mit [Anzahl] Mitarbeitenden: Ablauf, benötigte Räder und Größen, Personal, Materialien, Einladungstext für das Intranet (max. 100 Wörter) und Nachfass-Mail an Teilnehmende.'}
+    ]}
+};
+for (const b of begriffe) {
+  const extra = mehr[b.name] || {};
+  b.ideen = extra.ideen || [];
+  b.prompts = [{titel:'Grundprompt', text:b.prompt}, ...(extra.prompts || [])];
+}
+
+const farben = {
+  'Kunde & Marketing':'#b4234a', 'Vertrieb':'#c25a12', 'E-Commerce & Shop':'#1f6f8b',
+  'Daten & ERP':'#4b5aa8', 'KI & Automatisierung':'#7a3fa0', 'Service & Werkstatt':'#2e7d4f'
+};
 const bereiche = ['Alle',...new Set(begriffe.map(b => b.bereich))];
 const root = document.getElementById('begriffe');
 if (!root) return;
@@ -288,6 +466,8 @@ const search = root.querySelector('#begriff-suche');
 const chips = root.querySelector('#begriff-bereiche');
 const list = root.querySelector('#begriff-liste');
 const count = root.querySelector('#begriff-anzahl');
+const dialog = root.querySelector('#begriff-dialog');
+const body = root.querySelector('#begriff-dialog-inhalt');
 let bereich = 'Alle';
 
 const el = (tag, text, cls) => {
@@ -296,71 +476,135 @@ const el = (tag, text, cls) => {
   if (cls) node.className = cls;
   return node;
 };
+const kuerzel = b => b.name.replace(/[^A-Za-zÄÖÜ]/g, '').slice(0, 2).toUpperCase();
 
-async function copy(text, button) {
+async function copy(text, button, source) {
+  const label = button.textContent;
   try {
     await navigator.clipboard.writeText(text);
     button.textContent = 'Kopiert ✓';
   } catch {
-    const pre = button.parentElement.querySelector('.begriff-prompt');
     const range = document.createRange();
-    range.selectNodeContents(pre);
+    range.selectNodeContents(source);
     const selection = getSelection();
     selection.removeAllRanges();
     selection.addRange(range);
     button.textContent = 'Markiert – jetzt kopieren';
   }
-  setTimeout(() => { button.textContent = 'Prompt kopieren'; }, 2200);
+  button.classList.add('done');
+  setTimeout(() => { button.textContent = label; button.classList.remove('done'); }, 2200);
 }
 
-function card(b) {
-  const node = el('article', null, 'card begriff');
-  node.id = 'begriff-' + b.name.toLowerCase().replace(/[^a-z0-9äöüß]+/g, '-');
-  const top = el('div', null, 'cardtop');
-  const icon = el('div', b.name.replace(/[^A-Za-zÄÖÜ]/g, '').slice(0, 2).toUpperCase(), 'icon');
-  const head = el('div');
-  head.append(el('h3', b.name), el('span', b.alias + ' · ' + b.bereich, 'type'));
-  top.append(icon, head);
-  const example = el('div', null, 'examples');
-  example.append(el('b', 'Beispiel aus dem Fahrradhandel'), el('br'), document.createTextNode(b.beispiel));
-  const details = el('details', null, 'examples');
-  details.append(el('summary', null));
-  details.querySelector('summary').append(el('b', 'Prompt für dich'));
-  const pre = el('p', b.prompt, 'begriff-prompt');
-  const button = el('button', 'Prompt kopieren', 'button');
-  button.type = 'button';
-  button.addEventListener('click', () => void copy(b.prompt, button));
-  details.append(pre, button);
-  const related = el('div', null, 'badges');
-  for (const name of b.verwandt) {
-    const chip = el('button', name, 'badge begriff-link');
-    chip.type = 'button';
-    chip.addEventListener('click', () => { bereich = 'Alle'; search.value = name; render(); search.scrollIntoView({block:'center', behavior:'smooth'}); });
-    related.append(chip);
-  }
-  node.append(top, el('p', b.erklaerung, 'fact'), example, details, el('span', 'Verwandt', 'label'), related);
+function tile(b) {
+  const node = el('button', null, 'begriff-tile');
+  node.type = 'button';
+  node.style.setProperty('--farbe', farben[b.bereich]);
+  const top = el('span', null, 'begriff-tile-top');
+  top.append(el('span', kuerzel(b), 'begriff-mono'), el('span', b.bereich, 'begriff-bereich'));
+  const meta = el('span', null, 'begriff-tile-meta');
+  meta.append(el('span', b.prompts.length + (b.prompts.length === 1 ? ' Prompt' : ' Prompts')));
+  if (b.ideen.length) meta.append(el('span', b.ideen.length + ' Ideen'));
+  meta.append(el('span', 'Öffnen →', 'begriff-open'));
+  node.append(top, el('span', b.name, 'begriff-name'), el('span', b.alias, 'begriff-alias'), el('span', b.erklaerung, 'begriff-kurz'), meta);
+  node.addEventListener('click', () => open(b));
   return node;
 }
+
+function block(titel, ...content) {
+  const node = el('section', null, 'begriff-block');
+  node.append(el('h4', titel), ...content);
+  return node;
+}
+
+function open(b) {
+  dialog.style.setProperty('--farbe', farben[b.bereich]);
+  const head = el('div', null, 'begriff-dialog-head');
+  const title = el('div');
+  title.append(el('span', b.bereich, 'begriff-bereich'), el('h3', b.name), el('p', b.alias, 'begriff-alias'));
+  const close = el('button', '✕', 'begriff-close');
+  close.type = 'button';
+  close.setAttribute('aria-label', 'Schließen');
+  close.addEventListener('click', () => dialog.close());
+  head.append(el('span', kuerzel(b), 'begriff-mono'), title, close);
+
+  const parts = [head, el('p', b.erklaerung, 'begriff-lead')];
+  parts.push(block('Beispiel aus dem Fahrradhandel', el('p', b.beispiel, 'begriff-beispiel')));
+  if (b.ideen.length) {
+    const ul = el('ul', null, 'begriff-ideen');
+    for (const idee of b.ideen) ul.append(el('li', idee));
+    parts.push(block('So kannst du es im Betrieb nutzen', ul));
+  }
+
+  const tabs = el('div', null, 'begriff-prompt-tabs');
+  tabs.setAttribute('role', 'tablist');
+  const text = el('p', '', 'begriff-prompt');
+  const copyButton = el('button', 'Prompt kopieren', 'begriff-copy');
+  copyButton.type = 'button';
+  let current = 0;
+  const show = index => {
+    current = index;
+    text.textContent = b.prompts[index].text;
+    tabs.querySelectorAll('button').forEach((tab, i) => tab.setAttribute('aria-selected', String(i === index)));
+  };
+  b.prompts.forEach((prompt, index) => {
+    const tab = el('button', prompt.titel);
+    tab.type = 'button';
+    tab.setAttribute('role', 'tab');
+    tab.addEventListener('click', () => show(index));
+    tabs.append(tab);
+  });
+  copyButton.addEventListener('click', () => void copy(b.prompts[current].text, copyButton, text));
+  show(0);
+  const promptBlock = block(b.prompts.length > 1 ? b.prompts.length + ' Prompts für dich' : 'Prompt für dich');
+  if (b.prompts.length > 1) promptBlock.append(tabs);
+  promptBlock.append(text, copyButton, el('p', 'Platzhalter in [eckigen Klammern] ersetzen. Echte Kundendaten vorher anonymisieren.', 'begriff-hinweis'));
+  parts.push(promptBlock);
+
+  const related = el('div', null, 'begriff-related');
+  for (const name of b.verwandt) {
+    const target = begriffe.find(x => x.name === name);
+    if (!target) continue;
+    const chip = el('button', name, 'begriff-chip');
+    chip.type = 'button';
+    chip.addEventListener('click', () => open(target));
+    related.append(chip);
+  }
+  parts.push(block('Verwandte Begriffe', related));
+
+  body.replaceChildren(...parts);
+  body.scrollTop = 0;
+  if (!dialog.open) dialog.showModal();
+}
+
+dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
 
 function render() {
   const q = search.value.toLowerCase().trim();
   chips.replaceChildren(...bereiche.map(name => {
-    const chip = el('button', name, 'chip' + (name === bereich ? ' on' : ''));
+    const anzahl = name === 'Alle' ? begriffe.length : begriffe.filter(b => b.bereich === name).length;
+    const chip = el('button', null, 'begriff-filter' + (name === bereich ? ' on' : ''));
     chip.type = 'button';
+    if (farben[name]) chip.style.setProperty('--farbe', farben[name]);
     chip.setAttribute('aria-pressed', String(name === bereich));
+    chip.append(el('span', name), el('small', String(anzahl)));
     chip.addEventListener('click', () => { bereich = name; render(); });
     return chip;
   }));
   const items = begriffe.filter(b => (bereich === 'Alle' || b.bereich === bereich)
-    && [b.name, b.alias, b.erklaerung, b.beispiel].join(' ').toLowerCase().includes(q))
+    && [b.name, b.alias, b.erklaerung, b.beispiel, ...b.ideen].join(' ').toLowerCase().includes(q))
     .sort((a, b) => {
-      const exact = x => x.name.toLowerCase() === q ? 0 : 1;
-      return exact(a) - exact(b) || a.name.localeCompare(b.name, 'de');
+      const rank = x => x.name.toLowerCase() === q ? 0 : x.name.toLowerCase().includes(q) ? 1 : 2;
+      return rank(a) - rank(b) || a.name.localeCompare(b.name, 'de');
     });
-  count.textContent = items.length + ' von ' + begriffe.length + ' Begriffen';
-  list.replaceChildren(...(items.length ? items.map(card) : [el('div', 'Kein Begriff gefunden. Versuche ein anderes Stichwort.', 'empty')]));
+  count.textContent = items.length === begriffe.length ? begriffe.length + ' Begriffe' : items.length + ' von ' + begriffe.length + ' Begriffen';
+  list.replaceChildren(...(items.length ? items.map(tile) : [el('div', 'Kein Begriff gefunden. Versuche ein anderes Stichwort.', 'empty')]));
 }
 
 search.addEventListener('input', render);
+// Suchleiste klebt direkt unter der Navigation: deren Höhe als CSS-Variable bereitstellen.
+const nav = document.querySelector('.tabs');
+const setNavHeight = () => document.documentElement.style.setProperty('--nav-h', (nav ? nav.offsetHeight : 0) + 'px');
+setNavHeight();
+if (nav && 'ResizeObserver' in window) new ResizeObserver(setNavHeight).observe(nav);
 render();
 })();
