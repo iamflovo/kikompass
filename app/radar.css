@@ -210,3 +210,103 @@ main { padding-top:29px; }
   .nav-section::-webkit-scrollbar { display:none; }
   .nav-section .tab { flex:0 0 auto; scroll-snap-align:start; }
 }
+
+/* ===== Modernes Design: gemeinsame Ebene für alle Bereiche ===== */
+:root { --accent:#a9243f; --accent-dark:#78192c; --soft:#f8eff2; --radius:16px; --shadow:0 1px 2px #5a14260a, 0 8px 24px -18px #5a142640; }
+main { padding-top:36px; }
+.section.active { animation:section-in .2s ease-out; }
+@keyframes section-in { from { opacity:0; transform:translateY(6px); } }
+h2 { letter-spacing:-.03em; text-wrap:balance; }
+.sub { font-size:1rem; }
+.kicker { display:inline-flex; align-items:center; gap:6px; padding:5px 10px; border-radius:999px; background:#fff; border:1px solid #efdfe4; color:var(--accent); font-size:10.5px; letter-spacing:.12em; }
+.kicker::before { content:""; width:6px; height:6px; border-radius:50%; background:var(--accent); }
+
+/* Karten und Boxen */
+.card, .box { border-radius:var(--radius); border-color:#efe3e7; box-shadow:var(--shadow); }
+.card { transition:transform .15s ease, box-shadow .15s ease, border-color .15s; }
+.card:hover { border-color:#e6cfd6; box-shadow:0 1px 2px #5a14260a, 0 14px 30px -18px #5a142659; }
+.card h3, .box h3 { letter-spacing:-.015em; }
+.grid { gap:14px; }
+@media(min-width:781px) and (max-width:1100px) { .grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+.callout { position:relative; background:linear-gradient(135deg,#fff 0%,#fdf0f4 100%); border:1px solid #f1dbe2; border-radius:var(--radius); padding:18px 18px 18px 22px; box-shadow:var(--shadow); }
+.callout::before { content:""; position:absolute; left:0; top:14px; bottom:14px; width:4px; border-radius:0 4px 4px 0; background:var(--accent); }
+.examples { background:var(--soft); border-radius:12px; }
+.notice { color:#7c6870; }
+
+/* Badges, Chips, Knöpfe */
+.badge { background:var(--soft); color:#7d1d33; border-radius:999px; padding:4px 10px; font-size:11px; font-weight:700; letter-spacing:.01em; }
+.chip { min-height:38px; border:1px solid #ead9de; background:#fff; color:#4f3a40; border-radius:999px; padding:7px 14px; font-weight:600; font-size:.88rem; transition:border-color .15s, background .15s; }
+.chip:hover { border-color:var(--accent); }
+.chip.on { background:var(--accent-dark); border-color:var(--accent-dark); color:#fff; }
+.button, .card button { border-radius:999px; background:var(--soft); color:#7d1d33; font-weight:700; padding:9px 16px; transition:background .15s; }
+.button:hover, .card button:hover { background:#f2dde4; }
+.card button.selected, .card button[aria-pressed="true"] { background:var(--accent-dark); color:#fff; }
+input, select { border-radius:14px; border-color:#e7d6db; transition:border-color .15s, box-shadow .15s; }
+input:focus, select:focus { outline:0; border-color:var(--accent); box-shadow:0 0 0 4px #a9243f1f; }
+:focus-visible { outline:3px solid #a9243f55; outline-offset:2px; }
+details summary { list-style:none; display:flex; align-items:center; gap:8px; font-weight:700; }
+details summary::-webkit-details-marker { display:none; }
+details summary::before { content:"›"; display:inline-grid; place-items:center; width:20px; height:20px; border-radius:6px; background:#fff; color:var(--accent); font-size:16px; line-height:1; transition:transform .15s; }
+details[open] > summary::before { transform:rotate(90deg); }
+
+/* Kartenfuß: Links und Aktion in einer Zeile */
+.card-actions { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px 12px; margin-top:auto; padding-top:12px; border-top:1px solid #f3e8eb; }
+.card-actions a { font-weight:600; text-decoration:none; }
+.card-actions a:hover { text-decoration:underline; }
+.card-actions button, #radar .card .card-actions button { margin:0; min-height:40px; width:auto; }
+#radar .card-actions .radar-source-actions { display:flex; flex-wrap:wrap; gap:6px 12px; margin:0; }
+
+/* Werkzeugkarten mit Farbe je Kategorie */
+.tool-card { --farbe:#78192c; position:relative; overflow:hidden; }
+.tool-card::before { content:""; position:absolute; inset:0 0 auto; height:3px; background:var(--farbe); opacity:.85; }
+.tool-card .icon { background:color-mix(in srgb,var(--farbe) 12%,#fff); color:var(--farbe); border-radius:12px; font-family:Manrope,sans-serif; }
+.tool-card .type { color:var(--farbe); }
+.tool-card[data-cat="Allrounder"] { --farbe:#b4234a; }
+.tool-card[data-cat="Apps & Code"] { --farbe:#4b5aa8; }
+.tool-card[data-cat="Kreativ"] { --farbe:#c25a12; }
+.tool-card[data-cat="Agenten"] { --farbe:#7a3fa0; }
+.tool-card[data-cat="Recherche"] { --farbe:#1f6f8b; }
+.tool-card[data-cat="Business"] { --farbe:#2e7d4f; }
+.tool-card[data-cat="Automation"] { --farbe:#8a6d12; }
+.tool-card[data-cat="Formulare"] { --farbe:#a33a6d; }
+
+/* Radar */
+#radar .radar-nav { background:#fff; border:1px solid #efe3e7; box-shadow:var(--shadow); border-radius:16px; padding:5px; gap:4px; }
+#radar .radar-nav button { border-radius:12px; }
+#radar .card .radar-impact { background:#fdf3f6; border-radius:10px; padding:10px 12px; color:#5e1a2b; }
+
+/* Abläufe als Zeitleiste */
+.flow { gap:6px; }
+.step { background:#fff; border:1px solid #efdfe4; border-radius:12px; color:#3f2a30; box-shadow:0 1px 2px #5a14260a; }
+.arrow { color:#c58c9b; }
+
+/* Tabellen */
+.tablewrap { border-radius:var(--radius); box-shadow:var(--shadow); border-color:#efe3e7; }
+th { font-size:12px; text-transform:uppercase; letter-spacing:.06em; }
+
+@media(max-width:780px) {
+  main { padding:24px 16px 80px; }
+  h2 { font-size:clamp(26px,7.4vw,32px); }
+  .sub { font-size:.97rem; }
+  /* Filterzeilen wischbar statt mehrzeilig */
+  #filters, #radar .radar-nav { flex-wrap:nowrap; overflow-x:auto; scrollbar-width:none; -webkit-overflow-scrolling:touch; }
+  #filters::-webkit-scrollbar, #radar .radar-nav::-webkit-scrollbar { display:none; }
+  #filters .chip, #radar .radar-nav button { flex:0 0 auto; white-space:nowrap; }
+  #filters { margin:4px -16px 6px; padding:2px 16px; }
+  .chip { min-height:40px; }
+  .card { padding:18px; }
+  .card button, .button { min-height:44px; }
+  .card-actions button { flex:0 0 auto; }
+  /* Ablauf: senkrechte Zeitleiste mit Punkten */
+  .flow { display:grid; gap:0; margin:14px 0; padding-left:6px; }
+  .flow .arrow { display:none; }
+  .flow .step { position:relative; margin:0 0 8px 18px; padding:10px 12px; }
+  .flow .step::before { content:""; position:absolute; left:-19px; top:50%; width:10px; height:10px; margin-top:-5px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 3px #fbe6ec; }
+  .flow .step::after { content:""; position:absolute; left:-15px; top:calc(50% + 8px); height:calc(100% - 8px); width:2px; background:#f0d6de; }
+  .flow .step:last-child::after { display:none; }
+  .callout { padding:16px 16px 16px 20px; }
+  .tablewrap tr { border-radius:var(--radius); box-shadow:var(--shadow); }
+}
+@media(prefers-reduced-motion:reduce) { .section.active, .card { animation:none; transition:none; } }
+#radar .radar-nav button:not(.on):not(.active):not([aria-pressed="true"]) { border-color:transparent; background:transparent; }
+#radar .radar-nav button:hover { background:var(--soft); }

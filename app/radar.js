@@ -63,7 +63,8 @@ function newsCard(item) {
   if (item.summary) node.append(element('p',item.summary));
   if (item.impact) node.append(element('p','Praxis-Check: '+item.impact,'radar-impact'));
   if (item.source) node.append(element('p',item.source,'radar-date'));
-  if (safeUrl(item.url)) node.append(sourceActions(item.url,item.originalUrl,item.language==='de'));
+  const footer = element('div',null,'card-actions');
+  if (safeUrl(item.url)) footer.append(sourceActions(item.url,item.originalUrl,item.language==='de'));
   const key = keyOf(item);
   const button = element('button',saved.has(key) ? 'Gemerkt ✓' : 'Merken','button');
   button.type = 'button';
@@ -77,7 +78,8 @@ function newsCard(item) {
       button.setAttribute('aria-pressed',String(saved.has(key)));
     }
   });
-  node.append(button);
+  footer.append(button);
+  node.append(footer);
   return node;
 }
 
