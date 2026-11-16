@@ -14,6 +14,7 @@ const css = await readFile(app('radar.css'),'utf8');
 const icon = 'data:image/png;base64,'+(await readFile(app('icon-192.png'))).toString('base64');
 const data = (await readFile(app('radar-data.js'),'utf8')).replace(/^export /gm,'');
 let radar = await readFile(app('radar.js'),'utf8');
+const begriffe = await readFile(app('begriffe.js'),'utf8');
 
 function replaceOnce(text, search, replacement) {
   if (!text.includes(search)) throw new Error('Nicht gefunden: '+search.slice(0,80));
@@ -40,6 +41,7 @@ headOut = replaceOnce(headOut,'<link rel="apple-touch-icon" href="icon-192.png">
 headOut = replaceOnce(headOut,'<link rel="stylesheet" href="radar.css">','<style>\n'+css+'\n</style>');
 
 let bodyOut = replaceOnce(body,'src="icon-192.png"','src="'+icon+'"');
+bodyOut = replaceOnce(bodyOut,'<script src="begriffe.js"></script>','<script>\n'+begriffe+'\n</script>');
 bodyOut = replaceOnce(bodyOut,'<script type="module" src="radar.js"></script>',
   '<script type="module">\n'+data+'\n'+radar+'\n</script>');
 
