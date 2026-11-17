@@ -61,7 +61,11 @@ function newsCard(item) {
   node.append(meta,element('h3',item.title));
   if (item.status) node.append(element('p',item.status,'radar-date'));
   if (item.summary) node.append(element('p',item.summary));
-  if (item.impact) node.append(element('p','Praxis-Check: '+item.impact,'radar-impact'));
+  if (item.impact) {
+    const check = element('details',null,'radar-check');
+    check.append(element('summary','Praxis-Check für den Betrieb'),element('p',item.impact,'radar-impact'));
+    node.append(check);
+  }
   if (item.source) node.append(element('p',item.source,'radar-date'));
   const footer = element('div',null,'card-actions');
   if (safeUrl(item.url)) footer.append(sourceActions(item.url,item.originalUrl,item.language==='de'));
@@ -172,6 +176,8 @@ function setView(next) {
     const active = button.dataset.radarView===view;
     button.classList.toggle('on',active);
     button.setAttribute('aria-pressed',String(active));
+    const row = button.parentElement;
+    if (active && row.scrollWidth > row.clientWidth) row.scrollLeft = Math.max(0, button.offsetLeft - row.offsetLeft - 12);
   });
   document.querySelectorAll('[data-radar-panel]').forEach(panel=>{panel.hidden=panel.dataset.radarPanel!==view;});
   render();
