@@ -166,6 +166,15 @@ function renderProviderOptions() {
   dropdown.value = names.includes(previous) ? previous : '';
 }
 
+// Aktiven Reiter in einer wischbaren Zeile ganz sichtbar halten, mit etwas Luft zum Rand.
+function keepVisible(tab) {
+  const row = tab.parentElement;
+  if (!row || row.scrollWidth <= row.clientWidth) return;
+  const box = row.getBoundingClientRect(), item = tab.getBoundingClientRect();
+  if (item.left < box.left + 16) row.scrollLeft -= box.left + 16 - item.left;
+  else if (item.right > box.right - 28) row.scrollLeft += item.right - box.right + 28;
+}
+
 function setView(next) {
   view = next;
   select('radar-controls').hidden = !['brief','live','saved','market'].includes(view);
@@ -176,8 +185,7 @@ function setView(next) {
     const active = button.dataset.radarView===view;
     button.classList.toggle('on',active);
     button.setAttribute('aria-pressed',String(active));
-    const row = button.parentElement;
-    if (active && row.scrollWidth > row.clientWidth) row.scrollLeft = Math.max(0, button.offsetLeft - row.offsetLeft - 12);
+    if (active) keepVisible(button);
   });
   document.querySelectorAll('[data-radar-panel]').forEach(panel=>{panel.hidden=panel.dataset.radarPanel!==view;});
   render();
@@ -222,8 +230,7 @@ function showPage(page, scroll = false) {
     if (active) {
       tab.setAttribute('aria-current','page');
       // In der wischbaren Unternavigation den aktiven Reiter sichtbar halten.
-      const row = tab.parentElement;
-      if (row.scrollWidth > row.clientWidth) row.scrollLeft = Math.max(0, tab.offsetLeft - row.offsetLeft - 12);
+      keepVisible(tab);
     }
     else tab.removeAttribute('aria-current');
   }
@@ -264,6 +271,28 @@ document.querySelector('[data-market-shortcut]').addEventListener('click',event=
   setView('market');
 });
 restorePage();
+
+// Detail-Blätter am Handy nach unten wischen, um sie zu schließen.
+let sheetDrag = null;
+document.addEventListener('touchstart',event=>{
+  const dialog = event.target.closest('dialog.begriff-dialog[open]');
+  if (!dialog || !matchMedia('(max-width: 780px)').matches) return;
+  const body = dialog.querySelector('.begriff-dialog-body');
+  if (dialog.scrollTop > 0 || (body && body.scrollTop > 0)) return;
+  sheetDrag = {dialog, start:event.touches[0].clientY, dy:0};
+},{passive:true});
+document.addEventListener('touchmove',event=>{
+  if (!sheetDrag) return;
+  sheetDrag.dy = Math.max(0, event.touches[0].clientY - sheetDrag.start);
+  sheetDrag.dialog.style.transform = sheetDrag.dy ? `translateY(${sheetDrag.dy}px)` : '';
+},{passive:true});
+document.addEventListener('touchend',()=>{
+  if (!sheetDrag) return;
+  const {dialog, dy} = sheetDrag;
+  sheetDrag = null;
+  dialog.style.transform = '';
+  if (dy > 110) dialog.close();
+});
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load',()=>{ navigator.serviceWorker.register('sw.js').catch(()=>{}); });

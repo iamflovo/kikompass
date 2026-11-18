@@ -361,3 +361,64 @@ th { font-size:12px; text-transform:uppercase; letter-spacing:.06em; }
 }
 .tool-dialog-actions { bottom:-24px; }
 @media(max-width:780px) { .tool-dialog-actions { bottom:calc(-22px - env(safe-area-inset-bottom)); } }
+
+/* ===== App-Ebene: fürs Arbeiten am Handy ===== */
+.nav-ico { width:18px; height:18px; flex:0 0 auto; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+.nav-group { display:inline-flex; align-items:center; justify-content:center; gap:7px; }
+@media(hover:none) {
+  .card:hover, .tool-tile:hover, .begriff-tile:hover { transform:none; }
+}
+:where(.tool-tile, .begriff-tile, .card, .chip, .tab, .nav-group, .button, .tool-compare) { -webkit-tap-highlight-color:transparent; }
+.tool-tile:active, .begriff-tile:active { transform:scale(.985); }
+.chip:active, .tab:active, .button:active, .tool-compare:active { transform:scale(.97); }
+
+@media(max-width:780px) {
+  html { scroll-padding-top:calc(var(--nav-h,56px) + 12px); }
+  body { padding-bottom:calc(72px + env(safe-area-inset-bottom)); }
+
+  /* Kopf: kompakt statt Bühne */
+  .kompass-header { padding:env(safe-area-inset-top) max(16px,env(safe-area-inset-right)) 16px max(16px,env(safe-area-inset-left)); }
+  .kompass-header .masthead { padding:12px 0; border-bottom:0; }
+  .kompass-header .brand img { width:32px; height:32px; border-radius:9px; }
+  .kompass-header .hero { display:flex; align-items:center; justify-content:space-between; gap:12px; margin:2px 0 0; }
+  .kompass-header h1 { font-size:1.45rem; letter-spacing:-.035em; line-height:1.15; margin:0; }
+  .kompass-header .hero p { display:none; }
+  .hero-action { flex:0 0 auto; gap:6px; padding:8px 12px; border-radius:999px; font-size:.82rem; background:#ffffff1a; border-color:#ffffff45; }
+
+  /* Oben nur die Unterseiten, eine wischbare Zeile */
+  .tabs { -webkit-backdrop-filter:none; backdrop-filter:none; background:#fffafaf7; padding:8px max(16px,env(safe-area-inset-right)) 8px max(16px,env(safe-area-inset-left)); box-shadow:0 6px 16px -14px #5a142666; }
+  .nav-section { margin:0 -16px; padding:0 16px; gap:6px; scroll-padding-inline:16px; }
+  .nav-section .tab { min-height:38px; padding:7px 13px; font-size:.86rem; font-weight:700; border-radius:999px; background:#f6ecef; border:1px solid transparent; color:#5e434b; }
+  .nav-section .tab.active, .nav-section .tab.on { background:var(--accent-dark); border-color:var(--accent-dark); color:#fff; }
+
+  /* Hauptbereiche als Leiste am unteren Rand, in Daumenreichweite */
+  .nav-primary { position:fixed; z-index:40; left:0; right:0; bottom:0; width:auto; margin:0; display:grid; grid-template-columns:repeat(4,1fr); gap:0;
+    padding:6px max(8px,env(safe-area-inset-right)) calc(6px + env(safe-area-inset-bottom)) max(8px,env(safe-area-inset-left));
+    border-radius:0; background:#fffffff2; -webkit-backdrop-filter:saturate(1.6) blur(14px); backdrop-filter:saturate(1.6) blur(14px);
+    border-top:1px solid #efe1e5; box-shadow:0 -8px 24px -18px #5a142680; }
+  .nav-group { flex-direction:column; gap:3px; min-height:56px; padding:4px 2px; border:0; border-radius:14px; background:transparent; color:#7a6268; font-size:.7rem; font-weight:700; letter-spacing:.01em; box-shadow:none; }
+  .nav-group:hover { background:transparent; }
+  .nav-group .nav-ico { width:24px; height:24px; padding:3px 0; box-sizing:content-box; width:52px; border-radius:999px; transition:background .18s ease; }
+  .nav-group.active { background:transparent; color:var(--accent-dark); box-shadow:none; }
+  .nav-group.active .nav-ico { background:#f8dde5; stroke-width:2; }
+
+  /* Inhalte: ruhiger Rhythmus, große Tippflächen */
+  main { padding:18px max(16px,env(safe-area-inset-right)) 28px max(16px,env(safe-area-inset-left)); }
+  .sectionhead { flex-direction:column; align-items:stretch; gap:10px; margin-bottom:14px; }
+  h2 { font-size:clamp(24px,7vw,30px); margin:8px 0 6px; }
+  .sub { font-size:.94rem; line-height:1.55; }
+  .kicker { font-size:10px; padding:4px 9px; }
+  .controls { margin:14px 0; }
+  .card, .box { border-radius:18px; }
+  .tool-open { padding:15px 16px 10px; }
+  .tool-name { font-size:1.06rem; }
+  .tool-foot { padding:8px 10px 10px 16px; }
+  .tool-compare { min-height:40px; }
+
+  /* Detail-Blätter: Griff oben, rund wie eine App */
+  .begriff-dialog { border-radius:24px 24px 0 0; box-shadow:0 -12px 40px -10px #2a0a1466; }
+  .begriff-dialog::before { content:""; position:absolute; z-index:3; top:7px; left:50%; width:38px; height:4px; margin-left:-19px; border-radius:4px; background:#dcc7cd; }
+  .begriff-dialog::backdrop { background:#1d0c1166; -webkit-backdrop-filter:blur(2px); backdrop-filter:blur(2px); }
+}
+@media(max-width:360px) { .kompass-header h1 { font-size:1.25rem; } .hero-action { padding:7px 10px; } }
+@media(prefers-reduced-motion:reduce) { .tool-tile:active, .begriff-tile:active, .chip:active, .tab:active, .button:active, .tool-compare:active { transform:none; } }
