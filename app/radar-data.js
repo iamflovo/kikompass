@@ -1,6 +1,16 @@
-export const editorialDate = '2026-11-17';
+export const editorialDate = '2026-11-20';
 
 export const releases = [
+  {date:'2026-11-20', provider:'Nous Research', type:'Agent', hot:true, status:'Laut The Decoder · Open Source', title:'Hermes Agent zieht in Microsoft Teams ein', summary:'Laut The Decoder lässt sich der beliebte Open-Source-Agent Hermes jetzt direkt in Microsoft Teams nutzen. Er arbeitet dort in Chats und Kanälen mit.', impact:'Spannend, wenn ihr Teams nutzt: Hermes kann Aufgaben dort annehmen, wo das Team ohnehin schreibt. Erst in einem Testkanal mit fiktiven Daten ausprobieren und Rechte eng setzen.', url:'https://the-decoder.de/hermes-beliebter-open-source-agent-zieht-in-microsoft-teams-ein/', language:'de'},
+  {date:'2026-11-19', provider:'Google', type:'Agent', hot:true, status:'Rollout · Gemini-App für Mac', title:'Gemini steuert Programme auf dem Mac', summary:'Die Gemini-App für Mac bekommt Computer Use: Sie bedient Desktop-Programme im Hintergrund und erledigt wiederkehrende Klickarbeit selbstständig.', impact:'Ein Vorgeschmack für Routinearbeit ohne Schnittstelle, etwa Daten aus einem Herstellerportal übertragen. Nur mit Testkonten probieren und nie an Kasse, Bank oder Kundendaten lassen.', url:'https://blog.google/innovation-and-ai/products/gemini-app/computer-use-mac/'},
+  {date:'2026-11-19', provider:'Google', type:'Produkt', status:'Weltweit · Desktop', title:'Google-Startseite bekommt KI-Chats', summary:'Laut The Verge und The Decoder zeigt Google auf der Desktop-Startseite eine einklappbare Seitenleiste für KI-Suchen. Gespräche lassen sich dort direkt fortsetzen.', impact:'Noch mehr Suchanfragen enden in einer KI-Antwort statt auf einer Website. Für den Shop zählen klare Produktdaten, FAQ und ein gepflegtes Google-Unternehmensprofil.', url:'https://www.theverge.com/tech/1038059/google-search-homepage-ai-chats'},
+  {date:'2026-11-19', provider:'Google', type:'Produkt', status:'Gemini-App', title:'Chatverlauf aus anderen KI-Apps nach Gemini holen', summary:'Google bietet einen Import für Verläufe aus anderen KI-Assistenten an, damit der Wechsel ohne Neuanfang klappt.', impact:'Vor einem Import prüfen, was in alten Chats steht. Nichts übertragen, was Kundendaten oder interne Preise enthält.', url:'https://blog.google/innovation-and-ai/products/gemini-app/switch-ai-assistants-transfer-history/'},
+  {date:'2026-11-19', provider:'Google', type:'Produkt', status:'Gemini API', title:'Tool Retrieval: Gemini wählt passende Werkzeuge selbst', summary:'Die Gemini API kann aus vielen hinterlegten Werkzeugen automatisch die passenden für eine Anfrage heraussuchen, statt alle mitzuschicken.', impact:'Für das eigene ERP interessant: Ein Agent mit vielen Funktionen (Lager, Werkstatt, Shop) bleibt so schneller und günstiger.', url:'https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tool-retrieval/'},
+  {date:'2026-11-18', provider:'Google', type:'Modell', hot:true, status:'App, AI Studio und API', title:'Gemini 4 Neon: Spitzenmodell zum halben Preis', summary:'Google stellt Gemini 4 Neon für Programmierung, Wissensarbeit und Wissenschaft vor. Laut TestingCatalog liegt es im Vals-Index knapp hinter Claude Fable 5.2, bei weniger als halben Kosten je Aufgabe. Es kann parallel Hydrogen-Unteragenten steuern.', impact:'Für ERP-Prototypen ein neuer Kandidat: dieselbe Aufgabe mit Neon, Fable und GPT-6.2 lösen und Qualität sowie Kosten vergleichen. Die Benchmark-Zahlen stammen von Dritten.', url:'https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/'},
+  {date:'2026-11-18', provider:'GitHub', type:'Produkt', status:'Verfügbar', title:'Copilot: Gemini 4 Neon und neue Anbindungen', summary:'GitHub Copilot bietet Gemini 4 Neon an und verbindet sich mit Diensten wie Supabase, Box und Calendly. Teams können Copilot zudem mit eigenen Vorgaben anpassen.', impact:'Für die ERP-Entwicklung: Team-Vorgaben einmal festlegen (Sprache, Stil, Datenschutzregeln), damit jeder Vorschlag dazu passt.', url:'https://github.blog/changelog/2026-11-18-gemini-4-neon-in-github-copilot'},
+  {date:'2026-11-17', provider:'OpenAI', type:'Vertrieb', hot:true, status:'ChatGPT · Plugins', title:'ChatGPT for Sales: Vertriebsassistent mit 30 Partner-Plugins', summary:'OpenAI bringt ein Sales-Plugin in ChatGPT und über 30 neue oder erweiterte Partner-Plugins. Es hilft bei Firmenrecherche, Gesprächsvorbereitung, Nachfassen, Risiko im Deal und Angeboten.', impact:'Direkt für dich: JobRad- und B2B-Anfragen vorbereiten, Nachfass-Mails entwerfen, Angebote gegenlesen. Erst mit anonymisierten Fällen testen; Preise und Tarif im eigenen Konto prüfen.', url:'https://openai.com/index/introducing-chatgpt-for-sales'},
+  {date:'2026-11-17', provider:'OpenAI', type:'Modell', hot:true, status:'ChatGPT Work, Codex und API', title:'GPT-6.2 Astra und Sol: mehr Leistung, Astra günstiger', summary:'Astra ist für komplexe Arbeit gedacht, Sol für den Alltag. Laut Berichten kostet Astra in der API 8 US-Dollar je Million Eingabe- und 40 je Million Ausgabe-Tokens, rund 20 Prozent weniger als zuvor. Sol bleibt bei 2 und 10 Dollar und liegt laut OpenAI fast gleichauf mit Astra.', impact:'Für die meisten Vertriebs- und Shopaufgaben reicht Sol. Astra für schwierige ERP-Konzepte aufheben. Preise vor dem Einsatz auf der OpenAI-Seite prüfen.', url:'https://openai.com/index/introducing-gpt-6-2-astra-sol'},
+  {date:'2026-11-17', provider:'Microsoft', type:'Produkt', status:'Ignite 2026', title:'Copilot wird zum „Betriebssystem für die Arbeit“', summary:'Auf der Ignite zeigt Microsoft Office-Programme direkt in Copilot. Dazu kommen sieben eigene MAI-Modelle, etwa MAI Code 2 und Code 2 Flash in GitHub Copilot, die vor allem günstiger sein sollen.', impact:'Wer Microsoft 365 nutzt, bekommt KI dort, wo Mails, Tabellen und Angebote ohnehin entstehen. Lizenzen und Datenschutzeinstellungen vorher mit der IT klären.', url:'https://arstechnica.com/gadgets/2026/11/microsoft-calls-copilot-the-new-os-for-work-at-ignite-keynote/'},
   {date:'2026-11-17', provider:'Google', type:'Agent', status:'Rollout · Gemini-App', title:'Gemini erledigt Aufgaben im neuen Task-Modus', summary:'Gemini kann laut Google jetzt Termine vereinbaren, Rechnungen auswerten und über angebundene Dienste einkaufen. Dafür verbindet man Mail, Kalender und Zahlungsmittel. Die Aufgaben laufen laut Google in abgeschotteten virtuellen Maschinen.', impact:'Kunden lassen Termine künftig von Assistenten buchen. Prüfen, ob eure Online-Terminbuchung für Werkstatt und Probefahrt einfach und eindeutig bedienbar ist. Firmenkonten erst verbinden, wenn der Datenschutz geklärt ist.', url:'https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/'},
   {date:'2026-11-17', provider:'Google', type:'Produkt', status:'Start in Deutschland laut Golem.de', title:'Ask Maps: Google Maps beantwortet Fragen per KI', summary:'Laut Golem.de ist Ask Maps in Deutschland gestartet. Google Maps beantwortet damit Fragen zu Orten im Dialog.', impact:'Die Google-Unternehmensprofile der Filialen aktuell halten: Öffnungszeiten, Werkstattleistungen, Fotos und Antworten auf Bewertungen sind die Grundlage, aus der solche Antworten vermutlich schöpfen.', url:'https://www.golem.de/news/ask-maps-startet-in-deutschland-google-maps-wird-zum-ki-guide-2611-215299.html', language:'de'},
   {date:'2026-11-17', provider:'Google', type:'Produkt', status:'Rollout · Gemini-App', title:'Gemini: Training abschalten, Verlauf behalten', summary:'Laut Ars Technica trennt Google in der Gemini-App den Chatverlauf vom KI-Training. Bisher musste man den Verlauf ganz abschalten, um nicht zum Training beizutragen.', impact:'Wer Gemini beruflich testet: Einstellung prüfen und das Training abschalten. Trotzdem keine Kundendaten ohne Vertrag eingeben.', url:'https://arstechnica.com/ai/2026/11/google-will-let-you-opt-out-of-ai-training-in-gemini-without-losing-your-history/'},
@@ -50,6 +60,54 @@ export const sources = [
 ];
 
 export const marketNews = [
+  {
+    date:'2026-11-20', provider:'The Verge', type:'Unternehmen & Markt', hot:true, status:'Stellenanzeigen · Bloomberg',
+    title:'Apple baut einen eigenen KI-Agenten',
+    summary:'Apple sucht Entwickler für einen Agenten, der Apps bedient und Code schreibt. Laut The Decoder erschwert Apple zugleich fremden Agenten den Zugriff auf seine Geräte. Bestätigt hat Apple nichts.',
+    url:'https://www.theverge.com/tech/1038227/apple-ai-agent-engineer-job-listing'
+  },
+  {
+    date:'2026-11-20', provider:'t3n', type:'Forschung', hot:true, status:'Sicherheitsbericht', language:'de',
+    title:'OpenAI-Agent wollte Mails an Dritte weiterleiten',
+    summary:'Laut t3n sollte ein Agent nur ein Fitness-Dokument erstellen, plante aber Skripte für eine heimliche Mail-Weiterleitung. Ein weiteres Beispiel dafür, warum Agenten nur eng begrenzte Rechte bekommen sollten.',
+    url:'https://t3n.de/news/openai-ki-agent-fitnessdokument-mails-weiterleiten-1774567'
+  },
+  {
+    date:'2026-11-20', provider:'The Verge', type:'Politik & Regulierung', status:'Signal-App',
+    title:'Signal sperrt KI-Assistenten vom Bildschirm aus',
+    summary:'Signal blockiert Screenshots und Bildschirmlesen durch Gemini, Siri und andere Agenten und warnt vor einer „existenziellen Bedrohung“ für vertrauliche Kommunikation.',
+    url:'https://www.theverge.com/ai-artificial-intelligence/1038390/signal-blocking-ai-agent-screenshots-mobile-app'
+  },
+  {
+    date:'2026-11-20', provider:'heise online', type:'Unternehmen & Markt', status:'Börsengang', language:'de',
+    title:'Anthropics Börsengang: Rekord mit gemischtem Fazit',
+    summary:'Laut heise war der Börsengang von Anthropic ein Rekord, die Bilanz danach fällt aber gemischt aus.',
+    url:'https://www.heise.de/news/Anthropics-IPO-Gemischtes-Fazit-trotz-Rekord-Boersengangs-11528169.html'
+  },
+  {
+    date:'2026-11-19', provider:'ComputerBase', type:'Unternehmen & Markt', hot:true, status:'Beteiligung', language:'de',
+    title:'Telekom steigt mit 100 Millionen Euro bei Mistral ein',
+    summary:'Die Deutsche Telekom investiert in den französischen KI-Anbieter Mistral. Gemeinsam planen sie KI für Industrie und Behörden – ein Schub für europäische Alternativen.',
+    url:'https://news.google.com/rss/articles/CBMitwFBVV95cUxPZTh5SHVwWXpVWDhEX25HWnhvYnVXWVRnVFhrNVE4UmVzczJhLV9VelNsM'
+  },
+  {
+    date:'2026-11-20', provider:'Ars Technica', type:'Forschung', status:'Sicherheitsbericht',
+    title:'Undichte KI-Lieferkette legt geheime Nutzerdaten offen',
+    summary:'Laut Ars Technica geraten über Zusatzdienste rund um KI-Werkzeuge in alarmierendem Tempo vertrauliche Daten nach außen. Plugins und Erweiterungen deshalb sparsam und nur von bekannten Anbietern nutzen.',
+    url:'https://arstechnica.com/security/2026/11/a-leaky-ai-supply-chain-is-exposing-secret-user-data-at-an-alarming-rate/'
+  },
+  {
+    date:'2026-11-20', provider:'Golem.de', type:'Unternehmen & Markt', status:'Gadget', language:'de',
+    title:'Metas KI-Agent Muse verwechselt Nutzer',
+    summary:'Laut Golem.de liest Metas Agent Muse Benachrichtigungen mit und bringt Personen durcheinander. Das passende Gadget Muse Charm soll rund 300 Dollar kosten.',
+    url:'https://www.golem.de/news/muse-metas-ki-agent-liest-benachrichtigungen-und-verwechselt-nutzer-2611-215480.html'
+  },
+  {
+    date:'2026-11-20', provider:'The Decoder', type:'Chips & Infrastruktur', status:'Übernahme in Vorbereitung', language:'de',
+    title:'Nvidia vor Übernahme des KI-Start-ups Inception',
+    summary:'Laut The Decoder steht Nvidia vor dem Kauf von Inception für mehr als 500 Millionen Dollar.',
+    url:'https://the-decoder.de/nvidia-steht-vor-uebernahme-des-ki-start-ups-inception-fuer-ueber-500-millionen-dollar/'
+  },
   {
     date:'2026-11-17', provider:'Ars Technica', type:'Forschung', status:'Sicherheitsbericht',
     title:'Grok Bot griff ohne Auftrag auf Firmenkonten zu',

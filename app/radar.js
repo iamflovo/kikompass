@@ -179,6 +179,7 @@ function setView(next) {
   view = next;
   select('radar-controls').hidden = !['brief','live','saved','market'].includes(view);
   select('radar-type').hidden = view!=='brief';
+  select('radar-hot').hidden = view!=='brief';
   select('radar-market-type').hidden = view!=='market';
   renderProviderOptions();
   document.querySelectorAll('[data-radar-view]').forEach(button=>{
@@ -270,6 +271,146 @@ document.querySelector('[data-market-shortcut]').addEventListener('click',event=
   showPage('radar',true);
   setView('market');
 });
+
+// ===== Kompass: Trend der Woche und heißeste Meldungen =====
+const axes = [
+  {key:'agent', label:'Agenten', angle:0, types:['Agent']},
+  {key:'model', label:'Modelle', angle:90, types:['Modell','Chips & Infrastruktur']},
+  {key:'rules', label:'Sicherheit & Regeln', short:'Regeln', angle:180, types:['Forschung','Politik & Regulierung']},
+  {key:'biz', label:'Produkte & Business', short:'Business', angle:270, types:['Vertrieb','Produkt','Unternehmen & Markt']},
+];
+const axisOf = item => axes.find(axis=>axis.types.includes(item.type)) || axes[3];
+const daysAgo = date => Math.round((new Date(editorialDate) - new Date(date)) / 864e5);
+const svgNode = (tag, attrs) => {
+  const node = document.createElementNS('http://www.w3.org/2000/svg',tag);
+  for (const [key,value] of Object.entries(attrs)) node.setAttribute(key,value);
+  return node;
+};
+
+function renderPulse() {
+  const recent = [...releases,...marketNews].filter(item=>daysAgo(item.date) >= 0 && daysAgo(item.date) <= 7);
+  const weights = Object.fromEntries(axes.map(axis=>[axis.key,0]));
+  let x = 0, y = 0;
+  for (const item of recent) {
+    const weight = (item.hot ? 2 : 1) * (1 - daysAgo(item.date) / 10);
+    const axis = axisOf(item);
+    weights[axis.key] += weight;
+    const rad = axis.angle * Math.PI / 180;
+    x += Math.sin(rad) * weight; y += Math.cos(rad) * weight;
+  }
+  const angle = (Math.atan2(x, y) * 180 / Math.PI + 360) % 360;
+  const leader = axes.reduce((best,axis)=>weights[axis.key] > weights[best.key] ? axis : best, axes[0]);
+  const total = Object.values(weights).reduce((a,b)=>a+b,0) || 1;
+
+  const dial = select('pulse-dial');
+  for (let i = 0; i < 72; i++) {
+    const major = i % 18 === 0, mid = i % 6 === 0;
+    const rad = i * 5 * Math.PI / 180, r1 = major ? 80 : mid ? 84 : 87, r2 = 91;
+    dial.append(svgNode('line',{x1:100+Math.sin(rad)*r1, y1:100-Math.cos(rad)*r1, x2:100+Math.sin(rad)*r2, y2:100-Math.cos(rad)*r2, class: major ? 'tick major' : mid ? 'tick mid' : 'tick'}));
+  }
+  for (const r of [30,52,74]) dial.append(svgNode('circle',{cx:100, cy:100, r, class:'ring'}));
+  for (const axis of axes) {
+    const rad = axis.angle * Math.PI / 180;
+    const label = svgNode('text',{x:100+Math.sin(rad)*68, y:100-Math.cos(rad)*68+3, class: axis===leader ? 'axis lead' : 'axis'});
+    label.textContent = axis.short || axis.label;
+    dial.append(label);
+  }
+  // Jede Meldung als Punkt: Richtung = Thema, Abstand zur Mitte = Alter.
+  recent.forEach((item,index)=>{
+    const axis = axisOf(item);
+    const spread = ((index * 37) % 50) - 25;
+    const rad = (axis.angle + spread) * Math.PI / 180;
+    const r = 22 + daysAgo(item.date) * 7.5;
+    const dot = svgNode('circle',{cx:100+Math.sin(rad)*r, cy:100-Math.cos(rad)*r, r: item.hot ? 3.2 : 2, class: item.hot ? 'blip hot' : 'blip'});
+    dot.style.animationDelay = (index * .13 % 2.4) + 's';
+    dial.append(dot);
+  });
+
+  const needle = select('pulse-needle');
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{ needle.style.transform = `rotate(${angle}deg)`; }));
+  select('pulse-stand').textContent = 'Kompass · Stand ' + formatDate(editorialDate);
+  const heading = select('pulse-heading');
+  heading.textContent = 'Die Nadel zeigt diese Woche auf ';
+  heading.append(element('em',leader.label));
+  const hot = recent.filter(item=>item.hot).length;
+  select('pulse-meta').textContent = `${recent.length} Meldungen in 7 Tagen, ${hot} davon heiß. Je näher ein Punkt an der Mitte, desto frischer.`;
+  const bars = select('pulse-bars');
+  for (const axis of axes) {
+    const share = Math.round(weights[axis.key] / total * 100);
+    const row = element('div',null,'pulse-bar' + (axis===leader ? ' lead' : ''));
+    const track = element('span',null,'pulse-track');
+    const fill = element('i');
+    fill.style.setProperty('--w', share + '%');
+    track.append(fill);
+    row.append(element('span',axis.short || axis.label,'pulse-bar-label'),track,element('b',share + ' %'));
+    bars.append(row);
+  }
+}
+
+const typeTone = {Agent:'violet', Modell:'indigo', Vertrieb:'green', Produkt:'amber', Forschung:'teal', 'Politik & Regulierung':'slate', 'Unternehmen & Markt':'rose', 'Chips & Infrastruktur':'orange'};
+
+function renderHotDeck() {
+  const items = [...releases,...marketNews].filter(item=>item.hot).sort((a,b)=>b.date.localeCompare(a.date)).slice(0,10);
+  const deck = select('hotdeck'), dots = select('hot-dots');
+  items.forEach((item,index)=>{
+    const card = element('button',null,'hot-card tone-' + (typeTone[item.type] || 'rose'));
+    card.type = 'button';
+    card.setAttribute('role','listitem');
+    const top = element('div',null,'hot-top');
+    top.append(element('span',String(index+1).padStart(2,'0'),'hot-num'));
+    if (daysAgo(item.date) <= 1) top.append(element('span','Neu','hot-new'));
+    top.append(element('span',item.type,'hot-type'));
+    const flames = element('span',null,'hot-heat');
+    const heat = Math.max(1, 3 - Math.floor(daysAgo(item.date) / 2));
+    flames.setAttribute('aria-label',`Hitze ${heat} von 3`);
+    for (let i = 0; i < 3; i++) flames.append(element('i',null,i < heat ? 'on' : ''));
+    const body = element('div',null,'hot-body');
+    body.append(element('span',item.provider + ' · ' + formatDate(item.date),'hot-meta'),element('h4',item.title),element('p',item.impact || item.summary));
+    const foot = element('div',null,'hot-foot');
+    foot.append(flames,element('span','Details','hot-more'));
+    card.append(top,body,foot);
+    card.addEventListener('click',()=>openHot(item));
+    deck.append(card);
+    dots.append(element('i'));
+  });
+  const update = () => {
+    const cards = [...deck.children];
+    const center = deck.scrollLeft + deck.clientWidth / 2;
+    let active = 0, best = Infinity;
+    cards.forEach((card,index)=>{ const d = Math.abs(card.offsetLeft - deck.offsetLeft + card.offsetWidth / 2 - center); if (d < best) { best = d; active = index; } });
+    [...dots.children].forEach((dot,index)=>dot.classList.toggle('on',index===active));
+    select('hot-hint').textContent = `${active+1} / ${cards.length}`;
+  };
+  deck.addEventListener('scroll',()=>requestAnimationFrame(update),{passive:true});
+  update();
+}
+
+function openHot(item) {
+  const dialog = select('hot-dialog'), body = select('hot-dialog-body');
+  body.replaceChildren();
+  const head = element('div',null,'begriff-dialog-head');
+  const titleBox = element('div');
+  titleBox.append(element('span',item.provider + ' · ' + formatDate(item.date) + (item.type ? ' · ' + item.type : ''),'hot-dialog-meta'),element('h3',item.title));
+  if (item.status) titleBox.append(element('p',item.status,'begriff-alias'));
+  const close = element('button','✕','begriff-close');
+  close.type = 'button';
+  close.setAttribute('aria-label','Schließen');
+  close.addEventListener('click',()=>dialog.close());
+  head.append(titleBox,close);
+  body.append(head,element('p',item.summary,'begriff-lead'));
+  if (item.impact) {
+    const block = element('section',null,'hot-impact');
+    block.append(element('h4','Was heißt das für dich?'),element('p',item.impact));
+    body.append(block);
+  }
+  const actions = sourceActions(item.url, item.url, item.language==='de');
+  actions.classList.add('hot-actions');
+  body.append(actions);
+  dialog.showModal();
+}
+
+renderPulse();
+renderHotDeck();
 restorePage();
 
 // Detail-Blätter am Handy nach unten wischen, um sie zu schließen.
