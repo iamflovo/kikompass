@@ -1,4 +1,4 @@
-import {editorialDate, releases, sources, marketNews, marketSources, germanSource} from './radar-data.js';
+import {editorialDate, releases, sources, marketNews, marketSources, germanSource, praxisFor, allPraxisAreas} from './radar-data.js';
 
 const select = id => document.getElementById(id);
 const element = (tag,text,cls) => {
@@ -53,19 +53,50 @@ document.querySelectorAll('#radar [data-radar-panel="grok"] a, #radar [data-rada
   anchor.replaceWith(actions);
 });
 
+async function copyText(text, button) {
+  const done = label => { const old = button.dataset.label || button.textContent; button.dataset.label = old; button.textContent = label; setTimeout(()=>{ button.textContent = old; },1600); };
+  try { await navigator.clipboard.writeText(text); done('Kopiert ✓'); }
+  catch {
+    const area = element('textarea');
+    area.value = text; area.setAttribute('readonly',''); area.style.position = 'fixed'; area.style.opacity = '0';
+    document.body.append(area); area.select();
+    let ok = false; try { ok = document.execCommand('copy'); } catch {}
+    area.remove();
+    done(ok ? 'Kopiert ✓' : 'Bitte markieren und kopieren');
+  }
+}
+
+// Für jede Meldung: Einordnung, Ablauf in drei Schritten und ein fertiger Prompt.
+function praxisBlock(item) {
+  const area = praxisFor(item);
+  const box = element('details',null,'radar-check praxis');
+  const summary = element('summary');
+  summary.append(element('span','Für den Betrieb','praxis-label'),element('span','Ablauf & Prompt','praxis-area'));
+  box.append(summary);
+  if (item.impact) box.append(element('p',item.impact,'radar-impact'));
+  const steps = element('ol',null,'praxis-steps');
+  for (const step of area.steps) steps.append(element('li',step));
+  box.append(element('h4','Ablauf','praxis-head'),steps,element('h4','Prompt zum Kopieren','praxis-head'));
+  const prompt = element('pre',area.prompt,'praxis-prompt');
+  const copy = element('button','Prompt kopieren','button praxis-copy');
+  copy.type = 'button';
+  copy.addEventListener('click',()=>copyText(area.prompt,copy));
+  box.append(prompt,copy);
+  return box;
+}
+
 function newsCard(item) {
   const node = element('article',null,'card');
   const meta = element('div',null,'radar-meta');
   meta.append(element('span',item.provider,'badge'),element('span',formatDate(item.date),'radar-date'));
   if (item.type) meta.append(element('span',item.type,'badge'));
+  const area = praxisFor(item);
+  node.classList.add('tone-'+area.tone);
+  meta.append(element('span',area.label,'area-chip'));
   node.append(meta,element('h3',item.title));
   if (item.status) node.append(element('p',item.status,'radar-date'));
   if (item.summary) node.append(element('p',item.summary));
-  if (item.impact) {
-    const check = element('details',null,'radar-check');
-    check.append(element('summary','Praxis-Check für den Betrieb'),element('p',item.impact,'radar-impact'));
-    node.append(check);
-  }
+  node.append(praxisBlock(item));
   if (item.source) node.append(element('p',item.source,'radar-date'));
   const footer = element('div',null,'card-actions');
   if (safeUrl(item.url)) footer.append(sourceActions(item.url,item.originalUrl,item.language==='de'));
@@ -112,6 +143,31 @@ function render() {
   if (view==='live') renderCards('radar-live-news',(liveFeeds.live?.items||[]).filter(match),liveFeeds.live ? 'Keine passenden Live-Meldungen. Die Quellen findest du unten.' : '');
   if (view==='brief') renderCards('radar-news',refined([...releases].sort((a,b)=>b.date.localeCompare(a.date))),'Keine passenden Meldungen.');
   if (view==='saved') renderCards('radar-saved',[...saved.values()].filter(match),'Keine passenden Meldungen in deiner Merkliste.');
+  if (view==='betrieb') renderBetrieb(match);
+  renderHero();
+}
+
+let betriebArea = '';
+function betriebItems() {
+  const seen = new Set();
+  return [...releases,...marketNews,...(liveFeeds.live?.items||[]),...(liveFeeds.market?.items||[])]
+    .filter(item=>{ const key = (item.url||item.title).split('?')[0]; if (seen.has(key)) return false; seen.add(key); return daysAgo(item.date) <= 21 && daysAgo(item.date) >= -1; })
+    .sort((a,b)=>b.date.localeCompare(a.date));
+}
+function renderBetrieb(match) {
+  const items = betriebItems().filter(match);
+  const counts = {};
+  for (const item of items) { const key = praxisFor(item).key; counts[key] = (counts[key]||0) + 1; }
+  const bar = select('betrieb-areas');
+  const chip = (key,label,count,tone) => {
+    const button = element('button',null,'chip area-filter'+(tone ? ' tone-'+tone : '')+(betriebArea===key ? ' on' : ''));
+    button.type = 'button';
+    button.append(element('span',label),element('b',String(count)));
+    button.addEventListener('click',()=>{ betriebArea = betriebArea===key ? '' : key; render(); });
+    return button;
+  };
+  bar.replaceChildren(chip('', 'Alle', items.length), ...allPraxisAreas.filter(area=>counts[area.key]).map(area=>chip(area.key,area.label,counts[area.key],area.tone)));
+  renderCards('radar-betrieb',items.filter(item=>!betriebArea || praxisFor(item).key===betriebArea).slice(0,60),'Keine passenden Meldungen.');
 }
 
 async function refresh(scope,force) {
@@ -177,7 +233,7 @@ function keepVisible(tab) {
 
 function setView(next) {
   view = next;
-  select('radar-controls').hidden = !['brief','live','saved','market'].includes(view);
+  select('radar-controls').hidden = !['brief','live','saved','market','betrieb'].includes(view);
   select('radar-type').hidden = view!=='brief';
   select('radar-hot').hidden = view!=='brief';
   select('radar-market-type').hidden = view!=='market';
@@ -192,6 +248,7 @@ function setView(next) {
   render();
   const panel = feedPanels[view];
   if (panel && !liveFeeds[view] && !select(panel.button).disabled) void refresh(view,false);
+  if (view==='betrieb') for (const scope of ['live','market']) if (!liveFeeds[scope] && !select(feedPanels[scope].button).disabled) void refresh(scope,false);
 }
 
 select('radar-editorial-date').textContent = 'Redaktioneller Stand: '+formatDate(editorialDate);
@@ -236,6 +293,7 @@ function showPage(page, scroll = false) {
     else tab.removeAttribute('aria-current');
   }
   for (const section of sections) section.classList.toggle('active',section.id===page);
+  document.body.dataset.zone = group;
   if (scroll && window.scrollY > document.querySelector('.kompass-header').offsetHeight) {
     window.scrollTo({top:document.querySelector('.kompass-header').offsetHeight,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'});
   }
@@ -411,6 +469,70 @@ function openHot(item) {
 
 renderPulse();
 renderHotDeck();
+
+// ===== Eigene Bühne für jeden Radar-Tab =====
+const toneOf = {betrieb:'amber', market:'cyan', live:'green', sales:'emerald', grok:'ice', saved:'gold'};
+function heroStat(value,label) {
+  const box = element('div',null,'hero-stat');
+  box.append(element('b',String(value)),element('span',label));
+  return box;
+}
+function feedState(scope) {
+  const data = liveFeeds[scope];
+  return data ? `${data.statuses.filter(item=>item.ok).length}/${data.statuses.length}` : '…';
+}
+function renderHero() {
+  const hero = select('radar-hero');
+  if (!toneOf[view]) { hero.hidden = true; return; }
+  hero.hidden = false;
+  hero.className = 'view-hero tone-' + toneOf[view];
+  const live = liveFeeds.live?.items || [], press = liveFeeds.market?.items || [];
+  const config = {
+    betrieb:{kicker:'Praxis-Feed', title:'Für den Betrieb', text:'Alle Meldungen der letzten drei Wochen nach Arbeitsbereich – jede mit Ablauf und fertigem Prompt für Vertrieb, Shop, Werkstatt und ERP.',
+      stats:[[betriebItems().length,'Meldungen'],[new Set(betriebItems().map(item=>praxisFor(item).key)).size,'Bereiche'],[[...releases,...marketNews].filter(item=>item.hot).length,'heiß']]},
+    market:{kicker:'Marktticker', title:'KI-Markt & News', text:'Was Presse und Branche bewegt: von heise und t3n bis The Verge, dazu Handel, Marketing und Fahrradbranche.',
+      stats:[[marketNews.length,'eingeordnet'],[press.length || '…','aus der Presse'],[feedState('market'),'Quellen online']], ticker:(press.length ? press : marketNews).slice(0,14)},
+    live:{kicker:'Direkt von den Herstellern', title:'Live-Quellen', text:'Changelogs und Blogs von OpenAI, Anthropic, Google, GitHub, Hugging Face und mehr – ungefiltert und im Original.',
+      stats:[[live.length || '…','Meldungen'],[feedState('live'),'Feeds online'],[live.filter(item=>daysAgo(item.date)<=1).length,'seit gestern']], lights:liveFeeds.live?.statuses},
+    sales:{kicker:'Vertrieb', title:'KI im Vertrieb', text:'Was Vertriebsteams heute schon mit KI machen – und was du davon im Fahrradhandel direkt testen kannst.',
+      stats:[[[...releases,...marketNews].filter(item=>praxisFor(item).key==='vertrieb').length,'Vertriebsmeldungen'],[3,'Testfelder']]},
+    grok:{kicker:'Einordnung', title:'Grok verstehen', text:'Modell, Chat, Agent, Entwicklung: was hinter den Namen von xAI steckt und wofür du was nimmst.', stats:[[4,'Bausteine']]},
+    saved:{kicker:'Deine Sammlung', title:'Merkliste', text:'Gemerkte Meldungen bleiben auf diesem Gerät – samt Ablauf und Prompt.', stats:[[saved.size,'gemerkt']]},
+  }[view];
+  const copy = element('div',null,'hero-copy');
+  copy.append(element('span',config.kicker,'hero-kicker'),element('h3',config.title),element('p',config.text));
+  const stats = element('div',null,'hero-stats');
+  for (const [value,label] of config.stats) stats.append(heroStat(value,label));
+  hero.replaceChildren(element('div',null,'hero-glow'),copy,stats);
+  if (config.lights) {
+    const lights = element('div',null,'hero-lights');
+    for (const state of config.lights) {
+      const dot = element('i',null,state.ok ? 'ok' : 'off');
+      dot.title = (sources.find(source=>source.id===state.id)?.label || state.id) + (state.ok ? ' · erreichbar' : ' · nicht erreichbar');
+      lights.append(dot);
+    }
+    hero.append(lights);
+  }
+  if (config.ticker?.length) {
+    const ticker = element('div',null,'hero-ticker');
+    const track = element('div',null,'hero-track');
+    for (const round of [0,1]) for (const item of config.ticker) {
+      const entry = element('span',null,'hero-tick');
+      if (round) entry.setAttribute('aria-hidden','true');
+      entry.append(element('b',item.provider),document.createTextNode(item.title.replace(/\s+-\s+[^-]+$/,'')));
+      track.append(entry);
+    }
+    ticker.append(track);
+    hero.append(ticker);
+  }
+}
+
+{
+  const feeds = [...sources,...marketSources].filter(source=>source.feed).length;
+  const today = new Intl.DateTimeFormat('de-DE',{weekday:'long', day:'numeric', month:'long', timeZone:'Europe/Berlin'}).format(new Date());
+  select('radar-today').textContent = today;
+  select('radar-sub').textContent = `Täglich aus ${feeds} Quellen – eingeordnet, mit Ablauf und Prompt für den Betrieb.`;
+}
 restorePage();
 
 // Detail-Blätter am Handy nach unten wischen, um sie zu schließen.

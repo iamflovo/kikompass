@@ -1,6 +1,10 @@
-export const editorialDate = '2026-11-20';
+export const editorialDate = '2026-11-23';
 
 export const releases = [
+  {date:'2026-11-23', provider:'Meta', type:'Vertrieb', hot:true, status:'USA · Black Friday', title:'KI-Agent Muse kauft für Kunden bei Walmart ein', summary:'Laut The Verge kann Metas Agent Muse über ein Agenten-Gateway von Walmart Black-Friday-Einkäufe erledigen. Der Kunde sagt, was er will, der Agent sucht, vergleicht und bestellt.', impact:'„Agentic Commerce“ kommt: Künftig vergleicht oft ein Agent statt des Kunden. Für den Shop heißt das: vollständige Produktdaten (Rahmenhöhe, Akku, Motor, Lieferzeit), klare Preise und Verfügbarkeit, damit Agenten euer Angebot richtig lesen.', url:'https://www.theverge.com/ai-artificial-intelligence/1039874/walmart-agent-gateway-meta-muse-black-friday'},
+  {date:'2026-11-22', provider:'Perplexity', type:'Agent', hot:true, status:'Laut The Decoder', title:'Perplexity-Agenten beobachten das Web rund um die Uhr', summary:'Perplexity lässt Agenten dauerhaft Websites und Themen überwachen und meldet Änderungen, statt nur auf einzelne Fragen zu antworten.', impact:'Ideal für Marktbeobachtung: Preise und Aktionen von Wettbewerbern, neue Modelle von Herstellern oder Lieferzeiten im Blick behalten. Nur öffentliche Seiten beobachten lassen.', url:'https://the-decoder.de/perplexity-laesst-ki-agenten-das-web-als-ganzes-rund-um-die-uhr-beobachten/', language:'de'},
+  {date:'2026-11-23', provider:'Z.ai', type:'Modell', status:'Laut The Decoder', title:'GLM-5.4 rechnet doppelt und zielt auf Programmierung', summary:'Z.ai stellt GLM-5.4 vor, das Antworten in einem zweiten Durchgang prüft. Laut OrcaRouter sind die Kosten je erledigter Aufgabe entscheidender als der reine Tokenpreis.', impact:'Für die ERP-Entwicklung ein weiteres günstiges Modell zum Vergleich. Bei chinesischen Anbietern Datenstandort und Vertrag besonders genau prüfen.', url:'https://the-decoder.de/z-ai-laesst-glm-5-4-zweimal-rechnen-und-ruft-generalized-coding-aus/', language:'de'},
+  {date:'2026-11-20', provider:'Marktstudie', type:'Vertrieb', hot:true, status:'Laut CallCenterProfi', title:'Kunden fragen zuerst ihre KI, dann den Service', summary:'Laut einer Studie klären viele Kunden Fragen zuerst mit ihrem eigenen KI-Assistenten und melden sich erst danach beim Kundenservice – oft schon mit einer fertigen Erwartung.', impact:'Für Werkstatt und Verkauf: Kunden kommen vorinformiert, manchmal falsch. FAQ zu Inspektion, Akku-Pflege, Garantie und Leasing so schreiben, dass KI-Assistenten sie korrekt wiedergeben.', url:'https://news.google.com/rss/articles/CBMiyAFBVV95cUxPZ0F2eDhSMWRYVWx0Y29iU0FRYnpodzBXWndDcTVueEZvbWNNRGJKeTAxQjRZbXRiaW53UHBxVU1qOVRELTJSbTJWQ01PdjlESFFpOVdQNUtmenAwdndwNnk2OUF4WUpMMXF4QjZyYlFCNThSUWo3S3Q1bEN2aENWV01WbUlEV05EMFNiQV9ENFgxSlZKcHMwY3hWUVlhSUE5MVllRFlBYUNzRHZzODk2Q0REWDg3U05jRzdqemd0M2c0dl80eFowTQ?oc=5', language:'de'},
   {date:'2026-11-20', provider:'Nous Research', type:'Agent', hot:true, status:'Laut The Decoder · Open Source', title:'Hermes Agent zieht in Microsoft Teams ein', summary:'Laut The Decoder lässt sich der beliebte Open-Source-Agent Hermes jetzt direkt in Microsoft Teams nutzen. Er arbeitet dort in Chats und Kanälen mit.', impact:'Spannend, wenn ihr Teams nutzt: Hermes kann Aufgaben dort annehmen, wo das Team ohnehin schreibt. Erst in einem Testkanal mit fiktiven Daten ausprobieren und Rechte eng setzen.', url:'https://the-decoder.de/hermes-beliebter-open-source-agent-zieht-in-microsoft-teams-ein/', language:'de'},
   {date:'2026-11-19', provider:'Google', type:'Agent', hot:true, status:'Rollout · Gemini-App für Mac', title:'Gemini steuert Programme auf dem Mac', summary:'Die Gemini-App für Mac bekommt Computer Use: Sie bedient Desktop-Programme im Hintergrund und erledigt wiederkehrende Klickarbeit selbstständig.', impact:'Ein Vorgeschmack für Routinearbeit ohne Schnittstelle, etwa Daten aus einem Herstellerportal übertragen. Nur mit Testkonten probieren und nie an Kasse, Bank oder Kundendaten lassen.', url:'https://blog.google/innovation-and-ai/products/gemini-app/computer-use-mac/'},
   {date:'2026-11-19', provider:'Google', type:'Produkt', status:'Weltweit · Desktop', title:'Google-Startseite bekommt KI-Chats', summary:'Laut The Verge und The Decoder zeigt Google auf der Desktop-Startseite eine einklappbare Seitenleiste für KI-Suchen. Gespräche lassen sich dort direkt fortsetzen.', impact:'Noch mehr Suchanfragen enden in einer KI-Antwort statt auf einer Website. Für den Shop zählen klare Produktdaten, FAQ und ein gepflegtes Google-Unternehmensprofil.', url:'https://www.theverge.com/tech/1038059/google-search-homepage-ai-chats'},
@@ -52,6 +56,7 @@ export const sources = [
   {id:'huggingface', provider:'Hugging Face', label:'Hugging Face Blog · offene Modelle', kind:'rss', feed:'https://huggingface.co/blog/feed.xml', url:'https://huggingface.co/blog'},
   {id:'gn-xai', provider:'xAI', label:'Google News · Berichte zu xAI und Grok', kind:'rss', feed:'https://news.google.com/rss/search?q=xAI+OR+Grok+when:7d&hl=de&gl=DE&ceid=DE:de', url:'https://news.google.com/search?q=xAI+OR+Grok+when:7d&hl=de&gl=DE&ceid=DE:de', language:'de'},
   {id:'gn-models', provider:'Weitere Anbieter', label:'Google News · Mistral, DeepSeek, Qwen, Llama & Co.', kind:'rss', feed:'https://news.google.com/rss/search?q=Mistral+OR+DeepSeek+OR+Qwen+OR+Llama+OR+%22Meta+AI%22+OR+Kimi+KI-Modell+when:7d&hl=de&gl=DE&ceid=DE:de', url:'https://news.google.com/search?q=Mistral+OR+DeepSeek+OR+Qwen+OR+Llama+OR+%22Meta+AI%22+OR+Kimi+KI-Modell+when:7d&hl=de&gl=DE&ceid=DE:de', language:'de'},
+  {id:'gn-bigtech', provider:'Apple, Meta & Microsoft', label:'Google News · Apple Intelligence, Meta AI und Microsoft Copilot', kind:'rss', feed:'https://news.google.com/rss/search?q=%22Apple+Intelligence%22+OR+%22Meta+AI%22+OR+%22Microsoft+Copilot%22+when:7d&hl=de&gl=DE&ceid=DE:de', url:'https://news.google.com/search?q=%22Apple%20Intelligence%22%20OR%20%22Meta%20AI%22&hl=de&gl=DE&ceid=DE:de', language:'de'},
   {id:'claude-app', provider:'Anthropic', label:'Claude Apps · Versionshinweise', url:'https://support.claude.com/en/articles/12138966-release-notes'},
   {id:'grok-api', provider:'xAI', label:'Grok API · Versionshinweise', url:'https://docs.x.ai/developers/release-notes'},
   {id:'microsoft', provider:'Microsoft', label:'Dynamics 365 · Vertriebsupdates', url:'https://learn.microsoft.com/en-us/dynamics365/release-plan/'},
@@ -60,6 +65,42 @@ export const sources = [
 ];
 
 export const marketNews = [
+  {
+    date:'2026-11-22', provider:'WirtschaftsWoche', type:'Unternehmen & Markt', hot:true, status:'Analyse', language:'de',
+    title:'Agentic Commerce könnte neue Monopole schaffen',
+    summary:'Laut WirtschaftsWoche entscheiden KI-Agenten zunehmend, welche Shops ein Kunde überhaupt sieht. Wer dort nicht vorkommt, verliert Sichtbarkeit – ähnlich wie früher bei der Google-Suche.',
+    url:'https://news.google.com/rss/articles/CBMitwFBVV95cUxNbEdQNzVuQUttSGRsUmdSMW1NMDc5OXlmdE5BNWpRWjYwTWRiS2ZXME56OHcyMDVGUVo2dmZZcXNmNFh0MGx0WTJlcEhLaUFkcGExdkFLNEZWeHJ5ZnhjbEJzcmFMVk1xNjFIUEVjVHpUVnlUcU5IUnFGRkZiOHpMMmh1UVVmMjlJMV9VdFFLRHRiZVZKQmxRakdGR2d3Y0wwN1ViODBDejY4LXZFT0dZVnVneTlJQnM?oc=5'
+  },
+  {
+    date:'2026-11-17', provider:'etailment', type:'Unternehmen & Markt', status:'Ratgeber', language:'de',
+    title:'Wie Händler in ChatGPT & Co. sichtbar bleiben',
+    summary:'KI-Assistenten werden zum Einkaufsberater. Der Beitrag zeigt, worauf Händler achten sollten, damit ihre Produkte in KI-Antworten auftauchen.',
+    url:'https://news.google.com/rss/articles/CBMitAFBVV95cUxQdGpjcy1xUDcxb21XTjVzUGV1RDJuU2p2aERnU2JKcVlFc1ZtZE1jZ0hIalkxR185NGNHZ3dsOWdwcFp1VkotSGYwZGNVSThpNEZGUHhMQ1N5c0t2MlhqdC14WEJ6UmUxUmF4czNuWGdSR2JoR1pBZ2VUbXFtOHVFYm5PdHY0cENLVnhmVm1ibFFGSnUxTXVGRW5jLWhYNnJ1Ukg0Q2x5YThGamhwUk01MzNOTlk?oc=5'
+  },
+  {
+    date:'2026-11-23', provider:'The Decoder', type:'Forschung', status:'Laut The Decoder', language:'de',
+    title:'GPT-6.2 Astra beweist Mathe-Theorem ohne Hilfe',
+    summary:'Laut The Decoder hat GPT-6.2 Astra ein komplexes mathematisches Theorem vollständig selbstständig bewiesen. Zugleich warnen Forscher, dass sich die Fähigkeiten neuer Modelle kaum noch schnell genug prüfen lassen.',
+    url:'https://the-decoder.de/gpt-6-2-astra-beweist-komplexes-mathe-theorem-vollstaendig-ohne-menschliches-eingreifen/'
+  },
+  {
+    date:'2026-11-22', provider:'The Decoder', type:'Forschung', status:'Sicherheitsbericht', language:'de',
+    title:'Zwei Millionen KI-Anfragen mit gefälschten Zugangsdaten',
+    summary:'Sicherheitsforscher haben KI-Dienste mit gefälschten Zugangsdaten getestet und gravierende Lücken gefunden. Zugänge und API-Schlüssel deshalb nur sparsam vergeben und regelmäßig erneuern.',
+    url:'https://the-decoder.de/sicherheitsforscher-schicken-zwei-millionen-ki-anfragen-mit-gefaelschten-zugangsdaten-und-decken-gravierende-luecken-auf/'
+  },
+  {
+    date:'2026-11-21', provider:'Teltarif', type:'Unternehmen & Markt', status:'Bericht', language:'de',
+    title:'iOS 28: Siri soll als Agent selbst Aufgaben erledigen',
+    summary:'Laut Teltarif soll Siri mit iOS 28 Aufgaben über Apps hinweg selbstständig erledigen. Passend dazu sucht Apple bereits Entwickler für einen eigenen Agenten.',
+    url:'https://news.google.com/rss/articles/CBMilgFBVV95cUxOZDdfdmlhaThtVE1kQk9UVkpXMWY4VzJTeTdDUjlKT3RoYUlJN0V1eTdOM0oxd0dNTWxZOGVtREtjaklXWnJDSVk5MFhkNkJrRG1QSUNiRlJZbkxuWWdUQ1ZReE1WdTRzMFl0cS1YTkxUcjNlRERua3RUWUtORFVjQjJwcVVZM1I1YW1CQ0k4ajk4M1RkUmc?oc=5'
+  },
+  {
+    date:'2026-11-22', provider:'Golem.de', type:'Unternehmen & Markt', status:'Börse', language:'de',
+    title:'KI-Angst an der Wall Street: Tech-Aktien im Bärenmarkt',
+    summary:'Laut Golem.de sind US-Tech-Aktien in einen Bärenmarkt gerutscht. Anleger zweifeln, ob sich die hohen KI-Investitionen auszahlen.',
+    url:'https://www.golem.de/news/ki-angst-an-der-wall-street-us-tech-aktien-rutschen-in-den-baerenmarkt-2611-215510.html'
+  },
   {
     date:'2026-11-20', provider:'The Verge', type:'Unternehmen & Markt', hot:true, status:'Stellenanzeigen · Bloomberg',
     title:'Apple baut einen eigenen KI-Agenten',
@@ -85,10 +126,10 @@ export const marketNews = [
     url:'https://www.heise.de/news/Anthropics-IPO-Gemischtes-Fazit-trotz-Rekord-Boersengangs-11528169.html'
   },
   {
-    date:'2026-11-19', provider:'ComputerBase', type:'Unternehmen & Markt', hot:true, status:'Beteiligung', language:'de',
+    date:'2026-11-19', provider:'t3n', type:'Unternehmen & Markt', hot:true, status:'Beteiligung', language:'de',
     title:'Telekom steigt mit 100 Millionen Euro bei Mistral ein',
     summary:'Die Deutsche Telekom investiert in den französischen KI-Anbieter Mistral. Gemeinsam planen sie KI für Industrie und Behörden – ein Schub für europäische Alternativen.',
-    url:'https://news.google.com/rss/articles/CBMitwFBVV95cUxPZTh5SHVwWXpVWDhEX25HWnhvYnVXWVRnVFhrNVE4UmVzczJhLV9VelNsM'
+    url:'https://t3n.de/news/telekom-mistral-ki-europa-1774412'
   },
   {
     date:'2026-11-20', provider:'Ars Technica', type:'Forschung', status:'Sicherheitsbericht',
@@ -173,6 +214,9 @@ export const marketSources = [
   {id:'heise', provider:'heise online', label:'heise online · Thema Künstliche Intelligenz', kind:'rss', feed:'https://www.heise.de/thema/Kuenstliche-Intelligenz.xml', url:'https://www.heise.de/thema/Kuenstliche-Intelligenz', language:'de'},
   {id:'t3n', provider:'t3n', label:'t3n · Künstliche Intelligenz', kind:'rss', feed:'https://t3n.de/tag/kuenstliche-intelligenz/rss.xml', url:'https://t3n.de/tag/kuenstliche-intelligenz/', language:'de'},
   {id:'gn-ki', provider:'Google News', label:'Google News · neue KI-Modelle, Updates und Agenten', kind:'rss', feed:'https://news.google.com/rss/search?q=%22neues+KI-Modell%22+OR+%22KI-Update%22+OR+%22KI-Agent%22+when:3d&hl=de&gl=DE&ceid=DE:de', url:'https://news.google.com/search?q=%22neues+KI-Modell%22+OR+%22KI-Update%22+OR+%22KI-Agent%22+when:3d&hl=de&gl=DE&ceid=DE:de', language:'de'},
+  {id:'gn-handel', provider:'Handel & E-Commerce', label:'Google News · KI im Handel und Onlineshop', kind:'rss', feed:'https://news.google.com/rss/search?q=KI+(Einzelhandel+OR+Onlinehandel+OR+E-Commerce+OR+Onlineshop+OR+H%C3%A4ndler)+when:7d&hl=de&gl=DE&ceid=DE:de', url:'https://news.google.com/search?q=KI%20Einzelhandel%20E-Commerce&hl=de&gl=DE&ceid=DE:de', language:'de'},
+  {id:'gn-fahrrad', provider:'Fahrradbranche', label:'Google News · Fahrradhandel und Dienstrad', kind:'rss', feed:'https://news.google.com/rss/search?q=Fahrradhandel+OR+Fahrradbranche+OR+Fahrradh%C3%A4ndler+OR+%22Dienstrad-Leasing%22+when:30d&hl=de&gl=DE&ceid=DE:de', url:'https://news.google.com/search?q=Fahrradhandel&hl=de&gl=DE&ceid=DE:de', language:'de'},
+  {id:'gn-marketing', provider:'Marketing & Vertrieb', label:'Google News · KI in Marketing, Vertrieb und CRM', kind:'rss', feed:'https://news.google.com/rss/search?q=KI+(Vertrieb+OR+Marketing+OR+CRM+OR+Kundenservice)+when:7d&hl=de&gl=DE&ceid=DE:de', url:'https://news.google.com/search?q=KI%20Vertrieb%20Marketing&hl=de&gl=DE&ceid=DE:de', language:'de'},
   {id:'verge', provider:'The Verge', label:'The Verge · KI', kind:'rss', feed:'https://www.theverge.com/rss/ai-artificial-intelligence/index.xml', url:'https://www.theverge.com/ai-artificial-intelligence'},
   {id:'ars', provider:'Ars Technica', label:'Ars Technica · KI', kind:'rss', feed:'https://arstechnica.com/ai/feed/', url:'https://arstechnica.com/ai/'},
   {id:'mittr', provider:'MIT Technology Review', label:'MIT Technology Review · KI', kind:'rss', feed:'https://www.technologyreview.com/topic/artificial-intelligence/feed', url:'https://www.technologyreview.com/topic/artificial-intelligence/'},
@@ -196,3 +240,53 @@ export function germanSource(value) {
   translator.search = new URLSearchParams({hl:'de',sl:'auto',tl:'de',u:url.href}).toString();
   return {url:translator.href, kind:'machine'};
 }
+
+// Ordnet jede Meldung einem Arbeitsbereich im Fahrradhandel zu und liefert Prompt und Ablauf.
+// Bewusst regelbasiert: läuft ohne Server, ohne Schlüssel und ohne Kundendaten.
+export const praxisAreas = [
+  {key:'vertrieb', label:'Vertrieb & Dienstrad', tone:'green',
+    match:/vertrieb|sales|lead|crm|angebot|b2b|hubspot|salesforce|kundenservice|kunden fragen|nachfass|follow|dienstrad|jobrad|leasing|deal/i,
+    steps:['Meldung lesen und den Nutzen für Firmenkunden in einem Satz notieren','Mit einer fiktiven Firmenanfrage oder einem anonymisierten Fall testen','Ergebnis im Team teilen: übernehmen, beobachten oder verwerfen'],
+    prompt:t=>`Du bist Vertriebscoach in einem Fahrrad- und E-Bike-Fachhandel mit Werkstatt und Onlineshop.\nNeuigkeit: „${t}“\n\n1. Erkläre in drei Sätzen, was das für unseren Vertrieb an Privat- und Firmenkunden (Dienstrad-Leasing) bedeutet.\n2. Nenne zwei Tests, die ich diese Woche mit fiktiven Daten machen kann.\n3. Schreibe eine kurze Vorlage (Mail oder Gesprächsleitfaden), die davon profitiert.\nVerwende keine echten Kundendaten und kennzeichne Annahmen.`},
+  {key:'shop', label:'Shop & Sichtbarkeit', tone:'cyan',
+    match:/shop|commerce|onlinehandel|einzelhandel|händler|haendler|search|suche|seo|maps|checkout|wallet|black friday|einkauf|shopping|produktdaten|sichtbar|startseite|homepage|wettbewerb|preise|beobacht|das web/i,
+    steps:['Prüfen, wo Kunden euch künftig über KI finden (Suche, Maps, Assistenten)','Drei Top-Produkte auswählen und deren Daten auf Lücken prüfen lassen','Lücken schließen und in zwei Wochen erneut in einem KI-Assistenten testen'],
+    prompt:t=>`Du bist E-Commerce-Berater für einen Fahrrad- und E-Bike-Fachhändler.\nNeuigkeit: „${t}“\n\n1. Was ändert sich dadurch für die Sichtbarkeit unseres Onlineshops und unseres Google-Unternehmensprofils?\n2. Erstelle eine Checkliste mit den Produktangaben, die KI-Assistenten für E-Bikes brauchen (z. B. Motor, Akku, Rahmenhöhe, Gewicht, Lieferzeit).\n3. Schlage drei Maßnahmen vor, sortiert nach Aufwand.\nArbeite nur mit öffentlichen Informationen.`},
+  {key:'sicherheit', label:'Datenschutz & Sicherheit', tone:'rose',
+    match:/sicherheit|security|datenschutz|privacy|leak|angriff|attack|malware|klage|sues|lawsuit|regul|gesetz|ai act|zugangsdaten|unapproved|ohne auftrag|weiterleit|sperr|block|training abschalten|opt out/i,
+    steps:['Prüfen, ob wir das betroffene Werkzeug oder einen ähnlichen Dienst nutzen','Rechte und verbundene Konten (Mail, Kalender, Shop) kontrollieren','Kurze Regel fürs Team festhalten und teilen'],
+    prompt:t=>`Du bist Datenschutz- und IT-Sicherheitsberater für einen kleinen Fahrrad-Fachhandel.\nNeuigkeit: „${t}“\n\n1. Erkläre verständlich, welches Risiko dahintersteckt.\n2. Erstelle eine Checkliste mit fünf Punkten, die wir bei unseren KI-Werkzeugen und verbundenen Konten prüfen sollten.\n3. Formuliere eine kurze Teamregel (maximal drei Sätze).`},
+  {key:'werkstatt', label:'Service & Werkstatt', tone:'amber',
+    match:/termin|kalender|calendar|meeting|werkstatt|service|reparatur|inspektion|task|chores|erledig/i,
+    steps:['Einen wiederkehrenden Ablauf wählen (z. B. Terminbestätigung oder Rückfrage zur Inspektion)','Ablauf mit Testdaten nachstellen und Zeit messen','Nur übernehmen, wenn ein Mensch vor dem Versand prüft'],
+    prompt:t=>`Du hilfst einem Fahrrad-Fachhändler, seine Werkstatt besser zu organisieren.\nNeuigkeit: „${t}“\n\n1. Welche Abläufe in Werkstatt und Service (Terminvergabe, Rückfragen, Abholinfo, Inspektionserinnerung) könnten davon profitieren?\n2. Beschreibe einen konkreten Testablauf in fünf Schritten mit fiktiven Kundendaten.\n3. Nenne die Risiken und wo ein Mensch zwingend freigeben muss.`},
+  {key:'marketing', label:'Marketing & Content', tone:'violet',
+    match:/bild|image|video|foto|text|content|social|instagram|kampagne|marketing|werbung|stimme|voice|music|musik|genie|kreativ|wasserzeichen|watermark/i,
+    steps:['Einen anstehenden Anlass wählen (Saisonstart, Aktion, neues Modell)','Mit dem Werkzeug drei Varianten erstellen und intern bewerten','Die beste Variante selbst überarbeiten, dann veröffentlichen'],
+    prompt:t=>`Du bist Marketing-Assistent für einen Fahrrad- und E-Bike-Fachhändler mit Werkstatt.\nNeuigkeit: „${t}“\n\n1. Wie können wir das für Social Media, Newsletter oder Produktseiten nutzen?\n2. Entwirf drei Content-Ideen für die nächsten vier Wochen (Format, Botschaft, Call to Action).\n3. Woran erkennen wir, dass KI-Inhalte zu austauschbar wirken?`},
+  {key:'erp', label:'ERP & Entwicklung', tone:'indigo',
+    match:/code|coding|codex|api|copilot|github|entwickl|developer|sdk|programm|claude code|harness|tool retrieval|managed agents|llama|open-weight|offene modelle|werkzeuge|computer use|programme|portale/i,
+    steps:['Eine kleine, klar abgegrenzte Aufgabe aus dem eigenen ERP wählen','Dieselbe Aufgabe mit dem neuen und dem bisherigen Werkzeug lösen','Qualität, Kosten und Zeit gegenüberstellen und dokumentieren'],
+    prompt:t=>`Du bist technischer Berater für ein selbst entwickeltes ERP eines Fahrradhändlers (Lager, Werkstatt, Shop-Anbindung).\nNeuigkeit: „${t}“\n\n1. Ist das für unsere Entwicklung relevant? Antworte mit Ja, Später oder Nein und begründe kurz.\n2. Wenn Ja: Schlage eine Vergleichsaufgabe vor, mit der ich es in unter einer Stunde teste.\n3. Worauf muss ich bei Datenschutz, Kosten und Abhängigkeit vom Anbieter achten?`}
+];
+const fallback = {key:'alltag', label:'Arbeitsalltag', tone:'slate',
+  steps:['Meldung lesen und einschätzen: betrifft uns das in den nächsten drei Monaten?','Wenn ja: eine Person benennen, die es mit Testdaten ausprobiert','Ergebnis in der nächsten Teamrunde kurz vorstellen'],
+  prompt:t=>`Ich arbeite im Vertrieb, E-Commerce und ERP eines Fahrrad- und E-Bike-Fachhändlers.\nNeuigkeit: „${t}“\n\nFasse in drei Sätzen zusammen, was das ist. Sag mir dann ehrlich, ob es für einen Fachhändler mit Werkstatt und Onlineshop relevant ist, und wenn ja, womit ich anfangen sollte.`};
+
+const typeHint = {Vertrieb:'vertrieb', Modell:'erp', 'Politik & Regulierung':'sicherheit'};
+const hits = (pattern,text) => (text.match(new RegExp(pattern.source,'gi')) || []).length;
+
+export function praxisFor(item) {
+  const title = item.title || '', body = [item.summary,item.status].filter(Boolean).join(' ');
+  let found = praxisAreas.find(area=>area.key===typeHint[item.type]);
+  if (!found) {
+    let best = 0;
+    for (const area of praxisAreas) {
+      const score = hits(area.match,title) * 3 + hits(area.match,body);
+      if (score > best) { best = score; found = area; }
+    }
+  }
+  found ||= fallback;
+  return {...found, prompt:found.prompt(title.replace(/\s+-\s+[^-]+$/,'').trim())};
+}
+export const allPraxisAreas = [...praxisAreas, fallback];

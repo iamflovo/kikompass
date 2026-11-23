@@ -17,6 +17,7 @@ details summary{cursor:pointer;color:#a9243f;min-height:32px}details[open] summa
     </div>
     <div class="nav-secondary" aria-label="Seiten im Bereich">
       <div class="nav-section" data-nav-section="radar"><button class="tab on" type="button" data-radar-view="brief">Briefing</button>
+    <button class="tab" type="button" data-radar-view="betrieb">Für den Betrieb</button>
     <button class="tab" type="button" data-radar-view="market">KI-Markt &amp; News</button>
     <button class="tab" type="button" data-radar-view="live">Live-Quellen</button>
     <button class="tab" type="button" data-radar-view="sales">KI im Vertrieb</button>
@@ -46,7 +47,8 @@ details summary{cursor:pointer;color:#a9243f;min-height:32px}details[open] summa
 </nav>
 <main>
 <section id="radar" class="section active">
-  <div class="sectionhead"><div><h2>KI-Radar</h2><p class="sub">Meldungen prüfen, einordnen und für später merken.</p></div></div>
+  <div class="sectionhead radar-head"><div><span class="radar-today" id="radar-today">KI-Radar</span><h2>KI-Radar</h2><p class="sub" id="radar-sub">Meldungen prüfen, einordnen und direkt im Betrieb nutzen.</p></div></div>
+  <div id="radar-hero" class="view-hero" hidden></div>
   <div id="radar-hot">
     <div class="pulse" aria-labelledby="pulse-heading">
       <div class="pulse-scope" aria-hidden="true">
@@ -76,6 +78,10 @@ details summary{cursor:pointer;color:#a9243f;min-height:32px}details[open] summa
   </div>
   <div id="radar-brief" data-radar-panel="brief">
     <p class="notice" id="radar-editorial-date"></p><div id="radar-news" class="grid"></div>
+  </div>
+  <div data-radar-panel="betrieb" hidden>
+    <div class="chip-row" id="betrieb-areas" aria-label="Arbeitsbereiche"></div>
+    <div id="radar-betrieb" class="grid"></div>
   </div>
   <div data-radar-panel="market" hidden>
     <p class="notice" id="radar-market-date"></p>
