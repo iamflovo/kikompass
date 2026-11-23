@@ -11,6 +11,7 @@ const contentTypes = {
   'manifest.webmanifest':'application/manifest+json',
   'icon-192.png':'image/png',
   'icon-512.png':'image/png',
+  'icon-maskable-512.png':'image/png',
   'sw.js':'text/javascript; charset=utf-8'
 };
 const version = new Date().toISOString().replace(/\D/g,'').slice(0,14);

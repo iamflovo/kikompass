@@ -36,7 +36,7 @@ let headOut = head
   .replace(/<meta charset="utf-8">/,'')
   .replace(/<meta name="viewport"[^>]*>/,'');
 headOut = replaceOnce(headOut,'<link rel="manifest" href="manifest.webmanifest">','');
-headOut = replaceOnce(headOut,'<link rel="apple-touch-icon" href="icon-192.png">',
+headOut = replaceOnce(headOut,'<link rel="apple-touch-icon" href="icon-192.png"><link rel="icon" type="image/png" href="icon-192.png">',
   '<link rel="apple-touch-icon" href="'+icon+'"><link rel="icon" href="'+icon+'"><meta name="mobile-web-app-capable" content="yes">');
 headOut = replaceOnce(headOut,'<link rel="stylesheet" href="radar.css">','<style>\n'+css+'\n</style>');
 

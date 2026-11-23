@@ -1,7 +1,7 @@
 // Service Worker: macht die App offline startfähig und auf dem Home-Bildschirm schnell.
 // __VERSION__ wird beim Build ersetzt, damit neue Versionen den alten Cache ablösen.
 const CACHE = 'ki-kompass-__VERSION__';
-const SHELL = ['./','index.html','radar.js','radar-data.js','begriffe.js','radar.css','manifest.webmanifest','icon-192.png','icon-512.png'];
+const SHELL = ['./','index.html','radar.js','radar-data.js','begriffe.js','radar.css','manifest.webmanifest','icon-192.png','icon-512.png','icon-maskable-512.png'];
 
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(SHELL)).then(() => self.skipWaiting()));
