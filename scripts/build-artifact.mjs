@@ -15,6 +15,7 @@ const icon = 'data:image/png;base64,'+(await readFile(app('icon-192.png'))).toSt
 const data = (await readFile(app('radar-data.js'),'utf8')).replace(/^export /gm,'');
 let radar = await readFile(app('radar.js'),'utf8');
 const begriffe = await readFile(app('begriffe.js'),'utf8');
+const zones = await readFile(app('zones.js'),'utf8');
 
 function replaceOnce(text, search, replacement) {
   if (!text.includes(search)) throw new Error('Nicht gefunden: '+search.slice(0,80));
@@ -28,7 +29,7 @@ radar = radar.replace(/\nif \('serviceWorker' in navigator\) \{[\s\S]*?\n\}\n/,'
 radar = replaceOnce(radar,"fetch('radar-'+scope+'.json'+query,","fetch('radar-'+scope+'.json',");
 
 const head = html.match(/<head>([\s\S]*?)<\/head>/)[1];
-const body = html.match(/<body>([\s\S]*?)<\/body>/)[1];
+const body = html.match(/<body[^>]*>([\s\S]*?)<\/body>/)[1];
 const title = head.match(/<title>[\s\S]*?<\/title>/)[0];
 
 let headOut = head
@@ -40,8 +41,10 @@ headOut = replaceOnce(headOut,'<link rel="apple-touch-icon" href="icon-192.png">
   '<link rel="apple-touch-icon" href="'+icon+'"><link rel="icon" href="'+icon+'"><meta name="mobile-web-app-capable" content="yes">');
 headOut = replaceOnce(headOut,'<link rel="stylesheet" href="radar.css">','<style>\n'+css+'\n</style>');
 
-let bodyOut = replaceOnce(body,'src="icon-192.png"','src="'+icon+'"');
+// Dunkle Farbwelt sofort setzen, bevor die Skripte laufen.
+let bodyOut = '<script>document.body.dataset.zone="radar"</script>' + replaceOnce(body,'src="icon-192.png"','src="'+icon+'"');
 bodyOut = replaceOnce(bodyOut,'<script src="begriffe.js"></script>','<script>\n'+begriffe+'\n</script>');
+bodyOut = replaceOnce(bodyOut,'<script src="zones.js"></script>','<script>\n'+zones+'\n</script>');
 bodyOut = replaceOnce(bodyOut,'<script type="module" src="radar.js"></script>',
   '<script type="module">\n'+data+'\n'+radar+'\n</script>');
 

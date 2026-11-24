@@ -10,7 +10,7 @@ const app = new URL('../app/',import.meta.url);
 await rm(out,{recursive:true,force:true});
 await mkdir(out,{recursive:true});
 
-for (const name of ['index.html','radar.js','radar-data.js','begriffe.js','radar.css','manifest.webmanifest','icon-192.png','icon-512.png','icon-maskable-512.png']) {
+for (const name of ['index.html','radar.js','radar-data.js','begriffe.js','zones.js','radar.css','manifest.webmanifest','icon-192.png','icon-512.png','icon-maskable-512.png']) {
   await copyFile(new URL(name,app),new URL(name,out));
 }
 const version = new Date().toISOString().replace(/\D/g,'').slice(0,14);

@@ -294,6 +294,7 @@ function showPage(page, scroll = false) {
   }
   for (const section of sections) section.classList.toggle('active',section.id===page);
   document.body.dataset.zone = group;
+  document.dispatchEvent(new CustomEvent('kompass:page',{detail:{page, group}}));
   if (scroll && window.scrollY > document.querySelector('.kompass-header').offsetHeight) {
     window.scrollTo({top:document.querySelector('.kompass-header').offsetHeight,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'});
   }

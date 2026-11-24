@@ -7,6 +7,7 @@ const contentTypes = {
   'radar.js':'text/javascript; charset=utf-8',
   'radar-data.js':'text/javascript; charset=utf-8',
   'begriffe.js':'text/javascript; charset=utf-8',
+  'zones.js':'text/javascript; charset=utf-8',
   'radar.css':'text/css; charset=utf-8',
   'manifest.webmanifest':'application/manifest+json',
   'icon-192.png':'image/png',

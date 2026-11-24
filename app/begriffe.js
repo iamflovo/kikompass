@@ -600,6 +600,7 @@ function render() {
   list.replaceChildren(...(items.length ? items.map(tile) : [el('div', 'Kein Begriff gefunden. Versuche ein anderes Stichwort.', 'empty')]));
 }
 
+window.kompassBegriffe = {list:begriffe, farben, open};
 search.addEventListener('input', render);
 // Suchleiste klebt direkt unter der Navigation: deren Höhe als CSS-Variable bereitstellen.
 const nav = document.querySelector('.tabs');
