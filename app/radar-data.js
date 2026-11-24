@@ -1,6 +1,14 @@
-export const editorialDate = '2026-11-23';
+export const editorialDate = '2026-11-24';
 
 export const releases = [
+  {date:'2026-11-24', provider:'Anthropic', type:'Agent', hot:true, status:'Beta · Team und Enterprise', title:'Claude Ship: Agenten prüfen, reparieren und geben Code frei', summary:'Laut The Decoder kombiniert Claude Ship das Code Review mit zwei neuen Agenten: PR Steward überarbeitet Änderungen bei roten Tests oder Anmerkungen, Claude Approvals entscheidet nach einer Richtlinie im Projekt, wann ein Mensch zustimmen muss. Abgerechnet wird nach Token-Verbrauch.', impact:'Für die ERP-Entwicklung spannend: Kleine Änderungen laufen schneller durch, kritische Bereiche (Preise, Buchungen, Kundendaten) bleiben per Richtlinie bei euch. Unbedingt ein Budget setzen – PR Steward hat standardmäßig kein Ausgabenlimit.', url:'https://the-decoder.de/claude-ship-anthropic-laesst-ki-agenten-ueber-code-freigaben-entscheiden/', language:'de'},
+  {date:'2026-11-24', provider:'Anthropic', type:'Produkt', hot:true, status:'Beta · Mac und Windows', title:'Claude Artifacts werden zu Desktop-Apps', summary:'Artifacts lassen sich jetzt als eigene App auf Mac oder Windows installieren und im Dock behalten. Programmierkenntnisse braucht es nicht, nötig sind die aktuelle Claude-App und ein (auch kostenloses) Konto.', impact:'Kleine Helfer wie ein Preisrechner, eine Leasing-Übersicht oder dieser KI Kompass liegen damit wie normale Programme auf dem Rechner. Ideal für Werkzeuge, die das Team täglich öffnet.', url:'https://the-decoder.de/anthropic-macht-claude-artifacts-zu-eigenstaendigen-desktop-apps-fuer-macos-und-windows/', language:'de'},
+  {date:'2026-11-24', provider:'Anthropic', type:'Agent', status:'Tasks & Elicitation allgemein verfügbar', title:'MCP wird erwachsen: Tasks, Rückfragen und Skills', summary:'Laut The Decoder sind „Tasks“ (lange Aufgaben im Hintergrund) und „Elicitation“ (Rückfragen an den Menschen) im Model Context Protocol jetzt allgemein verfügbar, „Skills over MCP“ ist in der Beta. Es gibt über 10.000 Konnektoren für Claude.', impact:'Ein eigener MCP-Server fürs ERP kann damit länger laufende Aufgaben übernehmen und bei Unklarheiten nachfragen, statt zu raten – etwa vor einer Preisänderung.', url:'https://the-decoder.de/anthropic-baut-model-context-protocol-fuer-autonomere-ki-agenten-aus/', language:'de'},
+  {date:'2026-11-23', provider:'OpenAI', type:'Produkt', status:'Open Source · früher Stand', title:'Shirudo: KI-Schutzschild für Server bis zum Patch', summary:'OpenAI und Cisco stellen Shirudo vor. KI-Agenten schreiben damit vorübergehende Schutzprogramme für Linux-Server, die eine Sicherheitslücke abdichten, bis der echte Patch installiert ist.', impact:'Noch ein Werkzeug für IT-Profis, aber ein Signal: Angriffe und Abwehr laufen zunehmend über KI-Agenten. Server- und Shop-Updates nicht aufschieben.', url:'https://www.heise.de/news/Shirudo-OpenAI-und-Cisco-stellen-KI-Schutzschild-fuer-Linux-Server-vor-11535772.html', language:'de'},
+  {date:'2026-11-24', provider:'Google', type:'Produkt', hot:true, status:'Weltweit · Desktop', title:'Google-Startseite ohne Suchknopf, dafür mit KI-Leiste', summary:'Laut heise entfällt auf der Desktop-Startseite der Knopf „Google-Suche“. Stattdessen gibt es KI-Knöpfe für Bilder, Dokumentfragen und Brainstorming, eine Seitenleiste mit den letzten KI-Anfragen und temporäre Threads im KI-Modus.', impact:'Die Suche wird endgültig zum Gespräch. Wer im Shop verkauft, braucht Inhalte, die eine KI zitieren kann: klare Produktdaten, Größenberatung, Service-FAQ.', url:'https://www.heise.de/news/Google-fuehrt-eine-neue-Suchseite-mit-KI-Seitenleiste-ohne-Suchbutton-ein-11536330.html', language:'de'},
+  {date:'2026-11-23', provider:'Google', type:'Produkt', status:'Nur USA · freiwillig', title:'KI-Modus der Suche greift auf Drive, Wallet und Gemini zu', summary:'Google verknüpft die „Personal Intelligence“ der Suche mit Drive, Wallet und der Gemini-App – nur wenn Nutzer es erlauben. Wallet darf nur gelesen werden. Ein Termin für Deutschland fehlt.', impact:'Persönliche Suchergebnisse werden Standard. Für dienstliche Google-Konten bewusst entscheiden, welche Verknüpfungen aktiv sein dürfen.', url:'https://t3n.de/news/google-verknuepft-ki-modus-drive-1775003', language:'de'},
+  {date:'2026-11-23', provider:'Google', type:'Produkt', status:'Gemini-App', title:'Gemini Canvas baut Tracker, Rechner und Lernkarten', summary:'Google zeigt, wie Canvas aus Tabellen Tracker, Preisrechner oder Aufgabenlisten macht, Quizze aus PDFs erstellt und Texte direkt auf der Arbeitsfläche überarbeitet.', impact:'Schneller Weg zu kleinen Werkzeugen ohne Programmierung: z. B. ein Rechner für Dienstrad-Raten oder eine Checkliste für die Fahrradübergabe – mit Beispielwerten statt echter Kundendaten.', url:'https://blog.google/innovation-and-ai/products/gemini-app/gemini-canvas-tasks/'},
+  {date:'2026-11-23', provider:'OpenAI', type:'Vertrieb', status:'Kundenbeispiel', title:'Richpanel: Hälfte des Supports in 30 Tagen automatisiert', summary:'Das Startup Richpanel setzt GPT-Modelle für Support-Agenten ein und verspricht Kunden 50 Prozent Automatisierung binnen 30 Tagen, sonst Geld zurück. Laut eigenen Angaben klappte das in rund 300 Einführungen.', impact:'Zeigt, wohin der Kundenservice geht. Aber: Laut einer aktuellen Umfrage bewerten viele Kunden automatisierten Service schlechter. Erst Standardfragen (Lieferstatus, Öffnungszeiten, Termin) automatisieren, Beratung bleibt beim Menschen.', url:'https://openai.com/business/customer-stories/richpanel-ai-customer-support'},
   {date:'2026-11-23', provider:'Meta', type:'Vertrieb', hot:true, status:'USA · Black Friday', title:'KI-Agent Muse kauft für Kunden bei Walmart ein', summary:'Laut The Verge kann Metas Agent Muse über ein Agenten-Gateway von Walmart Black-Friday-Einkäufe erledigen. Der Kunde sagt, was er will, der Agent sucht, vergleicht und bestellt.', impact:'„Agentic Commerce“ kommt: Künftig vergleicht oft ein Agent statt des Kunden. Für den Shop heißt das: vollständige Produktdaten (Rahmenhöhe, Akku, Motor, Lieferzeit), klare Preise und Verfügbarkeit, damit Agenten euer Angebot richtig lesen.', url:'https://www.theverge.com/ai-artificial-intelligence/1039874/walmart-agent-gateway-meta-muse-black-friday'},
   {date:'2026-11-22', provider:'Perplexity', type:'Agent', hot:true, status:'Laut The Decoder', title:'Perplexity-Agenten beobachten das Web rund um die Uhr', summary:'Perplexity lässt Agenten dauerhaft Websites und Themen überwachen und meldet Änderungen, statt nur auf einzelne Fragen zu antworten.', impact:'Ideal für Marktbeobachtung: Preise und Aktionen von Wettbewerbern, neue Modelle von Herstellern oder Lieferzeiten im Blick behalten. Nur öffentliche Seiten beobachten lassen.', url:'https://the-decoder.de/perplexity-laesst-ki-agenten-das-web-als-ganzes-rund-um-die-uhr-beobachten/', language:'de'},
   {date:'2026-11-23', provider:'Z.ai', type:'Modell', status:'Laut The Decoder', title:'GLM-5.4 rechnet doppelt und zielt auf Programmierung', summary:'Z.ai stellt GLM-5.4 vor, das Antworten in einem zweiten Durchgang prüft. Laut OrcaRouter sind die Kosten je erledigter Aufgabe entscheidender als der reine Tokenpreis.', impact:'Für die ERP-Entwicklung ein weiteres günstiges Modell zum Vergleich. Bei chinesischen Anbietern Datenstandort und Vertrag besonders genau prüfen.', url:'https://the-decoder.de/z-ai-laesst-glm-5-4-zweimal-rechnen-und-ruft-generalized-coding-aus/', language:'de'},
@@ -65,6 +73,54 @@ export const sources = [
 ];
 
 export const marketNews = [
+  {
+    date:'2026-11-24', provider:'t3n', type:'Unternehmen & Markt', hot:true, status:'TÜV-Studie 2026', language:'de',
+    title:'81 Prozent der Deutschen nutzen generative KI',
+    summary:'Laut TÜV-Studie nutzen 81 Prozent ab 16 Jahren generative KI, bei Über-65-Jährigen 61 Prozent. ChatGPT liegt bei 76, Gemini bei 60, Claude bei 22 Prozent. 30 Prozent haben schon vertrauliche Daten geteilt.',
+    url:'https://t3n.de/news/boomer-ki-nutzung-risiken-1775096'
+  },
+  {
+    date:'2026-11-24', provider:'Netz Trends', type:'Unternehmen & Markt', hot:true, status:'Umfrage', language:'de',
+    title:'KI-Kundenservice: 61 Prozent bewerten Automation schlechter',
+    summary:'Eine Umfrage zeigt, dass eine Mehrheit automatisierten Kundenservice schlechter bewertet als den Kontakt mit Menschen. Automatisierung braucht einen schnellen Weg zum echten Ansprechpartner.',
+    url:'https://news.google.com/rss/articles/CBMidEFVX3lxTE5DM3Q1TU5jdVA3UjRyNUFfVnV4Q0lwa1pxS0dzTXhLdVZoTTktelBWckpiODNfUFRON3JGOEM5TDgtUnJPNkhSLV92YmZVTVdKNUtodnBneXRka3hiSkdBdXgzVXRpZmxjMk5Gd1lZVDYtOTZm?oc=5'
+  },
+  {
+    date:'2026-11-24', provider:'t3n', type:'Unternehmen & Markt', status:'Börse', language:'de',
+    title:'Anthropic-Aktie fällt unter den Ausgabepreis',
+    summary:'Wenige Tage nach dem bisher größten Börsengang fiel die Aktie auf rund 80 Dollar und damit unter den Ausgabepreis von 83 Dollar. Der erste Kurs hatte noch bei 111,50 Dollar gelegen.',
+    url:'https://t3n.de/news/ist-der-anthropic-boom-schon-wieder-vorbei-aktie-faellt-unter-den-ausgabepreis-1775067'
+  },
+  {
+    date:'2026-11-24', provider:'Ars Technica', type:'Politik & Regulierung', hot:true, status:'Sicherheit', language:'en',
+    title:'Amazon: KI-Agenten von Angreifern fanden und nutzten eine Zero-Day-Lücke',
+    summary:'Laut Amazon haben Angreifer eine bisher unbekannte Sicherheitslücke mit KI-Agenten gefunden und ausgenutzt – fast ohne menschliches Zutun.',
+    url:'https://arstechnica.com/security/2026/11/amazon-says-hackers-ai-agents-found-and-exploited-0-day-with-little-human-input/'
+  },
+  {
+    date:'2026-11-24', provider:'Golem', type:'Politik & Regulierung', status:'Sicherheit', language:'de',
+    title:'EU-Kommission bestätigt Datendiebstahl nach KI-gestütztem Angriff',
+    summary:'Die EU-Kommission bestätigt, dass bei einem KI-gestützten Angriff Daten abgeflossen sind. Ein weiteres Zeichen, dass Angriffe schneller und gezielter werden.',
+    url:'https://www.golem.de/news/ki-gestuetzter-angriff-eu-kommission-bestaetigt-datendiebstahl-2611-215598.html'
+  },
+  {
+    date:'2026-11-24', provider:'heise online', type:'Forschung', status:'Interview · iX', language:'de',
+    title:'Wenn der KI-Agent falsch abbiegt: das ganze System prüfen',
+    summary:'Der Dynatrace-CTO erklärt, warum ein geänderter Prompt oft nicht reicht: Anfrage, Kontext, Tool-Aufrufe und Systemzustand gehören zusammen untersucht. Beispiel: ein Agent, der einen funktionierenden Anmeldedienst neu startete.',
+    url:'https://www.heise.de/news/Drei-Fragen-und-Antworten-Der-KI-Agent-irrt-Aber-war-es-ueberhaupt-das-Modell-11536024.html'
+  },
+  {
+    date:'2026-11-24', provider:'Ars Technica', type:'Unternehmen & Markt', status:'Ab 9. Dezember', language:'en',
+    title:'Tidal verbannt komplett KI-generierte Musik',
+    summary:'Der Streamingdienst Tidal entfernt ab dem 9. Dezember vollständig KI-generierte Titel, laut Ars Technica rund 27 Millionen Tracks.',
+    url:'https://arstechnica.com/ai/2026/11/tidal-will-ban-fully-ai-generated-music-on-december-9/'
+  },
+  {
+    date:'2026-11-23', provider:'Ars Technica', type:'Chips & Infrastruktur', status:'Nvidia', language:'en',
+    title:'Jensen Huang wieder Nvidia-Chef',
+    summary:'Jensen Huang ist als CEO und Aufsichtsratschef von Nvidia zurück. Für den KI-Markt zählt vor allem: Der wichtigste Chiplieferant bekommt wieder Ruhe an der Spitze.',
+    url:'https://arstechnica.com/ai/2026/11/jensen-huang-reinstated-as-nvidia-ceo-board-chair/'
+  },
   {
     date:'2026-11-22', provider:'WirtschaftsWoche', type:'Unternehmen & Markt', hot:true, status:'Analyse', language:'de',
     title:'Agentic Commerce könnte neue Monopole schaffen',
