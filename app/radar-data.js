@@ -1,6 +1,13 @@
-export const editorialDate = '2026-11-24';
+export const editorialDate = '2026-11-26';
 
 export const releases = [
+  {date:'2026-11-26', provider:'OpenAI', type:'Produkt', hot:true, status:'Ab sofort · alle ChatGPT-Tarife', title:'GPT-6.2: Limits sind 40 Prozent schneller erreicht', summary:'Laut The Decoder war die Nutzung von Astra und Sol durch einen Abrechnungsfehler zu günstig berechnet. Nach der Korrektur ist das Limit bei Astra rund 40 und bei Sol rund 25 Prozent schneller erreicht. Als Ausgleich gibt es einen zusätzlichen Reset, Business-Kunden bekommen bis Jahresende den Fast-Mode ohne Aufpreis.', impact:'Wer im Alltag viel mit Astra arbeitet, stößt früher an Grenzen. Routineaufgaben (Texte, Zusammenfassungen) auf Sol legen, Astra für schwierige ERP- und Analysefragen aufheben.', url:'https://the-decoder.de/openai-hat-sich-verrechnet-gpt-6-2-nutzer-erreichen-ihre-limits-jetzt-40-prozent-schneller/', language:'de'},
+  {date:'2026-11-25', provider:'OpenAI', type:'Produkt', hot:true, status:'Test mit ersten Firmenkunden', title:'Private Inference: Firmendaten bleiben auch für OpenAI unsichtbar', summary:'OpenAI testet „Private Inference“: Anfragen laufen auf abgeschirmter, überprüfbarer Hardware, OpenAI selbst soll die Daten nicht einsehen können. Preise und Starttermin sind noch offen.', impact:'Ein wichtiger Schritt für sensible Daten wie Einkaufspreise oder Kundendaten im ERP. Bis es allgemein verfügbar und vertraglich geregelt ist, bleiben Testdaten Pflicht.', url:'https://the-decoder.de/openai-will-firmendaten-mit-private-inference-vor-sich-selbst-verstecken/', language:'de'},
+  {date:'2026-11-26', provider:'A11', type:'Produkt', hot:true, status:'Laut t3n/dpa · ab ca. 50 Mio. € Umsatz', title:'Lumarc: europäische Alternative zu Palantir aus Berlin', summary:'Das Berliner Unternehmen A11 bringt die KI-Software Lumarc. Sie verknüpft Daten aus Buchhaltung, Produktion und E-Mails in Echtzeit und macht Vorschläge, die ein Mensch freigibt. Betrieb im eigenen Rechenzentrum, bei einem deutschen Cloud-Anbieter oder ganz offline.', impact:'Zeigt, wohin ERP plus KI geht: Daten verknüpfen, Vorschläge machen, Mensch entscheidet. Genau dieses Prinzip (Vorschlag statt Automatik) fürs eigene ERP übernehmen.', url:'https://t3n.de/news/konkurrenz-fuer-palantir-berliner-firma-a11-startet-ki-software-als-europaeische-alternative-1775435', language:'de'},
+  {date:'2026-11-25', provider:'Anthropic', type:'Produkt', status:'Claude Code 2.1.332', title:'Claude Code holt Skills direkt aus MCP-Servern', summary:'Die neue Version lädt Skills aus MCP-Servern (Beta), sie erscheinen im /-Menü als server:skill. Dazu kommen ein neues Hook-Ereignis vor Shell-Befehlen von Skills, strengere Sicherheitsregeln für Computer Use auf dem Mac und über 90 Fehlerbehebungen.', impact:'Ein ERP-MCP-Server kann künftig fertige Abläufe (z. B. „Artikel anlegen prüfen“) gleich mitliefern. Neue Skills erst im Testprojekt freigeben.', url:'https://code.claude.com/docs/en/changelog#2-1-332'},
+  {date:'2026-11-25', provider:'GitHub', type:'Produkt', status:'Ab 30.12.2026', title:'Copilot Code Review wird über die Organisation abgerechnet', summary:'Ab dem 30. Dezember landen die Kosten für Copilot-Code-Reviews standardmäßig bei der Organisation statt beim Mitglied, sofern nichts anderes eingestellt ist. Betroffen sind Copilot Business und Enterprise.', impact:'Falls ihr Copilot im Team nutzt: vor dem 30.12. Richtlinie und Budget prüfen, sonst steigen die Ausgaben unbemerkt.', url:'https://github.blog/changelog/2026-11-25-copilot-code-review-billing-will-default-to-the-organization'},
+  {date:'2026-11-25', provider:'xAI', type:'Produkt', status:'Laut OnlineMarketing.de', title:'Grok Build: Apps, Dashboards und Websites direkt im Chat', summary:'Laut OnlineMarketing.de ist Grok Build jetzt breit verfügbar. Aus einer Beschreibung entstehen im Chat Spiele, Dashboards, Apps oder Websites, die sich per Link teilen lassen.', impact:'Konkurrenz zu Claude Artifacts und Gemini Canvas. Für kleine interne Helfer (Leasing-Rechner, Checklisten) gut zum Vergleichen – nur mit Beispieldaten.', url:'https://news.google.com/rss/articles/CBMigAFBVV95cUxQWGgzamFKUk12bW5rRGVjVTZURHcyX2dBcjRyaF9nWERyWDNhNVIwYmVqdlRDWVR0dzcwRGJhTVpWNnE2VWRFTmpwM0hwTFJWTkluWEYta2VHRzRTeVQ5eTQ3czJxY2ZHQ2llem1PQ25RSjhQRzlkTGtCQTdBNWdrZg?oc=5', language:'de'},
+  {date:'2026-11-24', provider:'OpenAI', type:'Vertrieb', status:'Kundenbeispiel', title:'Clay: Vertrieb recherchiert Kunden und Deals per Plugin', summary:'Das Startup Clay nutzt GPT-6-Modelle und Plugins für ChatGPT und Codex, damit Vertriebsteams Firmen und Deals direkt im Chat recherchieren können – Sol als Standard, Astra für schwierige, Luna für günstige Aufgaben.', impact:'Übertragbar auf B2B und Dienstrad-Leasing: Firmenprofile von Partnerfirmen vorab recherchieren lassen, nur aus öffentlichen Quellen.', url:'https://openai.com/business/customer-stories/clay-plugins-openai'},
   {date:'2026-11-24', provider:'Anthropic', type:'Agent', hot:true, status:'Beta · Team und Enterprise', title:'Claude Ship: Agenten prüfen, reparieren und geben Code frei', summary:'Laut The Decoder kombiniert Claude Ship das Code Review mit zwei neuen Agenten: PR Steward überarbeitet Änderungen bei roten Tests oder Anmerkungen, Claude Approvals entscheidet nach einer Richtlinie im Projekt, wann ein Mensch zustimmen muss. Abgerechnet wird nach Token-Verbrauch.', impact:'Für die ERP-Entwicklung spannend: Kleine Änderungen laufen schneller durch, kritische Bereiche (Preise, Buchungen, Kundendaten) bleiben per Richtlinie bei euch. Unbedingt ein Budget setzen – PR Steward hat standardmäßig kein Ausgabenlimit.', url:'https://the-decoder.de/claude-ship-anthropic-laesst-ki-agenten-ueber-code-freigaben-entscheiden/', language:'de'},
   {date:'2026-11-24', provider:'Anthropic', type:'Produkt', hot:true, status:'Beta · Mac und Windows', title:'Claude Artifacts werden zu Desktop-Apps', summary:'Artifacts lassen sich jetzt als eigene App auf Mac oder Windows installieren und im Dock behalten. Programmierkenntnisse braucht es nicht, nötig sind die aktuelle Claude-App und ein (auch kostenloses) Konto.', impact:'Kleine Helfer wie ein Preisrechner, eine Leasing-Übersicht oder dieser KI Kompass liegen damit wie normale Programme auf dem Rechner. Ideal für Werkzeuge, die das Team täglich öffnet.', url:'https://the-decoder.de/anthropic-macht-claude-artifacts-zu-eigenstaendigen-desktop-apps-fuer-macos-und-windows/', language:'de'},
   {date:'2026-11-24', provider:'Anthropic', type:'Agent', status:'Tasks & Elicitation allgemein verfügbar', title:'MCP wird erwachsen: Tasks, Rückfragen und Skills', summary:'Laut The Decoder sind „Tasks“ (lange Aufgaben im Hintergrund) und „Elicitation“ (Rückfragen an den Menschen) im Model Context Protocol jetzt allgemein verfügbar, „Skills over MCP“ ist in der Beta. Es gibt über 10.000 Konnektoren für Claude.', impact:'Ein eigener MCP-Server fürs ERP kann damit länger laufende Aufgaben übernehmen und bei Unklarheiten nachfragen, statt zu raten – etwa vor einer Preisänderung.', url:'https://the-decoder.de/anthropic-baut-model-context-protocol-fuer-autonomere-ki-agenten-aus/', language:'de'},
@@ -73,6 +80,96 @@ export const sources = [
 ];
 
 export const marketNews = [
+  {
+    date:'2026-11-26', provider:'Pedelecs und E-Bikes', type:'Unternehmen & Markt', hot:true, status:'Fahrradbranche', language:'de',
+    title:'ZIV startet Pro-Dashboard mit aktuellen Verkaufsdaten',
+    summary:'Der Zweirad-Industrie-Verband baut seinen Marktdatenservice aus. Fachhändler, die anonymisierte Verkaufszahlen liefern, bekommen laut ZIV kostenlos ein Dashboard mit monatlichen Marktdaten und können sich mit dem Gesamtmarkt vergleichen.',
+    url:'https://news.google.com/rss/articles/CBMixgFBVV95cUxPc1gyblRwT3lzYjhPaDA0N3EwOWZ3YWtoc2diZndBLVNyU1d3VWxCRmh5YXdzbFpMenZ0Q0tidDlib2Y0SGgxOWRtSDZNcFVpQmo0aV9WbEhPX0hLb2JmSnFjYkt6cTJmMHVLeUR0b0Z4UTVENHUzeHB2M0VQM2N5UzBuXy1oamFjYVZlN2ttc19IZEZfSGRla19uMXd4ajlnMlhWOTV1TWRrdnhSYW9KcEs0UERmcU0zMzMxVWRsSUxublROZkE?oc=5'
+  },
+  {
+    date:'2026-11-25', provider:'Simon-Kucher', type:'Unternehmen & Markt', hot:true, status:'Studie · 1.200 Befragte', language:'de',
+    title:'Fast jeder Zweite bricht wegen KI einen Kauf ab oder wechselt den Händler',
+    summary:'Laut einer Simon-Kucher-Studie haben 45 Prozent der Deutschen wegen KI-Empfehlungen schon den Händler gewechselt und 44 Prozent einen Kauf abgebrochen – meist wegen eines besseren Preises, besserer Bewertungen oder Verfügbarkeit.',
+    url:'https://www.simon-kucher.com/de/wer-wir-sind/newsroom/ki-shopping-studie-ki-vergrault-kunden-fast-die-haelfte-der-deutschen-brach'
+  },
+  {
+    date:'2026-11-26', provider:'The Decoder', type:'Politik & Regulierung', hot:true, status:'Microsoft Threat Intelligence', language:'de',
+    title:'Hacker übernehmen Netzwerke mit KI-Agenten in Minuten',
+    summary:'Laut Microsoft nutzen Gruppen aus China, Nordkorea und Kriminelle das KI-Framework ARTEX. In einem Fall dauerte es fünf Minuten von geleakten Zugangsdaten bis zum Datenabgriff. Microsoft empfiehlt unter anderem Köder wie Honeypots und Honeytokens.',
+    url:'https://the-decoder.de/microsoft-zeigt-wie-hacker-aus-china-und-nordkorea-fremde-netzwerke-mit-autonomen-ki-agenten-in-minuten-uebernehmen/'
+  },
+  {
+    date:'2026-11-26', provider:'heise online', type:'Politik & Regulierung', status:'BSI', language:'de',
+    title:'BSI warnt: KI als Angreifer – eine neue Ära hat begonnen',
+    summary:'Das BSI warnt vor autonomen KI-Angriffen, bei denen Agenten Schwachstellen selbst finden und sofort ausnutzen. Für Betriebe heißt das: Updates schneller einspielen, Zugänge mit zweitem Faktor sichern, Zugangsdaten nie im Code oder in Chats ablegen.',
+    url:'https://www.heise.de/news/Kuenstliche-Intelligenz-als-Angreifer-Eine-neue-Aera-hat-begonnen-11539545.html'
+  },
+  {
+    date:'2026-11-26', provider:'t3n', type:'Unternehmen & Markt', hot:true, status:'Black Friday · Praxis', language:'de',
+    title:'Mit ChatGPT einen Preisalarm bauen',
+    summary:'Ein kurzer Prompt legt in ChatGPT eine geplante Aufgabe an, die regelmäßig prüft, ob ein Preis fällt. Im Test erkannte ChatGPT einen unseriösen Händler – trotzdem gilt: Ergebnisse prüfen, Fake-Shops können durchrutschen.',
+    url:'https://t3n.de/news/black-friday-preisalarm-mit-chatgpt-prompt-1775229'
+  },
+  {
+    date:'2026-11-25', provider:'velobiz.de', type:'Unternehmen & Markt', status:'Fahrradbranche', language:'de',
+    title:'Onlinehandel rechnet mit Schub durch KI-Agenten',
+    summary:'Das Branchenmagazin velobiz berichtet, dass der Onlinehandel einen Wachstumsschub durch KI-Einkaufsagenten erwartet – Thema auch für Fahrrad-Shops mit sauberen Produktdaten.',
+    url:'https://news.google.com/rss/articles/CBMiowFBVV95cUxNelk2TkIyZFBtYm41UmpPTk1jZGg3VEJTblJYOFhtQ2thWWthaEkzWkVrUGJRV1hNN21zOXdSQ0pXREtrNmJIY09lOW9fVmozOTVkc0xqQ1BnYnlpbVhENlhtd2RCY3pIdlliTl9yLVp3bFBOSGt5UnYyVGNJQWM2emFLRVdvUTNLTnkwQ2Q5TWFYcXl3dUEtcTlCRlIzamFqNExR?oc=5'
+  },
+  {
+    date:'2026-11-25', provider:'Lebensmittel Zeitung', type:'Unternehmen & Markt', status:'Agentic Commerce', language:'de',
+    title:'Metas Einkaufsagent Muse startet im britischen Lebensmittelhandel',
+    summary:'Nach Walmart in den USA kauft Metas Agent Muse nun auch im britischen Lebensmittelhandel ein. Gleichzeitig berichtet BASIC thinking über Datenschutzprobleme des Agenten.',
+    url:'https://news.google.com/rss/articles/CBMizAFBVV95cUxPVkR3ODRXeC1LX0VaV1pxSldBQkljejR1YU5EUmNRTEV0MVcwYmI2dUlYZDMzVXhycFp0S05BQS10ZExCUVZTMG1tTHlfTTBHUm9aTFdKSTREeG5mZVNDbTZBVkRyWk9GWHNRZHNzVHQtM01rWEJ4NjJBc0gteFAyaDVBZ05HX0tVN2JDTk9BejNTNlYzeHduSEZ0UE5TVl90T1NiWkpGOThOMWFIeEg5ZU1GSFNFZkR5NzlGdFBkLWNTRGtYWC1iNHJ4TWs?oc=5'
+  },
+  {
+    date:'2026-11-25', provider:'Automobilwoche', type:'Unternehmen & Markt', status:'Handel · WhatsApp', language:'de',
+    title:'Mobile.de bringt Fahrzeugsuche mit KI auf WhatsApp',
+    summary:'Mobile.de lässt Kunden Fahrzeuge direkt in WhatsApp suchen und verspricht Händlern KI-Unterstützung. Ein Vorbild für Beratung dort, wo Kunden ohnehin schreiben.',
+    url:'https://news.google.com/rss/articles/CBMikgFBVV95cUxPM2QwVGZ5UTVKX0N3SW5Gd3BOVEJGY0Q2R0gtUFppbEF5M1FTYXlIVlJfWjZ2UldGOENrUGVkTXdJaWdKaTF5V1ZPTHdNRVZmM3RoLXBMM1ZaODJEOVNfUEM3VnN5bzFlWWxuRGtFTDR1S294Z2JHVm94OUFKRmFqZWF1NFVKbHVhYlFEMThzM3Nqdw?oc=5'
+  },
+  {
+    date:'2026-11-25', provider:'etailment', type:'Unternehmen & Markt', status:'Umfrage', language:'de',
+    title:'KI-Nutzung 2026: 37 Prozent der Unternehmen setzen KI ein',
+    summary:'Laut etailment nutzt gut jedes dritte Unternehmen KI. Andere Erhebungen kommen je nach Frage auf deutlich andere Werte – die Richtung ist aber überall dieselbe: steil nach oben.',
+    url:'https://news.google.com/rss/articles/CBMilAFBVV95cUxQT2l2N2xsOTFlb0xkaE9EQXhOSmxPR1BQZmVBejNlT3pMcTdzZUowcTVFcmlTbUhUeC1uVG9fZ3pIUkZQcFl4Y3VNMjFkV1RZcjZoSUJJR0pFQ0tRZGpkUjZDTEdPTEVDRmNrNXpqU2xhMWtOa2FPQkotYm9SemtQcmI5MnRiaVNLXzhpZW4yZnZVd2RP?oc=5'
+  },
+  {
+    date:'2026-11-26', provider:'The Decoder', type:'Chips & Infrastruktur', status:'Laut Financial Times', language:'de',
+    title:'Nvidia stoppt Serverlieferungen nach Südostasien',
+    summary:'Nvidia hat Partner wie Dell und Supermicro angewiesen, vorerst keine Server nach Malaysia, Singapur, Thailand und Indonesien zu liefern. Hintergrund sind neue US-Exportregeln für Rechenleistung.',
+    url:'https://the-decoder.de/nvidia-stoppt-vorerst-lieferungen-nach-malaysia-singapur-thailand-und-indonesien/'
+  },
+  {
+    date:'2026-11-26', provider:'The Decoder', type:'Chips & Infrastruktur', status:'US-Behörde FCC', language:'de',
+    title:'SpaceX darf eine Million Satelliten für KI-Rechenzentren starten',
+    summary:'Die FCC genehmigt SpaceX bis zu eine Million Satelliten für Rechenzentren im All („Starmind“). Forschende warnen vor Weltraumschrott und Lichtverschmutzung.',
+    url:'https://the-decoder.de/us-behoerde-genehmigt-spacex-eine-million-satelliten-fuer-ki-rechenzentren-im-all/'
+  },
+  {
+    date:'2026-11-26', provider:'t3n', type:'Unternehmen & Markt', status:'Ab 16.12.2026', language:'de',
+    title:'Microsoft streicht drei Windows-Begleit-Apps',
+    summary:'People, Files und Calendar als Microsoft-365-Begleit-Apps verschwinden aus Windows 11 und funktionieren ab 16. Dezember nicht mehr. Daten in Microsoft 365 sind laut Microsoft nicht betroffen.',
+    url:'https://t3n.de/news/microsoft-streicht-drei-windows-apps-1775500'
+  },
+  {
+    date:'2026-11-26', provider:'heise online', type:'Forschung', status:'Mathematik', language:'de',
+    title:'Claude kürzt KI-Beweis zur Riemannschen Vermutung um 99 Prozent',
+    summary:'Der umstrittene KI-Beweis wurde laut heise mit Claude um mehr als 99 Prozent gekürzt. Parallel meldet OpenAI eine neue Untergrenze für Matrixmultiplikation – Mathe wird zum Prestige-Wettlauf der Labore.',
+    url:'https://www.heise.de/news/Riemannsche-Vermutung-Claude-kuerzt-KI-Beweis-um-mehr-als-99-Prozent-11539145.html'
+  },
+  {
+    date:'2026-11-25', provider:'The Decoder', type:'Unternehmen & Markt', status:'Anthropic', language:'de',
+    title:'Amodei: Machtübergabe an KI ist „absurd“',
+    summary:'Anthropic-Chef Dario Amodei weist einen Bericht zurück, Teile der Firma wollten Entscheidungen an superintelligente KI abgeben. Politische Entscheidungen gehörten in Menschenhand.',
+    url:'https://the-decoder.de/anthropic-ceo-amodei-wehrt-sich-gegen-vorwurf-der-machtuebergabe-an-ki/'
+  },
+  {
+    date:'2026-11-24', provider:'OpenAI', type:'Forschung', status:'Preprint', language:'en',
+    title:'GPT-6 entwirft Proteine nur mit Denken und Code',
+    summary:'Laut OpenAI können GPT-6-Modelle Proteine entwerfen. Im Labor banden 66 Prozent der neu gestalteten Antikörper-Fragmente an ihr Ziel; komplette Strukturvorhersagen bleiben aber schwach.',
+    url:'https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities'
+  },
   {
     date:'2026-11-24', provider:'t3n', type:'Unternehmen & Markt', hot:true, status:'TÜV-Studie 2026', language:'de',
     title:'81 Prozent der Deutschen nutzen generative KI',

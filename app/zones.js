@@ -23,7 +23,7 @@ const BETRIEB = [['bereiche','Aufgabenfelder'],['meinjob','Mein Job'],['workflow
 
 const pages = {
   tools:     {zone:'tools', tag:'Werkzeugwand', stats:() => [[list('tools').length,'Werkzeuge'],[new Set(list('tools').map(t => t[2])).size,'Kategorien'],[list('selected').length + '/3','im Vergleich']]},
-  models:    {zone:'tools', tag:'Motorenprüfstand', stats:() => [[list('modelData').length,'Modelle'],[new Set(list('modelData').map(m => m[0].split(/\s[·\/]\s/)[0])).size,'Anbieter'],['24.11.','Stand']]},
+  models:    {zone:'tools', tag:'Motorenprüfstand', stats:() => [[list('modelData').length,'Modelle'],[new Set(list('modelData').map(m => m[0].split(/\s[·\/]\s/)[0])).size,'Anbieter'],['26.11.','Stand']]},
   compare:   {zone:'tools', tag:'Direktvergleich', stats:() => [[list('selected').length + '/3','gewählt'],[list('tools').length,'zur Auswahl']]},
   wahlhilfe: {zone:'tools', tag:'Schnellwahl', stats:() => [[document.querySelectorAll('#wahlhilfe tbody tr').length,'Aufgaben'],['1','Klick zum Start']]},
   bereiche:  {zone:'bereiche', tag:'Gang 1 von 5', stats:() => [[list('departmentData').length,'Felder'],[list('tools').length,'Werkzeuge']]},
