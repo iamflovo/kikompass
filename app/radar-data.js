@@ -1,6 +1,12 @@
-export const editorialDate = '2026-11-26';
+export const editorialDate = '2026-11-27';
 
 export const releases = [
+  {date:'2026-11-27', provider:'OpenAI', type:'Agent', hot:true, status:'Laut The Information · früher Stand', title:'Codename Athena: OpenAI baut Datenschicht für Business-Agenten', summary:'Laut The Decoder arbeitet OpenAI an „Athena“, einer Plattform, die Firmendaten so beschreibt und ordnet, dass Agenten Kennzahlen und Begriffe richtig verstehen (ähnlich einem Semantic Layer). Zeitplan und Preise gibt es noch nicht.', impact:'Bestätigt die Richtung fürs eigene ERP: Begriffe wie „Umsatz“, „verfügbar“ oder „Lieferzeit“ einmal sauber definieren und dokumentieren. Dann rechnen Agenten mit denselben Zahlen wie das Team.', url:'https://the-decoder.de/codename-athena-openai-baut-datenmanagement-plattform-fuer-genauere-business-agenten/', language:'de'},
+  {date:'2026-11-27', provider:'SAP', type:'Produkt', status:'Laut heise', title:'SAP holt Databricks-Funktionen in die Business Data Cloud', summary:'Funktionen von Databricks wie der Daten-Assistent Genie wandern in SAPs Business Data Cloud. Eine Verbindung von Genie mit SAPs KI-Assistent Joule ist geplant.', impact:'Große ERP-Anbieter verschmelzen Datenplattform und KI-Assistent. Für ein eigenes ERP heißt das: Fragen in normaler Sprache an die eigenen Daten werden zum Standard, den Mitarbeiter erwarten.', url:'https://www.heise.de/news/SAP-bleibt-Vertragspartner-Databricks-Funktionen-wandern-in-Business-Data-Cloud-11540369.html', language:'de'},
+  {date:'2026-11-27', provider:'Tencent', type:'Modell', status:'Open Weights · lokal nutzbar', title:'Hy-MT3: Übersetzungsmodell für 102 Sprachen zum Selbstbetrieb', summary:'Tencent veröffentlicht sein Übersetzungsmodell Hy-MT3-30B-A3B als GGUF-Dateien für llama.cpp. Laut Modellkarte beherrscht es 102 Sprachen, die Dateien sind je nach Qualität 13 bis 33 GB groß.', impact:'Interessant, wenn Produkttexte oder Service-FAQ in mehrere Sprachen sollen, ohne Daten an einen Cloud-Dienst zu geben. Ergebnisse von Muttersprachlern prüfen lassen; Lizenz vor dem Einsatz lesen.', url:'https://huggingface.co/tencent/Hy-MT3-30B-A3B-GGUF'},
+  {date:'2026-11-27', provider:'AssemblyAI', type:'Produkt', status:'ChatGPT-Plugin', title:'AssemblyAI transkribiert Audio und Video direkt in ChatGPT', summary:'Das neue Plugin im ChatGPT-Verzeichnis schreibt Aufnahmen mit, unterscheidet Sprecher und zieht Aufgaben heraus. Nötig ist ein eigenes AssemblyAI-Konto.', impact:'Praktisch für Team-Besprechungen oder Schulungsvideos: Protokoll und Aufgabenliste in einem Schritt. Keine Kundengespräche ohne Einwilligung aufnehmen.', url:'https://www.assemblyai.com/'},
+  {date:'2026-11-27', provider:'Zapier', type:'Agent', status:'Bis 5.1.2027 kostenlos', title:'Zapier MCP für Grok Bot vorübergehend gratis', summary:'Zapier verzichtet bis zum 5. Januar 2027 auf Gebühren für MCP-Aufrufe aus Grok Bot. Kosten der angebundenen Dienste bleiben bestehen.', impact:'Günstige Gelegenheit, Agenten-Abläufe mit Zapier auszuprobieren, etwa Formular → Aufgabe. Nach dem 5.1. Kosten neu rechnen.', url:'https://zapier.com/blog/grok-bot/'},
+  {date:'2026-11-27', provider:'ElevenLabs', type:'Vertrieb', status:'Black Friday · Live-Ansicht', title:'ElevenLabs zeigt Agenten-Aktivität am Black Friday live', summary:'ElevenLabs veröffentlicht eine Live-Karte mit zusammengefassten Anrufen, E-Mails und Chats, die Kunden-Agenten gerade führen. Gezeigt wird die Menge, nicht wie viele Anliegen gelöst wurden.', impact:'Zeigt, wie viel Kundenkontakt bereits über Agenten läuft. Für den eigenen Service gilt: nicht die Anzahl der Gespräche zählt, sondern gelöste Anliegen und zufriedene Kunden.', url:'https://elevenlabs.io/agents-at-scale'},
   {date:'2026-11-26', provider:'OpenAI', type:'Produkt', hot:true, status:'Ab sofort · alle ChatGPT-Tarife', title:'GPT-6.2: Limits sind 40 Prozent schneller erreicht', summary:'Laut The Decoder war die Nutzung von Astra und Sol durch einen Abrechnungsfehler zu günstig berechnet. Nach der Korrektur ist das Limit bei Astra rund 40 und bei Sol rund 25 Prozent schneller erreicht. Als Ausgleich gibt es einen zusätzlichen Reset, Business-Kunden bekommen bis Jahresende den Fast-Mode ohne Aufpreis.', impact:'Wer im Alltag viel mit Astra arbeitet, stößt früher an Grenzen. Routineaufgaben (Texte, Zusammenfassungen) auf Sol legen, Astra für schwierige ERP- und Analysefragen aufheben.', url:'https://the-decoder.de/openai-hat-sich-verrechnet-gpt-6-2-nutzer-erreichen-ihre-limits-jetzt-40-prozent-schneller/', language:'de'},
   {date:'2026-11-25', provider:'OpenAI', type:'Produkt', hot:true, status:'Test mit ersten Firmenkunden', title:'Private Inference: Firmendaten bleiben auch für OpenAI unsichtbar', summary:'OpenAI testet „Private Inference“: Anfragen laufen auf abgeschirmter, überprüfbarer Hardware, OpenAI selbst soll die Daten nicht einsehen können. Preise und Starttermin sind noch offen.', impact:'Ein wichtiger Schritt für sensible Daten wie Einkaufspreise oder Kundendaten im ERP. Bis es allgemein verfügbar und vertraglich geregelt ist, bleiben Testdaten Pflicht.', url:'https://the-decoder.de/openai-will-firmendaten-mit-private-inference-vor-sich-selbst-verstecken/', language:'de'},
   {date:'2026-11-26', provider:'A11', type:'Produkt', hot:true, status:'Laut t3n/dpa · ab ca. 50 Mio. € Umsatz', title:'Lumarc: europäische Alternative zu Palantir aus Berlin', summary:'Das Berliner Unternehmen A11 bringt die KI-Software Lumarc. Sie verknüpft Daten aus Buchhaltung, Produktion und E-Mails in Echtzeit und macht Vorschläge, die ein Mensch freigibt. Betrieb im eigenen Rechenzentrum, bei einem deutschen Cloud-Anbieter oder ganz offline.', impact:'Zeigt, wohin ERP plus KI geht: Daten verknüpfen, Vorschläge machen, Mensch entscheidet. Genau dieses Prinzip (Vorschlag statt Automatik) fürs eigene ERP übernehmen.', url:'https://t3n.de/news/konkurrenz-fuer-palantir-berliner-firma-a11-startet-ki-software-als-europaeische-alternative-1775435', language:'de'},
@@ -80,6 +86,78 @@ export const sources = [
 ];
 
 export const marketNews = [
+  {
+    date:'2026-11-27', provider:'Pedelecs und E-Bikes', type:'Unternehmen & Markt', hot:true, status:'Black Friday · Fahrradbranche', language:'de',
+    title:'Black Week: Über 20 E-Bike-Shops mit Aktionen',
+    summary:'Laut Wattmoves locken mindestens 22 E-Bike-Shops zur Black Week mit Rabatten, viele bis 30. November. Ein Preis-Tracker von Pedali zeigt: 2025 wurde etwa jedes achte E-Bike im November mindestens 10 Prozent günstiger als im Oktober.',
+    url:'https://wattmoves.de/black-friday-black-week-e-bike-angebote-ueberblick/171487/'
+  },
+  {
+    date:'2026-11-26', provider:'Handel', type:'Politik & Regulierung', hot:true, status:'Sicherheit · Black Friday', language:'de',
+    title:'Mehr Ransomware gegen Händler vor dem Black Friday',
+    summary:'Laut Versicherern und Beratern werden Händler im November rund 50 Prozent häufiger mit Erpressungssoftware angegriffen als im Monatsschnitt, KI-Werkzeuge beschleunigen die Angriffe. Nur 43 Prozent kleiner und mittlerer Händler haben eine Cyber-Versicherung.',
+    url:'https://cyprus-mail.com/2026/11/26/retailers-head-into-black-friday-exposed-to-surging-ai-driven-cyber-threats'
+  },
+  {
+    date:'2026-11-27', provider:'heise', type:'Politik & Regulierung', hot:true, status:'Sicherheit', language:'de',
+    title:'Billige Inferenz-Anbieter greifen Prompts und Geheimnisse ab',
+    summary:'Laut heise haben günstige Vermittler für KI-Modelle Inhalte von Anfragen offengelegt, und MiniMax soll Einstellungen gegen Datenspeicherung ignoriert haben.',
+    url:'https://www.heise.de/news/AI-Supply-Chain-Guenstige-Inferenzangebote-greifen-Secrets-ab-11540914.html'
+  },
+  {
+    date:'2026-11-27', provider:'Verbraucherzentrale', type:'Politik & Regulierung', hot:true, status:'Laut heise', language:'de',
+    title:'Verbraucherzentrale mahnt OpenAI und Anthropic ab',
+    summary:'Die Verbraucherzentrale Niedersachsen beanstandet Klauseln zu Preisänderungen und mangelnde Transparenz bei den Tarifen. Die Verbraucherzentrale Brandenburg klagt zudem gegen OpenAI wegen Kündigungs- und Preisregeln im ChatGPT-Abo.',
+    url:'https://www.heise.de/news/Verbraucherzentrale-mahnt-OpenAI-und-Anthropic-ab-11540670.html'
+  },
+  {
+    date:'2026-11-27', provider:'Bundesregierung', type:'Politik & Regulierung', status:'Laut heise', language:'de',
+    title:'Bundesregierung will KI-Anbieter für Inhalte zahlen lassen',
+    summary:'Die Bundesregierung will, dass KI-Anbieter für genutzte kreative Werke zahlen, und Medien besser schützen.',
+    url:'https://www.heise.de/news/Bundesregierung-will-KI-Anbieter-zur-Kasse-bitten-11540057.html'
+  },
+  {
+    date:'2026-11-27', provider:'Signal', type:'Politik & Regulierung', status:'Datenschutz', language:'de',
+    title:'Signal blockiert Screenshots gegen KI-Assistenten im System',
+    summary:'Signal sperrt Screenshots standardmäßig, weil KI-Assistenten von Apple, Google und Microsoft im Betriebssystem den Schutz von Apps umgehen können. Datenschützer warnen vor Überwachung.',
+    url:'https://www.heise.de/news/KI-Agenten-im-Betriebssystem-Datenschuetzer-schlagen-Alarm-wegen-Ueberwachung-11541373.html'
+  },
+  {
+    date:'2026-11-26', provider:'SAP', type:'Unternehmen & Markt', hot:true, status:'Laut Bloomberg', language:'de',
+    title:'SAP erwägt Abbau von mindestens 10.000 Stellen für KI-Umbau',
+    summary:'Laut Bloomberg bereitet SAP im Rahmen eines KI-Umbaus den Abbau von mindestens 10.000 Stellen vor. Die Zahl ist nicht endgültig, SAP äußerte sich nicht.',
+    url:'https://www.heise.de/news/SAP-AI-First-10-000-Mitarbeiter-weniger-11539781.html'
+  },
+  {
+    date:'2026-11-27', provider:'Gartner', type:'Unternehmen & Markt', status:'Prognose 2027', language:'de',
+    title:'Europas IT-Ausgaben steigen über 1,5 Billionen Dollar',
+    summary:'Gartner erwartet für 2027 rund 10 Prozent mehr IT-Ausgaben in Europa, ein wachsender Teil fließt in KI-Agenten.',
+    url:'https://www.heise.de/news/Prognose-Europas-IT-Ausgaben-knacken-Marke-von-1-5-Billionen-US-Dollar-11541182.html'
+  },
+  {
+    date:'2026-11-26', provider:'Schweiz', type:'Politik & Regulierung', status:'BACS', language:'de',
+    title:'Schweiz meldet fünf Cyberangriffe mit KI-Agenten',
+    summary:'Das Bundesamt für Cybersicherheit meldet fünf Angriffe mit KI-Agenten auf Schweizer Firmen und kritische Infrastruktur, vier davon waren erfolgreich. Opfer wurden nicht genannt.',
+    url:'https://www.globalbankingandfinance.com/ai-agents-used-five-cyber-attacks-switzerland-government/'
+  },
+  {
+    date:'2026-11-26', provider:'Z.ai und Moonshot', type:'Unternehmen & Markt', status:'Laut Reuters', language:'de',
+    title:'Chinesische KI-Labore verschieben große Modelle auf 2027',
+    summary:'Laut Insidern könnte GLM-5.5 von Z.ai ins erste Quartal 2027 rutschen, Kimi K4 von Moonshot auf Mitte 2027. Grund sind US-Chipregeln und Sperren gegen Destillation. Z.ai bestreitet eine Verzögerung.',
+    url:'https://the-decoder.de/us-chipregeln-und-destillations-blockaden-zwingen-z-ai-und-moonshot-laut-insidern-zur-verschiebung-grosser-sprachmodelle-auf-2027/'
+  },
+  {
+    date:'2026-11-27', provider:'Nvidia', type:'Chips & Infrastruktur', status:'Laut Bloomberg', language:'de',
+    title:'Gesperrte Nvidia-Server tauchen in Shanghai auf',
+    summary:'Laut Bloomberg steht trotz US-Exportsperre ein Nvidia-GB300-Rack in einem Rechenzentrum in Shanghai, eingesetzt als Sicherheit für einen Kredit.',
+    url:'https://the-decoder.de/verbotene-nvidia-chips-landeten-trotz-us-exportsperre-in-chinesischem-rechenzentrum/'
+  },
+  {
+    date:'2026-11-27', provider:'Bank of England', type:'Chips & Infrastruktur', status:'Finanzstabilitätsbericht', language:'de',
+    title:'Bank of England: KI-Risiken der Hyperscaler über 4 Billionen Dollar',
+    summary:'Laut Finanzstabilitätsbericht summieren sich die KI-Verpflichtungen der großen Cloud-Konzerne inklusive außerbilanzieller Posten auf gut 4 Billionen US-Dollar.',
+    url:'https://stockanalysis.com/news/boe-financial-stability-report-ai-november-2026/'
+  },
   {
     date:'2026-11-26', provider:'Pedelecs und E-Bikes', type:'Unternehmen & Markt', hot:true, status:'Fahrradbranche', language:'de',
     title:'ZIV startet Pro-Dashboard mit aktuellen Verkaufsdaten',

@@ -360,7 +360,17 @@ const begriffe = [
    erklaerung:'Das Fahrradgeschäft schwankt stark: Frühjahr Hochsaison in Verkauf und Werkstatt, Winter ruhig. Wer die Saison plant, verteilt Arbeit besser und spricht Kunden zur richtigen Zeit an.',
    beispiel:'Im Januar Aktion „Winter-Check mit Rabatt“, im Februar Vororder-Beratung für Lastenräder, im März Werkstatttermine nur online, damit das Telefon frei bleibt.',
    prompt:'Erstelle einen Jahreskalender für einen Fahrrad- und E-Bike-Händler mit Werkstatt: pro Monat die typische Lage (Verkauf, Werkstatt, Kundenfragen), passende Aktion, Marketingthema, interne Aufgabe (Einkauf, Schulung, Inventur) und wo KI oder Automatisierung entlasten kann.',
-   verwandt:['Werkstattauslastung','Content-Plan','Kampagne']}
+   verwandt:['Werkstattauslastung','Content-Plan','Kampagne']},
+  {name:'Agentic Commerce', alias:'Einkaufen per KI-Agent', bereich:'E-Commerce & Shop',
+   erklaerung:'Ein KI-Agent sucht, vergleicht und bestellt im Auftrag der Kundin oder des Kunden. Er liest Produktdaten, Preise und Verfügbarkeit maschinell aus. Shops mit lückenhaften Daten fallen dabei schnell aus der Auswahl.',
+   beispiel:'Eine Kundin sagt ihrem Assistenten: „Finde ein Trekking-E-Bike bis 3.500 €, Rahmenhöhe 50 cm, lieferbar vor Weihnachten.“ Der Agent vergleicht Shops und schlägt das Angebot vor, bei dem Rahmenhöhe, Akku, Preis und Lieferzeit eindeutig angegeben sind.',
+   prompt:'Du bist E-Commerce-Berater für einen Fahrrad- und E-Bike-Händler. Prüfe diese Beispiel-Produktseite [Text einfügen] aus Sicht eines KI-Einkaufsagenten: Welche Angaben fehlen oder sind unklar (Rahmenhöhe, Akku, Motor, Gewicht, Preis, Verfügbarkeit, Lieferzeit, Garantie)? Gib eine Liste mit Verbesserungen nach Wichtigkeit. Erfinde keine technischen Daten.',
+   verwandt:['Produktdaten / PIM','KI-Agent','Marktplatz']},
+  {name:'Semantic Layer', alias:'Bedeutungsschicht für Daten', bereich:'Daten & ERP',
+   erklaerung:'Eine Schicht zwischen Datenbank und Auswertung, in der festgelegt ist, was eine Kennzahl oder ein Begriff genau bedeutet und wie er berechnet wird. So rechnen Dashboard, Team und KI-Agent mit denselben Definitionen.',
+   beispiel:'„Verfügbar“ heißt im ERP: Bestand minus reservierte Räder minus Werkstatt-Vorführer. „Umsatz Werkstatt“ zählt Arbeitslohn und Teile, aber keine Garantiefälle. Fragt jemand die KI nach verfügbaren Lastenrädern, nutzt sie genau diese Regel.',
+   prompt:'Hilf mir, für unser eigenes ERP eines Fahrradhändlers die 10 wichtigsten Begriffe und Kennzahlen eindeutig zu definieren (z. B. verfügbar, Umsatz, Marge, Lieferzeit, Werkstattauslastung). Gib pro Begriff: Definition in einem Satz, Berechnung, Datenquelle, typische Missverständnisse. Nutze nur fiktive Beispielwerte.',
+   verwandt:['Stammdaten','KPI','KI-Agent']}
 ];
 
 // Mehr Möglichkeiten und zusätzliche Prompts für Begriffe, die im Betrieb besonders oft vorkommen.
